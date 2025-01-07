@@ -1,0 +1,228 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-36955.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>vue框架 vue组件中的ref、props传值并修改、混合（子组件重复部分利用混合可以减少代码量的重复编写）</title>
+        <meta name="description" content="vue组件中的ref props传值并修改 混合（子组件重复部分利用混合可以减少代码量的重复编写） 知识点拓展：    &lt;!-- ref属性 &nbsp;&nbsp; &nbsp;&nbsp;&" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- All css here -->
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="#">关于</a></li>
+                                    <li class="contact"><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>vue框架 vue组件中的ref、props传值并修改、混合（子组件重复部分利用混合可以减少代码量的重复编写）</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p id="main-toc"> </h1> <h2 id="%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9Avue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84ref-toc" style="margin-left:0px;text-align:center;"><a href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9Avue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84ref" rel="nofollow">vue组件中的ref</a></h2> <h2 id="%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9Aprops%E4%BC%A0%E5%80%BC%E5%B9%B6%E4%BF%AE%E6%94%B9-toc" style="margin-left:0px;text-align:center;"><a href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9Aprops%E4%BC%A0%E5%80%BC%E5%B9%B6%E4%BF%AE%E6%94%B9" rel="nofollow">props传值并修改</a></h2> <h2 id="%C2%A0%E7%BB%AD%EF%BC%9A-toc" style="margin-left:40px;text-align:center;"><a href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E6%B7%B7%E5%90%88%EF%BC%88%E5%AD%90%E7%BB%84%E4%BB%B6%E9%87%8D%E5%A4%8D%E9%83%A8%E5%88%86%E5%88%A9%E7%94%A8%E6%B7%B7%E5%90%88%E5%8F%AF%E4%BB%A5%E5%87%8F%E5%B0%91%E4%BB%A3%E7%A0%81%E9%87%8F%E7%9A%84%E9%87%8D%E5%A4%8D%E7%BC%96%E5%86%99%EF%BC%89" rel="nofollow">混合（子组件重复部分利用混合可以减少代码量的重复编写）</a></h2> <h2 id="%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%93%E5%B1%95%EF%BC%9A-toc" style="margin-left:40px;text-align:center;"><a href="#%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%93%E5%B1%95%EF%BC%9A" rel="nofollow">知识点拓展：</a></h2> <hr id="hr-toc"/> </h1> <blockquote> <p><strong><span style="color:#be191c;">&lt;!-- ref属性<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;1，被用来给元素或子组件注册引用信息(id的替代者)<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;2，应用在HTML标签上获取的是真实dom元素，应用在组件标签上市组件实例对象(vc)<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;3，使用方式：<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;打标识：&lt;h1 ref="xxx"&gt;......&lt;/h1&gt; 或 &lt;school &nbsp;ref="xxx"&gt;.....&lt;/school&gt;<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;获取：this.$refs.xxx--&gt;</span><br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;template&gt;<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;div&gt;<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;h1 v-text="msg" ref="title"&lt;/h1&gt;<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;button ref="btn" @click="showDom"&gt;点我输出上方的dom&lt;/button&gt;<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&lt;school&gt;&lt;/school&gt;<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;/div&gt;<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;/template&gt;<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;script type="text/javascript"&gt;<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#be191c;">&nbsp;&nbsp;&nbsp; &nbsp;//引入school组件</span><br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;import school from '.components/school.vue'<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;export default{<!-- --><br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;name:'App',<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;components:{school},<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;data(){<!-- --><br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return{<!-- --><br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;msg:'欢迎学习vue'<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;},<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;methods:{<!-- --><br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;showDom(){<!-- --><br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;console.log(this.$refs.title)<span style="color:#be191c;">//真实dom元素</span><br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;console.log(this.$refs.btn)<span style="color:#be191c;">//真实dom元素</span><br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;console.log(this.$refs.sch)<span style="color:#be191c;">//school组件的实例对象</span><br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br /> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;/script&gt;</strong></p> </blockquote> </h1> <p><img fetchpriority="high" decoding="async" alt="" height="525" src="http://img.555519.xyz/uploads/20221230/97006c5427fa1347cd45a55a9d776a42.jpg"></p> <h2 id="%C2%A0%E7%BB%AD%EF%BC%9A">&nbsp;续：</h2> <p><img decoding="async" alt="" height="478" src="http://img.555519.xyz/uploads/20221230/588f4b84efbf96005430199ce8f63f40.jpg"></p> <h3 id="%C2%A0%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B2%E8%A7%A3%EF%BC%9A">&nbsp;知识点讲解：</h3> <p><strong>功能：让组件接收外部传过来的数据<br /> （1）传递数据：<br /> &lt;Demo name="xxx"&gt;<br /> （2）接收数据：<br /> 第一种方式（只接收）<br /> props:['name','age' ]<br /> 第二种方式（限制类型）：<br /> props:{<!-- --><br /> &nbsp;name:Number<br /> }<br /> 第三种方式（限制类型，限制必要性，指定默认值）<br /> props：{<!-- --><br /> name：{<!-- --><br /> &nbsp;type：String，//数值类型<br /> required：true，//必须传值<br /> default：‘l老王’//默认值<br /> }<br /> }</strong></p> <p><strong>被用props是只读的，vue底层会监测你对props，如果进行了修改，就会发出警告，若业务需求确实需要修改，那么请复制props的内容到data中一份<br /> ，然后修改data中的数据。</strong><br /> &nbsp;</p> </h1> <p><img decoding="async" alt="" height="629" src="http://img.555519.xyz/uploads/20221230/d97fa21ffa4779ac8f3a75f13967e65c.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="366" src="http://img.555519.xyz/uploads/20221230/e3564368283c13ac24dc7f62c351a466.jpg"><strong>&nbsp;混合部分的源代码<span style="color:#fe2c24;">minxin.js</span></strong></p> <p><img loading="lazy" decoding="async" alt="" height="311" src="http://img.555519.xyz/uploads/20221230/757b39446abd248d331bbd2dee346e29.jpg"></p> <p><strong>源代码：</strong></p> <blockquote> <p><strong>&lt;template&gt;</strong></p> <p><strong>&nbsp; &nbsp;&lt;div&gt;</strong></p> <p><strong>&nbsp; &nbsp; &nbsp;&lt;h2&gt;员工姓名：{<!-- -->{name}}&lt;/h2&gt;</strong></p> <p><strong>&nbsp; &nbsp; &nbsp;&lt;h2&gt;员工年龄:{<!-- -->{age}}&lt;/h2&gt;</strong></p> <p><strong>&nbsp; &nbsp; &nbsp;&lt;h2&gt;员工性别:{<!-- -->{sex}}&lt;/h2&gt;</strong></p> <p><strong>&nbsp; &nbsp; &lt;/div&gt;</strong></p> <p><strong>&lt;/template&gt;</strong></p> <p><strong>&lt;script&gt;</strong></p> <p><span style="color:#b95514;"><strong>//引入一个hunhe</strong></span></p> <p><strong>import {minxin} from '../minxin'</strong></p> <p><strong>export default{<!-- --></strong></p> <p><strong>&nbsp;name:'staff',</strong></p> <p><strong>&nbsp;data(){<!-- --></strong></p> <p><strong>&nbsp; &nbsp; &nbsp;return {<!-- --></strong></p> <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name:'张三',</strong></p> <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;age:40,</strong></p> <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;sex:'男'</strong></p> <p><strong>&nbsp; &nbsp; &nbsp;}</strong></p> <p><strong>&nbsp;},</strong></p> <p><strong>&nbsp;<span style="color:#b95514;">//这里必须使用数组的形式，可以添加多个混合，不仅可以使用到这里，也可以在其他子组件中使用。</span></strong></p> <p><span style="color:#b95514;"><strong>&nbsp;//若添加的混合内部的部分数据与本</strong></span></p> <p><span style="color:#b95514;"><strong>&nbsp;//页面上的某个数据起到冲突时(两个数据都一样)，那么会已本页面中为主，不会破坏本页面中的数据，</strong></span></p> <p><span style="color:#b95514;"><strong>&nbsp;//若是生命周期里面的钩子，那么他是不会</strong></span></p> <p><span style="color:#b95514;"><strong>//听从本页面的，直接继续叠加在本页面同样数据中呈现</strong></span></p> <p><strong>&nbsp;minxins:[minxin]</strong></p> <p><strong>}</strong></p> <p><strong>&lt;/script&gt;</strong></p> <p><strong>&lt;style scoped&gt;</strong></p> <p><strong>&lt;/style&gt;</strong></p> </blockquote> <p><strong>minxin.js源码：</strong></p> <blockquote> <p><strong>export const &nbsp;minxin={<!-- --></strong></p> <p><strong>&nbsp; &nbsp; methods:{<!-- --></strong></p> <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; showName(){<!-- --></strong></p> <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert(this.name);</strong></p> <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; }</strong></p> <p><strong>&nbsp; &nbsp; },</strong></p> <p><strong>&nbsp; &nbsp; mounted(){<!-- --></strong></p> <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; console.log('你好呀');</strong></p> <p><strong>&nbsp; &nbsp; }</strong></p> <p><strong>}</strong></p> </blockquote> <p><strong>mixin混入：</strong><br /> 将一个内容被同时多个子组件使用（该内容是两个子组件的共同部分）。</p> <p>功能：可以把多个组件共用的配置提取成一个混入对象<br /><strong>使用方式：</strong><br /> 第一步定义混合，例如：<br /> {<!-- --><br /> &nbsp; data( ) {...},<br /> methods:{...}<br /> ....<br /> }<br /> 第二步使用混入，例如：<br /> （1）全局混入，vue.minxin（xxx）<br /> &nbsp;（2）局部混入，minxins:【'xxx'】</p> <h2 id="%E7%9F%A5%E8%AF%86%E7%82%B9%E6%8B%93%E5%B1%95%EF%BC%9A">知识点拓展：</h2> <p><strong>在创建子组件时，切记不能创建多个components文件，内部是单独存放所有的子组件的，若是创建多个同级的文件，那么系统会报错，所以不可以创建多个同级文件，其中包含（src文件，components文件，main.js文件等都不可以创建多个），若必要创建时，需要更改vue框架系统内部的默认的设置，否则系统就会报错，无法执行。</strong></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-36455.htm">合肥宠物狗领养 合肥宠物狗领养基地</a></p>
+                                        <p>下一个：<a href="/news/article-36956.htm">减治思二分查找详细总结</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-36455.htm" title="合肥宠物狗领养 合肥宠物狗领养基地">合肥宠物狗领养 合肥宠物狗领养基地</a></li>
+                        <li class="py-2"><a href="/news/article-36332.htm" title="一个月小猫身上的跳蚤怎么彻底去除（一个月小猫身上的跳蚤怎么彻底去除呢）">一个月小猫身上的跳蚤怎么彻底去除（一个月小猫身上的跳蚤怎么彻底去除呢）</a></li>
+                        <li class="py-2"><a href="/news/article-36454.htm" title="宠物粮商标取名大全图片 宠物粮商标取名大全图片及名字">宠物粮商标取名大全图片 宠物粮商标取名大全图片及名字</a></li>
+                        <li class="py-2"><a href="/news/article-36955.htm" title="vue框架 vue组件中的ref、props传值并修改、混合（子组件重复部分利用混合可以减少代码量的重复编写）">vue框架 vue组件中的ref、props传值并修改、混合（子组件重复部分利用混合可以减少代码量的重复编写）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-free-high-speed-nodes.htm" title="1月6日→19.7M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址">1月6日→19.7M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36333.htm" title="1970年10月8号是什么命（1970年10月8日）">1970年10月8号是什么命（1970年10月8日）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-free-node-subscribe.htm" title="1月7日→22M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">1月7日→22M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36956.htm" title="减治思二分查找详细总结">减治思二分查找详细总结</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-node-share.htm" title="1月5日→18.4M/S|2025年最新免费节点SSR/V2ray/Clash订阅链接地址">1月5日→18.4M/S|2025年最新免费节点SSR/V2ray/Clash订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
