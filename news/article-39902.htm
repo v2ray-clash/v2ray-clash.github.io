@@ -1,0 +1,228 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-39902.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>mysql datetime详解_Mysql 之Date,DateTime,TimeStamp三种种类的详解</title>
+        <meta name="description" content="DATETIME, DATE和TIMESTAMP种类是相干的。本文描写他们的个性，他们是如何相仿的而又不同的。 DATETIME种类用在你必需同时包括日期和工夫消息的值时。MySQL检索并且以'YYY" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- All css here -->
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="#">关于</a></li>
+                                    <li class="contact"><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>mysql datetime详解_Mysql 之Date,DateTime,TimeStamp三种种类的详解</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>DATETIME, DATE和TIMESTAMP种类是相干的。本文描写他们的个性，他们是如何相仿的而又不同的。</p> <p>DATETIME种类用在你必需同时包括日期和工夫消息的值时。MySQL检索并且以'YYYY-MM-DD</p> <p>HH:MM:SS'款式揭示DATETIME值，扶持的范围是'1000-01-01 00:00:00'到'9999-12-31</p> <p>23:59:59'。(“扶持”意味着尽管更早的值可能工作，但不能保证他们能够。)</p> <p>DATE种类用在你仅必需日期值时，未曾工夫局部。MySQL检索并且以'YYYY-MM-DD'款式揭示DATE值，扶持的范围是'1000-01-01'到'9999-12-31'。</p> <p>TIMESTAMP列种类供给一种种类，你能够利用它积极地用目前的日期和工夫符号INSERT或UPDATE的垄断。万一你有多个TIMESTAMP列，只有第一个积极更新。</p> <p>积极更新第一个TIMESTAMP列在下列任何条件下发生：</p> <p>列未曾确定地在一个INSERT或LOAD DATA INFILE语句中指定。</p> <p>列未曾确定地在一个UPDATE语句中指定且一些另外的列改换值。(当心一个UPDATE设置一个列为它曾经有的值，这将不引起TIMESTAMP列被更新，因为万一你设置一个列为它目前的值，MySQL为了效率而疏忽改动。)</p> <p>你确定地设定TIMESTAMP列为NULL.</p> <p>除第一个以外的TIMESTAMP列也能够设置到目前的日期和工夫，凡是将列设为NULL，或NOW()。</p> <p>穿越确定地设置渴望的值，你能够设置任何TIMESTAMP列为不同于目前日期和工夫的值，即便对第一个TIMESTAMP列也是这么。例如，万一，当你创立一个行时，你想要一个TIMESTAMP被设置到目前的日期和工夫，但在尔后无论何时髦被更新时都不改换，你能够利用这个属性jn.jnns.com：</p> <p>让MySQL行家被创立时设置列，这将初始化它为目前的日期和工夫。</p> <p>当你厉行随后的对该行中其他列的改动时，确定设定TIMESTAMP列为它的目前值。</p> <p>另一方面，你可能觉察，当行被创立并且远离随后的改动时，很轻率用一个你用NOW()初始化的DATETIME列。</p> <p>TIMESTAMP值能够从1970的某时的开始始终到2037年，精度为一秒，其值作为数字揭示。</p> <p>在MySQL检索并且揭示TIMESTAMP值取决于揭示尺寸的款式如下表。“全面”TIMESTAMP款式是14位，然而TIMESTAMP列能够用更短的揭示尺寸发明：</p> <p>列种类　　　　 揭示款式</p> <p>TIMESTAMP(14) YYYYMMDDHHMMSS</p> <p>TIMESTAMP(12) YYMMDDHHMMSS</p> <p>TIMESTAMP(10) YYMMDDHHMM</p> <p>TIMESTAMP(8) YYYYMMDD</p> <p>TIMESTAMP(6) YYMMDD</p> <p>TIMESTAMP(4) YYMM</p> <p>TIMESTAMP(2) YY</p> <p>所有的TIMESTAMP列都有同样的存储大小，不琢磨揭示尺寸。最常见的揭示尺寸是6、8、12、和14。你能够在表创立工夫指定一个任意的揭示尺寸，然而值0或比14大***使到14。在从1～13范围的奇数值尺寸***使为下一个更大的偶数。</p> <p>利用一个常用的款式集的任何一个，你能够指定DATETIME、DATE和TIMESTAMP值：</p> <p>'YYYY-MM-DD HH:MM:SS'或'YY-MM-DD</p> <p>HH:MM:SS'款式的一个字符串。批准一种“松动”的语法--任何标点可用作在日期局部和工夫局部之间的分隔符。例如，'98-12-31</p> <p>11:30:45'、'98.12.31 11+30+45'、'98/12/31 11*30*45'和'98@12@31</p> <p>11^30^45'是等价的。</p> <p>'YYYY-MM-DD'或'YY-MM-DD'款式的一个字符串。批准一种“松动”的语法。例如，'98-12-31',</p> <p>'98.12.31', '98/12/31'和'98@12@31'是等价的。</p> <p>'YYYYMMDDHHMMSS'或'YYMMDDHHMMSS'款式的未曾任何分隔符的一个字符串，例如，'19970523091528'和'970523091528'被解释为'1997-05-23</p> <p>09:15:28'，然而'971122459015'是不合法的(它有毫无意义的分钟局部)且变成'0000-00-00</p> <p>00:00:00'。</p> <p>'YYYYMMDD'或'YYMMDD'款式的未曾任何分隔符的一个字符串，万一字符串感受是一个日期。例如，'19970523'和'970523'被解释作为'1997-05-23'，然而'971332'是不合法的(</p> <p>它有无意义的月和天局部)且变成'0000-00-00'。</p> <p>YYYYMMDDHHMMSS或YYMMDDHHMMSS款式的一个数字，万一数字感受是一个日期。例如，19830905132800和830905132800被解释作为'1983-09-05</p> <p>13:28:00'。</p> <p>YYYYMMDD或YYMMDD款式的一个数字，万一数字感受是一个日期。例如，19830905和830905被解释作为'1983-09-05'。</p> <p>一个归来值能够在一个DATETIME,</p> <p>DATE或TIMESTAMP上下文环境中接受的函数，例如NOW()或CURRENT_DATE。</p> <p>不合法DATETIME,</p> <p>DATE或TIMESTAMP值被改换到贴切种类的“零”值('0000-00-00</p> <p>00:00:00', '0000-00-00'或00000000000000)。</p> <p>对于包括的日期局部分隔符的指定为字符串的值，无须要为小于10的月或天的值指定2位数字，'1979-6-9'与'1979-06-09'是一样的。同样,</p> <p>对于包括的工夫局部分隔符的指定为字符串的值，无须为小于10的小时、月或秒指定2位数字，'1979-10-30</p> <p>1:2:3'与'1979-10-30 01:02:03'是一样的。</p> <p>指定为数字该当是6、8、12或14位长。万一数字是8或14位长，它被假定以YYYYMMDD或YYYYMMDDHHMMSS款式并且年份由头4位数字给出。万一数字是6或12位长，它被假定是以YYMMDD或YYMMDDHHMMSS款式且年份由头2位数字给出。不是这些长度之一的数字穿越添补前头的零到最接近的长度来解释。</p> <p>指定为无分隔符的字符串用它们给定的长度来解释。万一字符串长度是8或14个字符，私人游艇年份被假定头4个字符给出，否则年份被假定由头2个字符给出。对于字符串中出现的多个局部，字符串从左到右边被解释，以找出年、月、日、小时、分钟和秒值，这意味着，你不该当利用少于</p> <p>6</p> <p>个字符的字符串。例如，万一你指定'9903'，感受将代表1999年3月，你会觉察MySQL把一个“零”日期插入到你的表中，这是因为年份和月份值99和03，然而日期局部失落(零)，因而该值不是一个合法的日期。</p> <p>TIMESTAMP列利用被指定的值的全面精度的存储合法的值，不琢磨揭示大小。这有几个含义：</p> <p>总是指定年，月，和日，即便你的列种类是TIMESTAMP(4)或TIMESTAMP(2)。否则，值将不是一个合法的日期并且0将被存储。</p> <p>万一你利用ALTER</p> <p>TABLE拓宽一个狭隘的TIMESTAMP列，过去被“隐藏”的消息将被揭示。</p> <p>同样ic.iclarins.com，缩小一个TIMESTAMP列不会导致消息错过，除非感受上值在揭示时，较少的消息被揭示出。</p> <p>尽管TIMESTAMP值被存储为全面精度，直接垄断存储值的单一函数是UNIX_TIMESTAMP()，其他函数垄断在款式化了的检索的值上，这意味着你不能利用函数例如HOUR()或SECOND()，除非TIMESTAMP值的相干局部被包括在款式化的值中。例如，一个TIMESTAMP列的HH局部部被揭示，除非揭示大小起码是10，因而在更短的TIMESTAMP值上试试利用HOUR()发生一个无意义的收获。</p> <p>在某种程度上，你能够把一种日期种类的值赋给一个不同的日期种类的对象。然而，这可能值有一些改换或消息的磨损：</p> <p>万一你将一个DATE值赋给一个DATETIME或TIMESTAMP对象，收获值的工夫局部被设置为'00:00:00'，因为DATE值不包括工夫消息。</p> <p>万一你将一个DATETIME或TIMESTAMP值赋给一个DATE对象，收获值的工夫局部被剔除，因为DATE种类不存储工夫消息。</p> <p>记住，尽管DATETIME,</p> <p>DATE和TIMESTAMP值全都能够用同样的款式集来指定，但所有种类不都有同样的值范围。例如，TIMESTAMP值不能比1970早或比2037网晚，这意味着，一个日期例如'1968-01-01'，当作为一个DATETIME或DATE值合法时，它不是一个准确TIMESTAMP值，并且</p> <p>万一赋值给这么一个对象，它将被改换到0。</p> <p>当指定日期值时，当心某些缺点：</p> <p>批准作为字符串指定值的松动款式能被诱骗。例如，值例如'10:11:12'可能看起来像工夫值，因为“:”分隔符，然而万一在一个日期中利用，上下文将作为年份被解释成'2010-11-12'。值'10:45:15'将被改换到'0000-00-00'，因为'45'不是一个合法的月份。</p> <p>以2位数字指定的年值是笼统的，因为世纪是未知的。MySQL利用下列法定解释2位年值：</p> <p>在00-69范围的年值被改换到2000-2069。</p> <p>在70-99范围的年值被改换到1970-1999。</p> <p>八个容易的问题，穿插在同随时，业绩了一道“众口难调”的混杂的问题。</p> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-39403.htm">宠物粮食品牌前十名排名榜最新名单（宠物粮食品牌排行榜）</a></p>
+                                        <p>下一个：<a href="/news/article-39903.htm">设计模式——七大原则 &#8211; FITA _在线工具</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-node-subscribe-links.htm" title="1月11日→19.2M/S|2025年最新免费节点V2ray/Clash/Shadowrocket/SSR订阅链接地址">1月11日→19.2M/S|2025年最新免费节点V2ray/Clash/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37442.htm" title="宠物医院证件办理流程图（宠物医院证好办吗）">宠物医院证件办理流程图（宠物医院证好办吗）</a></li>
+                        <li class="py-2"><a href="/news/article-36333.htm" title="1970年10月8号是什么命（1970年10月8日）">1970年10月8号是什么命（1970年10月8日）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-subscribe-node.htm" title="1月8日→21.3M/S|2025年最新免费节点V2ray/SSR/Shadowrocket/Clash订阅链接地址">1月8日→21.3M/S|2025年最新免费节点V2ray/SSR/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-38422.htm" title="动物防疫站电话（动物防疫所电话）">动物防疫站电话（动物防疫所电话）</a></li>
+                        <li class="py-2"><a href="/news/article-36455.htm" title="合肥宠物狗领养 合肥宠物狗领养基地">合肥宠物狗领养 合肥宠物狗领养基地</a></li>
+                        <li class="py-2"><a href="/news/article-39402.htm" title="动物接种疫苗的注意事项包括哪些方面（动物接种要点）">动物接种疫苗的注意事项包括哪些方面（动物接种要点）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-node-subscribe-links.htm" title="1月13日→19M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址">1月13日→19M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-39903.htm" title="设计模式——七大原则 &#8211; FITA _在线工具">设计模式——七大原则 &#8211; FITA _在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-38913.htm" title="动物疫苗行业分析报告 动物疫苗行业分析报告怎么写">动物疫苗行业分析报告 动物疫苗行业分析报告怎么写</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
