@@ -1,0 +1,228 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-40384.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>MySQL索引机制(详细+原理+解析)</title>
+        <meta name="description" content="MySQL索引机制  永远年轻，永远热泪盈眶  一.索引的类型与常见的操作   前缀索引 MySQL 前缀索引能有效减小索引文件的大小，提高索引的速度。但是前缀索引也有它的坏处：MySQL 不能在 O" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- All css here -->
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="#">关于</a></li>
+                                    <li class="contact"><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>MySQL索引机制(详细+原理+解析)</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<h2 id="mysql索引机制">MySQL索引机制</h2> <blockquote> <p>永远年轻，永远热泪盈眶</p> </blockquote> <h3 id="一索引的类型与常见的操作">一.索引的类型与常见的操作</h3> <ul> <li> <p>前缀索引</p> <p><strong>MySQL 前缀索引能有效减小索引文件的大小，提高索引的速度。但是前缀索引也有它的坏处：MySQL 不能在 ORDER BY 或 GROUP BY 中使用前缀索引，也不能把它们用作覆盖索引(Covering Index)。</strong></p> </li> <li> <p>复合索引</p> <p><strong>集一个索引包含多个列（最左前缀匹配原则）</strong></p> </li> <li> <p>唯一索引</p> <p><strong>索引列的值必须唯一，但允许有空值</strong></p> </li> <li> <p>全文索引</p> <blockquote> <p>在MySQL 5.6版本以前,只有MyISAM存储引擎支持全文引擎.在5.6版本中,InnoDB加入了对全文索引的支持,但是不支持中文全文索引.在5.7.6版本,MySQL内置了ngram全文解析器,用来支持亚洲语种的分词.</p> </blockquote> <p><strong>全文索引为FUllText，在定义索引的列上支持值的全文查找，允许在这些索引列中插入重复值和空值，全文索引可以在CHAR,VARCHAR,TEXT类型列上创建</strong></p> </li> <li> <p>主键索引</p> <p><strong>设定主键后数据会自动建立索引，InnoDB为聚簇索引</strong></p> </li> <li> <p>单列索引</p> <p><strong>即一个索引只包含单个列，一个表可以有多个单列索引</strong></p> </li> <li> <p>覆盖索引</p> <p><strong>覆盖索引是指一个查询语句的执行只用从所有就能够得到，不必从数据表中读取，覆盖索引不是索引树，是一个结果，当一条查询语句符合覆盖索引条件时候，MySQL只需要通过索引就可以返回查询所需要的数据，这样避免了查到索引后的回表操作，减少了I/O效率</strong></p> <pre><code class="language-mysql">-- 目前有一个key(name)索引，聚簇索引是key(id) -- 使用了覆盖索引 select id from stu where key = '天天'; -- 不使用覆盖索引，因为查询的结果无法从普通索引树中得到 select * from stu where key = '天天'</code></pre> </li> </ul> <hr/> <p>查看索引</p> <pre><code class="language-mysql">show index from table_name;</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/6128c20c64677b1bf9756f0ffd751c08.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <p>列名解析：</p> <table> <thead> <tr> <th style="text-align: center">列名title</th> <th style="text-align: center">解释desc</th> <th style="text-align: center">取值value</th> </tr> </thead> <tbody> <tr> <td style="text-align: center">table</td> <td style="text-align: center">索引对应表的名称</td> <td style="text-align: center">DB中的表</td> </tr> <tr> <td style="text-align: center">Non_unique</td> <td style="text-align: center">索引包含value是否为唯一（是否为唯一索引）</td> <td style="text-align: center">0代表是唯一，1代表不是</td> </tr> <tr> <td style="text-align: center">Key_name</td> <td style="text-align: center">索引的名称</td> <td style="text-align: center">不命名为创建时列名称，联合查询为Seq_in_index为1的列名称，重复是使用_+number区分</td> </tr> <tr> <td style="text-align: center">Seq_in_index</td> <td style="text-align: center">索引中列的序列号，从1开始,表明在联合查询中的顺序，我们可以根据这个推断出联合索引中索引的前后顺序（使用最左优化原则）</td> <td style="text-align: center">从1递增至联合索引的列数</td> </tr> <tr> <td style="text-align: center">Column_name</td> <td style="text-align: center">索引的列名</td> <td style="text-align: center">索引的列名</td> </tr> <tr> <td style="text-align: center">Collation(n.排序方式，校队)</td> <td style="text-align: center">指排序方式</td> <td style="text-align: center">A表示升序，B表示降序，NULL表示未排序。</td> </tr> <tr> <td style="text-align: center">Cardinality</td> <td style="text-align: center">基数的意思，表示索引中唯一值的数目的估计值，我们知道某个字段的重复值越少越适合建立索引，所以我们一般根据Cardinality来判断索引是否具有高选择性，如果这个值非常小，就需要评估这个字段是否适合做索引</td> <td style="text-align: center">最小值为1，表示索引的列字段值都重复，最大为表中字段数</td> </tr> <tr> <td style="text-align: center">Sub_part</td> <td style="text-align: center">当索引是前缀索引的时候，sub_part表示前缀的字符数</td> <td style="text-align: center">非前缀为0，前缀索引为字符数</td> </tr> <tr> <td style="text-align: center">Packed</td> <td style="text-align: center">指示关键字如何被压缩。</td> <td style="text-align: center">如果没有被压缩，则为NULL</td> </tr> <tr> <td style="text-align: center">NUll</td> <td style="text-align: center">如果列含有null，则含有yes</td> <td style="text-align: center">null/yes</td> </tr> <tr> <td style="text-align: center">Index_type</td> <td style="text-align: center">表示索引类型，全文索引是Fulltext，Memory引擎对应Hash，其他大多数是Btree，Rtree没有见过</td> <td style="text-align: center">FULLTEXT，HASH，BTREE，RTREE</td> </tr> <tr> <td style="text-align: center">Comment</td> <td style="text-align: center">注释</td> <td style="text-align: center">...</td> </tr> <tr> <td style="text-align: center">Index_comment</td> <td style="text-align: center">注释</td> <td style="text-align: center">...</td> </tr> </tbody> </table> <p>删除索引</p> <pre><code class="language-mysql">drop index index_name on table name; -- 错误删除primary索引 drop index `PriMary` on temp; -- &gt;:Incorrect table definition; there can be only one auto column and it must be defined as a key</code></pre> <h3 id="二常见的索引详解与创建">二.常见的索引详解与创建</h3> <ul> <li> <p>主键索引</p> <pre><code class="language-mysql">-- mysql中InnoDB使用主键索引作为聚簇索引，主键索引无法使用 -- 创建时候,主键自动定义 create table temppp(id int auto_increment,primary key(id),name varchar(20) not null unique); -- 无法删除primary key索引,需要改变的时候，首先需要删除主键列,删除后自动选择一行unique的列作为主键索引 alter table temppp drop COLUMN id;</code></pre> <p>查看：</p> </li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/7fa31c96c525713e8be4982aacef7f85.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <p>删除前:</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/eaaae54d45ecc9aca2018829551bd63d.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <p>删除后：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/7e4968b5322bbecd5fba19683ad3984a.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <ul> <li> <p>单列索引</p> <p>普通的索引，没有什么介绍</p> <pre><code class="language-mysql">-- 建表时候表级约束建立索引 create table otest( id int(25) PRIMARY key, `name` varchar(255), -- 这一句就是在建立普通字段的索引，但是无法设置名字 key(`name`) ) -- 建表后 alter table otest add index key(`name`)；</code></pre> <p>查看:（注意和前缀索引Sub_part的区别）</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/e9fac11b7a841e626c19c19115f5e54a.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> </li> <li> <p>唯一索引</p> <p>当索引的列是unique的时候，会生成唯一索引，唯一索引关于null有下列两种情况</p> <ul> <li> <p>SQLSERVER 下的唯一索引的列，允许null值，但最多允许有一个空值</p> <pre><code class="language-mysql">-- sql server 下实验代码 create table temp ( id int primary key, age varchar(20) unique, );  create unique index age on temp(age) execute sp_helpindex @objname='temp'</code></pre> <p>查看:</p> </li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/7d24193ce2c0d3da4b6370a3177499b9.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <pre><code class="language-mysql">-- 插入两条null语句 insert into temp values(1,null); insert into temp values(2,null);</code></pre> <p>结果:</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2c453d3ae67db788bd2c01e396d40017.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <ul> <li> <p>MYSQL下的唯一索引的列，允许null值，并且允许多个空值</p> <pre><code class="language-mysql">-- mysql下实验代码 create table otest ( id int primary key, age varchar(20) unique, key(age) ); show index from otest</code></pre> <p>查看:</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/38a203bf5d3049c0a0f9df6dce174b0f.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <p>会建立两个索引，一个非聚簇索引，一个是唯一索引</p> <pre><code class="language-mysql">-- 插入两条null语句 ....与上代码相似</code></pre> <p>结果:</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/7d4e309d5484d23410d83d9a4640a7e8.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <p>可以插入两个空值（明人不说暗话，我喜欢MySQL）</p> </li> </ul> </li> <li> <p>前缀索引</p> <ol> <li>一方面，它不会索引所有字段所有字符，会减小索引树的大小.</li> <li>另外一方面，索引只是为了区别出值，对于某些列，可能前几位区别很大，我们就可以使用前缀索引。</li> <li>一般情况下某个前缀的选择性也是足够高的，足以满足查询性能。对于BLOB，TEXT，或者很长的VARCHAR类型的列，必须使用前缀索引，因为MySQL不允许索引这些列的完整长度。</li> </ol> <pre><code class="language-mysql">ALTER TABLE table_name ADD KEY(column_name(prefix_length)); -- 表级创建 create table temppp (id int auto_increment,primary key(id),                      name varchar(20) not null unique,                     key(name(2))); -- 表级创建 alter table temppp add index(name(2))</code></pre> <p>查看：</p> </li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/19e9a38a94c5637d0bfaae10739d81a8.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <blockquote> <p>前缀索引实例的博文:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jianshu.com/p/fc80445044cc"  target="_blank" rel="nofollow">https://www.jianshu.com/p/fc80445044cc</a>  很好，推荐</p> </blockquote> <ul> <li> <p>复合索引</p> <pre><code class="language-mysql">-- 建表时候表级约束建立索引 drop table if exists `otest`; create table otest( id int(25) PRIMARY key, `name` varchar(255), age varchar(255), -- 这一句就是在建立普通字段的索引，但是无法设置名字 key(`name`,age) ); -- 建表后 alter table otest add key(`name`,age);</code></pre> <p>查看：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2e77ff95c0981dac2f5b83618d8e697c.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <p><strong>复合索引的最左前缀匹配原则</strong>：</p> <p>对于复合索引，查询在一定条件才会使用该索引</p> <pre><code class="language-mysql">-- 假设一个下列的索引 alter table otest add index(id,name,age);  -- 只有查询条件满足组合索引的前缀匹配才能使用索引，也就是对于查询的顺序为 -- id id,name id,name,age这三种情况下才能使用组合索引  -- 对于下列这种就无法使用索引 select * from otest where id=?,age=? -- 缺少了name列 select * from otest where name=?,age=? -- 缺少了id列  -- 对于下列查询MySQL会使用优化调整位置 select * from otest where id=?,age=?,name=? -- 查询顺序是 id,age,name看起来是不能使用索引的，但是MySQL在执行的时候会进行优化，将顺序调整为id name age。</code></pre> <p>复合索引的优点</p> <blockquote> <p><strong>减少开销。</strong>建一个联合索引(col1,col2,col3)，实际相当于建了(col1),(col1,col2),(col1,col2,col3)三个索引。每多一个索引，都会增加写操作的开销和磁盘空间的开销。对于大量数据的表，使用联合索引会大大的减少开销！</p> <p><strong>覆盖索引。</strong>对联合索引(col1,col2,col3)，如果有如下的sql: select  col1,col2,col3 from test where col1=1 and  col2=2。那么MySQL可以直接通过遍历索引取得数据，而无需回表，这减少了很多的随机io操作。减少io操作，特别的随机io其实是dba主要的优化策略。所以，在真正的实际应用中，覆盖索引是主要的提升性能的优化手段之一。</p> <p><strong>效率高。</strong>索引列越多，通过索引筛选出的数据越少。有1000W条数据的表，有如下sql:select  from table where col1=1 and col2=2 and  col3=3,假设假设每个条件可以筛选出10%的数据，如果只有单值索引，那么通过该索引能筛选出1000W10%=100w条数据，然后再回表从100w条数据中找到符合col2=2 and col3= 3的数据，然后再排序，再分页；如果是联合索引，通过索引筛选出1000w10% 10% *10%=1w。</p> </blockquote> </li> <li> <p>全文索引（FULLTEXT）</p> <p>在模糊搜索中很有效，搜索全文中的某一个字段，可以参考这篇博文:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/88275060"  target="_blank" rel="nofollow">https://zhuanlan.zhihu.com/p/88275060</a></p> </li> </ul> <h3 id="三索引的原理">三.索引的原理</h3> <h4 id="1通过实验介绍btree">1.通过实验介绍B+tree</h4> <p>我们先进行下面一个实验看看InnoDB下的主键索引的一个现象。</p> <pre><code class="language-mysql">create table otest( id int(25) PRIMARY key, `name` varchar(255), age varchar(255) );   insert into otest values(3,'q',1); insert into otest values(1,'q',1); insert into otest values(5,'q',1); insert into otest values(2,'q',1); insert into otest values(6,'q',1) -- 查看现象 SELECT * from otest</code></pre> <p>查看:</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/fa4675099457ba289546ad945efa5d5c.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <p>我们插入进去的时候，数据的id都是乱序的，为什么这里最后select查询出来的结果都是进行了排序？</p> <p>这是因为InnoDB索引底层实现的是B+tree，B+tree具有下列的特点：</p> <ul> <li> <p>和B-tree一样是自平衡树</p> </li> <li> <p>m个子树上层有m个中间节点，但是m个中间节点只保存索引，而不保存数据。</p> </li> <li> <p>所有的叶子结点中包含了全部关键字的信息，及指向含有这些关键字记录的指针，且叶子结点本身依关键字的大小<strong>自小而大</strong>的顺序链接。</p> </li> <li> <p>所有的非终端结点可以看成是索引部分，结点中仅含有其子树根结点中最大（或最小）关键字。</p> </li> </ul> <p><strong>所以上面的排序是为了使用B+tree的结构</strong>，B+tree为了范围搜索，将主键按照从小到大排序后，拆分成节点。后续还有新的节点进入的时候，和B-tree相同的操作，会进行分裂。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/996fd7cd9aaa8acf90dc1a74009a7737.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <p>一般来说，聚簇索引的B+tree都是三层</p> <ul> <li>①：每一个底层片称为一个页，InnoDB中一个页的大小默认是16kb，上层的中间结点称为页目录,每个页目录都有一个指针指向下层存储数据的叶结点</li> <li>②：下层每个叶结点之间都使用链表连接（ps:这里是单链表还是双向链表我记不清楚了，读者可以查查）</li> <li>③：这部分是叶结点存储的数据信息</li> <li>④：这部分是底层链表的指针</li> </ul> <h4 id="2延伸">2.延伸</h4> <ol> <li> <p>B-tree是所有结点都要存储数据，相同的数据更深，查找速度变慢，所以底层没有使用B-tree。</p> </li> <li> <p>MySQL的InnoDB存储引擎设计时顶层页目录常驻内存，对于2-4层B+树查询时，聚簇索引IO查询1-3次，也就是和硬盘交互进行IO读</p> </li> <li> <p>计算一个元素的字节大小：**字段类型所占字节 + 一个指针的字节数（32位4byte，64位8byte）</p> </li> <li> <p>实际单表列过多要拆表，这样主表存数据更多深度也低，查询也快</p> </li> <li> <p>对于InnoDB来说主键索引就是聚簇索引，而普通索引就是非聚簇索引</p> </li> <li> <p>对于表中数据操作过多会造成存在许多的页碎片，关于碎片整理可以看我这篇博文</p> <blockquote> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/oldoldcoder/p/16084412.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/oldoldcoder/p/16084412.html</a></p> </blockquote> </li> </ol> <h3 id="四聚簇索引和非聚簇索引">四.聚簇索引和非聚簇索引</h3> <ul> <li>聚簇索引:将数据存储和索引放到了一块，索引结构的叶子结点保存了行数据</li> <li>非聚簇索引：将数据与索引分开存储，索引结构的叶子结点指向主键的值,也就是对应的聚簇索引的row id(需要查找两个B+tree，这个操作过程叫做回表)。</li> </ul> <p>InnoDB中主键索引一定是聚簇索引，聚簇索引一定是主键索引。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/1cafd8b5298a329e4179f059c10afd96.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <p><strong>为什么这里辅助索引叶子结点不直接存储数据呢？</strong></p> <ul> <li>数据冗余</li> <li>修改，增加，删除需要操作的更多，时间线性增加，也就是难以维护</li> <li>占用磁盘存储增大</li> </ul> <hr/> <p>MYISAM只有非聚簇索引，索引最终指向的都是物理地址。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2c181b4dd91ac77991f004625cc34264.jpg" alt="MySQL索引机制(详细+原理+解析)"></p> <h4 id="1使用聚簇索引的优势">1.使用聚簇索引的优势</h4> <p>Q:既然有回表的存在，那么聚簇索引的优势在哪里？</p> <ol> <li>由于行数据和聚簇索引的叶子结点存储在一起，同一页中会有多条行数据，访问同一数据页不同行记录时，已经把也加载到了buffer中(缓存器),再次访问时，会在内存中完成访问，不必访问磁盘，这样主键和行数据是一起被载入内存的，找到叶子结点就可以立刻将行数据返回了，获得数据更快。</li> <li>辅助索引的叶子结点，存储主键值，而不是数据的存放地址，好处是当行数据发生变化时，索引树的节点也需要分裂变化，或者是我们需要查找的数据，在上一次读写的缓存中没有，需要发送一次新的IO操作时，可以避免对辅助索引的维护工作，只要维护聚簇索引树就好了，另外一个好处是，因为辅助索引存放的是主键值，减少了辅助索引占用的存储空间的大小。</li> </ol> <p>Q:主键索引作为聚簇索引需要注意什么</p> <ol> <li>当使用主键为聚簇索引时，主键最好不要使用UUID，因为UUID的值过于离散（可以查看UUID的产生过程），不适合排序，并且可能在两个已经排序好的结点中会出现新插入的节点，导致索引树调整复杂度变大。</li> <li>建议使用int类型的自增，int类型自增主键数据量为4亿，满足一般开发要求，并且由于自增，主键本身就有序，因此开销很小，辅助索引中保存的主键值也会跟着变化，占用存储空间，也会影响到IO操作读取到的数据量。</li> </ol> <h4 id="2什么情况下无法使用索引">2.什么情况下无法使用索引</h4> <ul> <li> <p>查询语句中使用Like关键字</p> <p><strong>在查询语句中使用LIke关键字进行查询时，如果匹配字符串的第一个字符为"%"，索引不会使用。如果“%”不是在第一位，索引就会使用</strong></p> </li> <li> <p>查询语句中使用多列索引</p> <p><strong>多列索引是在表的多个字段上创建的索引，满足最左前缀匹配原则，索引才会被使用</strong></p> </li> <li> <p>查询语句中使用OR关键字</p> <p><strong>查询语句只有Or关键字时候，如果OR前后的两个条件都是索引，这这次查询将会使用索引，否则Or前后有一个条件的列不是索引，那么查询中将不使用索引</strong></p> </li> </ul> <h3 id="5关于explain语句">5.关于Explain语句</h3> <p>作者不会，建议查找，这里列出是作为提醒</p> <p><strong>永远年轻，永远热泪盈眶</strong></p> <blockquote> <p>TIPS:MySQL底层存储文件：</p> <ul> <li>MyISAM：.frm是存放表结构的文件，.MYD是存放表数据的文件,.MYI是存放表索引的文件</li> <li>InnoDB：.frm存放表结构，.Ibd是存放表数据和索引的</li> </ul> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-39903.htm">设计模式——七大原则 &#8211; FITA _在线工具</a></p>
+                                        <p>下一个：<a href="/news/article-40385.htm">附近免费领养小狗在哪里（附近哪里可以领养宠物）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-free-high-speed-nodes.htm" title="1月6日→19.7M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址">1月6日→19.7M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37443.htm" title="动物医院要求什么学历才能进去（动物医院挣钱吗）">动物医院要求什么学历才能进去（动物医院挣钱吗）</a></li>
+                        <li class="py-2"><a href="/news/article-36455.htm" title="合肥宠物狗领养 合肥宠物狗领养基地">合肥宠物狗领养 合肥宠物狗领养基地</a></li>
+                        <li class="py-2"><a href="/news/article-39402.htm" title="动物接种疫苗的注意事项包括哪些方面（动物接种要点）">动物接种疫苗的注意事项包括哪些方面（动物接种要点）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-node-share.htm" title="1月12日→20M/S|2025年最新免费节点SSR/Shadowrocket/Clash/V2ray订阅链接地址">1月12日→20M/S|2025年最新免费节点SSR/Shadowrocket/Clash/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37442.htm" title="宠物医院证件办理流程图（宠物医院证好办吗）">宠物医院证件办理流程图（宠物医院证好办吗）</a></li>
+                        <li class="py-2"><a href="/news/article-39403.htm" title="宠物粮食品牌前十名排名榜最新名单（宠物粮食品牌排行榜）">宠物粮食品牌前十名排名榜最新名单（宠物粮食品牌排行榜）</a></li>
+                        <li class="py-2"><a href="/news/article-36333.htm" title="1970年10月8号是什么命（1970年10月8日）">1970年10月8号是什么命（1970年10月8日）</a></li>
+                        <li class="py-2"><a href="/news/article-39903.htm" title="设计模式——七大原则 &#8211; FITA _在线工具">设计模式——七大原则 &#8211; FITA _在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-36332.htm" title="一个月小猫身上的跳蚤怎么彻底去除（一个月小猫身上的跳蚤怎么彻底去除呢）">一个月小猫身上的跳蚤怎么彻底去除（一个月小猫身上的跳蚤怎么彻底去除呢）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
