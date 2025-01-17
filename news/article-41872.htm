@@ -1,0 +1,228 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-41872.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>spring集成mongodb及基础使用</title>
+        <meta name="description" content="一、在spring框架中启用mongo db spring集成mongodb可以通过java和xml两种方式进行集成，下面是xml方式： &lt;beans xmlns="http://www.spr" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- All css here -->
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="#">关于</a></li>
+                                    <li class="contact"><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>spring集成mongodb及基础使用</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2>一、在spring框架中启用mongo db</h2> <p>spring集成mongodb可以通过java和xml两种方式进行集成，下面是xml方式：</p> <pre><code class="language-XML">&lt;beans xmlns="http://www.springframework.org/schema/beans"        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"        xmlns:mongo="http://www.springframework.org/schema/data/mongo"        xmlns:context="http://www.springframework.org/schema/context"        xsi:schemaLocation="http://www.springframework.org/schema/beans         http://www.springframework.org/schema/beans/spring-beans-4.1.xsd          http://www.springframework.org/schema/data/mongo          http://www.springframework.org/schema/data/mongo/spring-mongo.xsd"         &gt;          &lt;!--启用repository扫描功能--&gt;         &lt;mongo:repositories base-package="com.qcsy"/&gt;          &lt;!--定义用于访问 MongoDB 的 MongoClient 实例--&gt;         &lt;mongo:mongo-client id="mongoClient" host="${mongo.host}" port="${mongo.port}"&gt;                 &lt;mongo:client-options                         connections-per-host="${mongo.connectionsPerHost}"                         threads-allowed-to-block-for-connection-multiplier="${mongo.threadsAllowedToBlockForConnectionMultiplier}"                         connect-timeout="${mongo.connectTimeout}"                         max-wait-time="${mongo.maxWaitTime}"                         socket-keep-alive="${mongo.socketKeepAlive}"                         socket-timeout="${mongo.socketTimeout}"                 /&gt;         &lt;/mongo:mongo-client&gt;         &lt;!--定义用于连接到数据库的连接工厂--&gt;         &lt;mongo:db-factory dbname="${mongo.dbname}" mongo-ref="mongoClient"/&gt;          &lt;!--实际操作 mongodb 的 template,在代码中注入。注意如果此处id不叫mongoTemplate。可能会导致使用Repositry的时候找不到，需要特殊映射--&gt;         &lt;bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"&gt;                 &lt;constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/&gt;         &lt;/bean&gt;          &lt;/beans&gt;</code></pre> <p>配置文件：</p> <pre><code>#mongo db的配置，如果不启用则不需要配置 mongo.host=localhost mongo.port=27017 # 数据库名称. 默认是'db'. mongo.dbname=test # 每个主机允许的连接数 mongo.connectionsPerHost=10 # 线程队列数，它和上面connectionsPerHost值相乘的结果就是线程队列最大值。如果连接线程排满了队列就会抛出异常 mongo.threadsAllowedToBlockForConnectionMultiplier=5 # 连接超时的毫秒 0是默认值且无限大。 mongo.connectTimeout=1000 # 最大等待连接的线程阻塞时间 默认是120000 ms (2 minutes). mongo.maxWaitTime=1500 # 保持活动标志，控制是否有套接字保持活动超时 官方默认为true 且不建议禁用 mongo.socketKeepAlive=true # 用于群集心跳的连接的套接字超时。 mongo.socketTimeout=1500</code></pre> <h2>二、映射模型实体</h2> <pre><code class="language-java">@Document public class User {     @Id     private String userid;     @Field("userinfo")     private String username;     private String userpassword;     ......get\set方法........ }</code></pre> <p>@Document与@Entity类似，表明是一个实体，@Id表明是主键</p> <p>其他的Spring data mongoDB注解还有：</p> <p><strong>@Document</strong></p> <p>把一个java类声明为mongodb的文档，可以通过collection参数指定这个类对应的文档。@Document(collection="mongodb 对应 collection 名")</p> <p><strong>@Id</strong></p> <p>文档的唯一标识，在mongodb中为ObjectId，它是唯一的</p> <p><strong>@Indexed</strong></p> <p>声明该字段需要索引，建索引可以大大的提高查询效率。</p> <p><strong>@CompoundIndex</strong></p> <p>复合索引的声明，建复合索引可以有效地提高多字段的查询效率。</p> <p>&nbsp;</p> <p><strong>@Field</strong></p> <p>给映射存储到 mongodb 的字段取别名</p> <p>&nbsp;</p> <p><strong>@Dbref</strong></p> <p>标识引用其他文档，这个文档有可能在另外的数据库中</p> <p>&nbsp;</p> <p><strong>@Version</strong></p> <p>标识改属性作为版本控制</p> <p>&nbsp;</p> <p><strong>@Transient</strong></p> <p>默认情况下所有的私有字段都映射到文档，该注解标识的字段从存储在数据库中的字段列中排除（即该字段不保存到 mongodb）</p> <p>&nbsp;</p> <h2>三、使用MongoTemplate访问mongodb</h2> <pre><code class="language-java">@Autowired private MongoOperations mongoOperations;</code></pre> <p>&nbsp;</p> <p>在这里，我们将MongoTemplate注入到MongoOperations ，因为MongoTemplate是MongoOperations 实现类，使用接口注入是一个好的做法</p> <pre><code class="language-java">/**  * 保存数据  */ @Override public void templateSave() {     User user=new User();     user.setUserid("001");     user.setUsername("测试");     user.setUserpassword("11");     mongoOperations.save(user,"user"); }  /**  * 更新数据  */ @Override public void templateUpdate() {     //where跟的是字段，is相当于等于     Query query=Query.query(Criteria.where("userid").is("001"));     mongoOperations.updateFirst(query, Update.update("username","修改"),User.class); } /**  * 查询数据  * @return  */ @Override public User templateQuery() {     Query query=Query.query(Criteria.where("userid").is("001"));     return   mongoOperations.find(query,User.class).get(0); }</code></pre> <p>&nbsp;</p> <h2>四、使用MongoDb Repository访问mongodb</h2> <ul> <li><strong>与spring data jpa类似，spring data mongodb同样有类似的操作方式，实现一个接口继承MongoRepository&lt;T,id&gt;：</strong></li> </ul> <pre><code class="language-java">public interface MongoDemoRepository extends MongoRepository&lt;User,String&gt; {   User findFirstByUsername(String username);  }</code></pre> <p>&nbsp;</p> <p>通过继承接口，spring data会自动实现基本的crud方法，同时，还支持通过方法的形式扩展自己想要的方法，例如通过以下关键词扩展(图片在网上找的)：</p> <p>自定义查询方法，格式为“find/get/readBy+字段名+方法后缀”，方法传进的参数即字段的值。</p> <p>支持的部分常用方法后缀有：</p> <p><img decoding="async" alt="img" src="http://img.555519.xyz/uploads/20230119/4991dfccbb3b06a4bf4d551b9cdf8cbc.jpg"></p> <p><img decoding="async" alt="img" src="http://img.555519.xyz/uploads/20230119/e2ac88a65cb3d09c71268e1d808565a9.jpg"></p> <p>&nbsp;</p> <p>&nbsp;</p> <ul> <li><strong>除此之外，与spring data jpa 类似，它也支持@Query的方式自定义指定。但它不是指定的sql而是一个json .</strong></li> </ul> <pre><code class="language-java">@Query("{'userpassid':'qq','username':?0}")  List&lt;User&gt; findUsername(String username);</code></pre> <p>&nbsp;</p> <ul> <li><strong>它同样可以通过接口的方式和spring data jpa 类似实现mongotemplate与repository混合方法。此处不做介绍</strong></li> </ul> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-41369.htm">动物疫苗的生产原料有哪些呢图片（动物疫苗的生产过程）</a></p>
+                                        <p>下一个：<a href="/news/article-41873.htm">天宠宠物医院张家窝（宠天福宠物医院）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-subscribe-node.htm" title="1月8日→21.3M/S|2025年最新免费节点V2ray/SSR/Shadowrocket/Clash订阅链接地址">1月8日→21.3M/S|2025年最新免费节点V2ray/SSR/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-node-share.htm" title="1月17日→21.2M/S|2025年最新免费节点Clash/V2ray/SSR/Shadowrocket订阅链接地址">1月17日→21.2M/S|2025年最新免费节点Clash/V2ray/SSR/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-node-share.htm" title="1月12日→20M/S|2025年最新免费节点SSR/Shadowrocket/Clash/V2ray订阅链接地址">1月12日→20M/S|2025年最新免费节点SSR/Shadowrocket/Clash/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37918.htm" title="广州宠物食品批发市场有哪些（广州宠物食品批发市场有哪些品牌）">广州宠物食品批发市场有哪些（广州宠物食品批发市场有哪些品牌）</a></li>
+                        <li class="py-2"><a href="/news/article-37917.htm" title="victoriaMetrics中的一些Sao操作_在线工具">victoriaMetrics中的一些Sao操作_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-41872.htm" title="spring集成mongodb及基础使用">spring集成mongodb及基础使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-node-share-links.htm" title="1月15日→22.8M/S|2025年最新免费节点Clash/V2ray/Shadowrocket/SSR订阅链接地址">1月15日→22.8M/S|2025年最新免费节点Clash/V2ray/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-free-subscribe-node.htm" title="1月9日→22.9M/S|2025年最新免费节点Shadowrocket/Clash/V2ray/SSR订阅链接地址">1月9日→22.9M/S|2025年最新免费节点Shadowrocket/Clash/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-41368.htm" title="动物疫苗证书有什么用处吗（动物疫苗许可证）">动物疫苗证书有什么用处吗（动物疫苗许可证）</a></li>
+                        <li class="py-2"><a href="/news/article-39903.htm" title="设计模式——七大原则 &#8211; FITA _在线工具">设计模式——七大原则 &#8211; FITA _在线工具</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
