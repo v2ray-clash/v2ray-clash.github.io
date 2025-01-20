@@ -1,0 +1,239 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-43382.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue+element搭建后台管理系统-二、安装插件</title>
+        <meta name="description" content="我们继续上一章的内容，上一章讲到我们已经能将项目成功跑起来了，那么我们接下来把项目必用的东西完善一下。 一、安装elementUI 终于到了我们的男二了，继续在VSCode中新建一个终端，然后通过这个" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-43382.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="Vue+element搭建后台管理系统-二、安装插件" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/dce506f7416ab740c932949742a0d279.webp" />
+        <meta property="og:release_date" content="2025-01-20T07:11:37" />
+    <meta property="og:updated_time" content="2025-01-20T07:11:37" />
+        <meta property="og:description" content="我们继续上一章的内容，上一章讲到我们已经能将项目成功跑起来了，那么我们接下来把项目必用的东西完善一下。 一、安装elementUI 终于到了我们的男二了，继续在VSCode中新建一个终端，然后通过这个" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- All css here -->
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="#">关于</a></li>
+                                    <li class="contact"><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>Vue+element搭建后台管理系统-二、安装插件</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<p>我们继续上一章的内容，上一章讲到我们已经能将项目成功跑起来了，那么我们接下来把项目必用的东西完善一下。</p> <h3>一、安装elementUI</h3> <p>终于到了我们的男二了，继续在VSCode中新建一个终端，然后通过这个命令来安装：</p> <div class="cnblogs_code"> <pre>npm i element-ui -S</pre> </div> <p>至于为什么要-S呢？即--save（保存）包名会被注册在package.json的dependencies里面，在生产环境下这个包的依赖依然存在。</p> <p>安装完成之后呢，我们要通过导入才能在项目中使用，可以在main.js中做全局引用：</p> <div class="cnblogs_code"> <pre>import Vue from 'vue'<span style="color: rgba(0, 0, 0, 1)"> import App from</span>'./App.vue'<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">引入elementUI</span> import ElementUI from 'element-ui'<span style="color: rgba(0, 0, 0, 1)">; import</span>'element-ui/lib/theme-chalk/index.css';<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">样式文件一定要引入</span><span style="color: rgba(0, 0, 0, 1)"> Vue.config.productionTip</span>=<span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">  Vue.use(ElementUI)</span><span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Vue({   render: h</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> h(App), }).$mount(</span>'#app')</pre> </div> <p>这样就可以做到全局引入，如果在实际开发中用到UI框架的插件没有很多，也是可以通过按需引入的，下面来说说如何按需引入：</p> <div class="cnblogs_code"> <pre>import { Message} from 'element-ui'<span style="color: rgba(0, 0, 0, 1)">; Vue.use(Message)</span></pre> </div> <p>上面就是引入一个Message弹窗的功能，也就是element中的内容只有这个可以用，还是觉得挺麻烦的哈。</p> <p>好了，导入和装载完毕之后，我们测试一下看看有没有成功。</p> <p>在App.vue文件中加入button组件，然后保存查看，可以看到网页中已经成功渲染按钮组件了。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">template</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(255, 0, 0, 1)">id</span><span style="color: rgba(0, 0, 255, 1)">="app"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">img</span><span style="color: rgba(255, 0, 0, 1)">alt</span><span style="color: rgba(0, 0, 255, 1)">="Vue logo"</span><span style="color: rgba(255, 0, 0, 1)"> src</span><span style="color: rgba(0, 0, 255, 1)">="./assets/logo.png"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">el-button</span><span style="color: rgba(255, 0, 0, 1)">type</span><span style="color: rgba(0, 0, 255, 1)">="primary"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>测试按钮<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">el-button</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">HelloWorld</span><span style="color: rgba(255, 0, 0, 1)">msg</span><span style="color: rgba(0, 0, 255, 1)">="Welcome to Your Vue.js App"</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">template</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/fabec7b4fe6c1b1c2750ab6d4e40550c.jpg" alt="Vue+element搭建后台管理系统-二、安装插件"></p> <h3>二、安装路由</h3> <p>由于Vue在开发时对路由支持的不足，于是官方补充了vue-router插件。</p> <p>Vue的单页面应用是基于路由和组件的，路由用于设定访问路径，并将路径和组件映射起来。</p> <p>在终端中通过这个命令安装：</p> <div class="cnblogs_code"> <pre>npm install vue-router -S</pre> </div> <p>安装完成之后，同样在main.js中挂载它。我们项目src的目录下创建一个router文件夹，用于存放路由映射文件。</p> <p>在router文件夹下创建index.js和routers.js，分别用于初始化路由和配置路由映射。代码如下：</p> <p>index.js:</p> <div class="cnblogs_code"> <pre>import Vue from 'vue'<span style="color: rgba(0, 0, 0, 1)">; import Router from</span>'vue-router'<span style="color: rgba(0, 0, 0, 1)">; import constantRoutes from</span>'./routers'<span style="color: rgba(0, 0, 0, 1)">;   const originalPush</span>=<span style="color: rgba(0, 0, 0, 1)"> Router.prototype.push; Router.prototype.push</span>=<span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> (location) {</span><span style="color: rgba(0, 0, 255, 1)">return</span> originalPush.call(<span style="color: rgba(0, 0, 255, 1)">this</span>, location).<span style="color: rgba(0, 0, 255, 1)">catch</span>(err =&gt;<span style="color: rgba(0, 0, 0, 1)"> err); };  Vue.use(Router);  const createRouter</span>= () =&gt;<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Router({     scrollBehavior: ()</span>=&gt; ({ y: 0<span style="color: rgba(0, 0, 0, 1)"> }),     routes: constantRoutes })  const router</span>=<span style="color: rgba(0, 0, 0, 1)"> createRouter()   export</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> resetRouter() {     const newRouter</span>=<span style="color: rgba(0, 0, 0, 1)"> createRouter()     router.matcher</span>=<span style="color: rgba(0, 0, 0, 1)"> newRouter.matcher }</span><span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">*  * 全局前置守卫  * @func beforeEach  * @param {object} to 即将要进入的目标 路由对象  * @param {object} form 当前导航正要离开的路由  * @func next 进行管道中的下一个钩子</span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)"> router.beforeEach(async (to, form, next)</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> {      });</span><span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">*  * 全局后置钩子  * @func afterEach  * @param {object} to 即将要进入的目标 路由对象  * @param {object} form 当前导航正要离开的路由</span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)"> router.afterEach((to, form)</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> { });   export</span><span style="color: rgba(0, 0, 255, 1)">default</span> router;</pre> </div> <p>routers.js:</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">*  * 逐个导出模块</span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)"> export const constantRoutes</span>=<span style="color: rgba(0, 0, 0, 1)"> [     {         path:</span>'/'<span style="color: rgba(0, 0, 0, 1)">,         redirect:</span>'/home'<span style="color: rgba(0, 0, 0, 1)">     }, ]  export</span><span style="color: rgba(0, 0, 255, 1)">default</span><span style="color: rgba(0, 0, 0, 1)"> [     ...constantRoutes, ];</span></pre> </div> <p>然后在main.js中做好配置：</p> <div class="cnblogs_code"> <pre>import Vue from 'vue'<span style="color: rgba(0, 0, 0, 1)"> import App from</span>'./App.vue'<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">引入elementUI</span> import ElementUI from 'element-ui'<span style="color: rgba(0, 0, 0, 1)">; import</span>'element-ui/lib/theme-chalk/index.css';<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">样式文件一定要引入</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">载入路由</span> import router from './router/index.js'<span style="color: rgba(0, 0, 0, 1)">;  Vue.config.productionTip</span>=<span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">  Vue.use(ElementUI)</span><span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Vue({     router,     render: h</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> h(App), }).$mount(</span>'#app')</pre> </div> <p>保存之后，可能会报ESLint校验规则的错：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4149b512766077e2476e9ecd3a4ac127.jpg" alt="Vue+element搭建后台管理系统-二、安装插件"></p> <p>我们先不配置代码校验规则先，后面我们再单独讲代码编写规范。</p> <p>去掉代码校验的话，在package.json文件的eslintConfig字段中，加入这些代码，然后重启项目，就可以了。</p> <div class="cnblogs_code"> <pre>"rules"<span style="color: rgba(0, 0, 0, 1)">: {</span>"generator-star-spacing": "off"<span style="color: rgba(0, 0, 0, 1)">,</span>"no-tabs": "off"<span style="color: rgba(0, 0, 0, 1)">,</span>"no-unused-vars": "off"<span style="color: rgba(0, 0, 0, 1)">,</span>"no-console": "off"<span style="color: rgba(0, 0, 0, 1)">,</span>"no-irregular-whitespace": "off"<span style="color: rgba(0, 0, 0, 1)">,</span>"no-debugger": "off"<span style="color: rgba(0, 0, 0, 1)">         }</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9f14582fa763894348f5330f9f4e5d81.jpg" alt="Vue+element搭建后台管理系统-二、安装插件"></p> <p>然后我们的路由安装就算完成了。</p> <h3>三、安装Vuex</h3> <p>在开发大型项目的过程中，还是会常常用到vuex的，关于vuex官方的解释是：vuex是专门用来管理vue.js应用程序中状态的一个插件。他的作用是将应用中的所有状态都放在一起,集中式来管理。描述可能会有些晦涩难懂，不理解的同学，我们边用边学。</p> <p>在终端中通过这个命令来安装：</p> <div class="cnblogs_code"> <pre>npm install vuex --S</pre> </div> <p>静静等待安装完成后，我们将它装载在Vue中，步骤跟装载路由差不多，现在src目录下创建store文件夹，然后创建index.js</p> <div class="cnblogs_code"> <pre>import Vue from 'vue'<span style="color: rgba(0, 0, 0, 1)">; import Vuex from</span>'vuex'<span style="color: rgba(0, 0, 0, 1)">;   const modulesFiles</span>= require.context('./modules',<span style="color: rgba(0, 0, 255, 1)">true</span>, /\.js$/<span style="color: rgba(0, 0, 0, 1)">) const modules</span>= modulesFiles.keys().reduce((modules, modulePath) =&gt;<span style="color: rgba(0, 0, 0, 1)"> {     const moduleName</span>= modulePath.replace(/^\.\/(.*)\.\w+$/, '$1'<span style="color: rgba(0, 0, 0, 1)">)     const value</span>=<span style="color: rgba(0, 0, 0, 1)"> modulesFiles(modulePath)     modules[moduleName]</span>= value.<span style="color: rgba(0, 0, 255, 1)">default</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> modules }, {})   Vue.use(Vuex); export</span><span style="color: rgba(0, 0, 255, 1)">default</span><span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Vuex.Store({     modules: modules });</span></pre> </div> <p>再在store文件夹下创建modules文件夹，主要用于存放状态数据模块文件的，先不用创建文件：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/27b03ae2d61ef7ee3a091408a90c3bd9.jpg" alt="Vue+element搭建后台管理系统-二、安装插件"></p> <p>&nbsp;然后就是在main.js中装载vuex，</p> <div class="cnblogs_code"> <pre>import Vue from 'vue'<span style="color: rgba(0, 0, 0, 1)"> import App from</span>'./App.vue'<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">引入elementUI</span> import ElementUI from 'element-ui'<span style="color: rgba(0, 0, 0, 1)">; import</span>'element-ui/lib/theme-chalk/index.css';<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">样式文件一定要引入</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">载入路由</span> import router from './router/index.js'<span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">载入vuex</span> import store from './store/index.js'<span style="color: rgba(0, 0, 0, 1)">  Vue.config.productionTip</span>=<span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">  Vue.use(ElementUI)</span><span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Vue({     store,     router,     render: h</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> h(App), }).$mount(</span>'#app')</pre> </div> <p>装载好之后，如果没报错的话，那么对于必要的三件套已经是安装完成了。</p> <p>其实还有一个插件是必用的，就是关于网络请求的，但这篇内容已经很多了，后面用单独一章来帮助大家了解怎么封装网络请求和装哪个网络请求的插件。</p> <p>好了，这章的内容就先到这了，下一章说一下完善项目的架构。</p> <div class="text_2NOr6"></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-42874.htm">养狗最忌讳的三个属相是什么（养狗养不活是什么兆头）</a></p>
+                                        <p>下一个：<a href="/news/article-43383.htm">广州领养宠物狗的地方 广州领养宠物狗的地方在哪里</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-node-subscribe-links.htm" title="1月13日→19M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址">1月13日→19M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36454.htm" title="宠物粮商标取名大全图片 宠物粮商标取名大全图片及名字">宠物粮商标取名大全图片 宠物粮商标取名大全图片及名字</a></li>
+                        <li class="py-2"><a href="/news/article-37442.htm" title="宠物医院证件办理流程图（宠物医院证好办吗）">宠物医院证件办理流程图（宠物医院证好办吗）</a></li>
+                        <li class="py-2"><a href="/news/article-40384.htm" title="MySQL索引机制(详细+原理+解析)">MySQL索引机制(详细+原理+解析)</a></li>
+                        <li class="py-2"><a href="/news/article-38912.htm" title="动物疫苗制备流程视频教程（动物疫苗制作）">动物疫苗制备流程视频教程（动物疫苗制作）</a></li>
+                        <li class="py-2"><a href="/news/article-39402.htm" title="动物接种疫苗的注意事项包括哪些方面（动物接种要点）">动物接种疫苗的注意事项包括哪些方面（动物接种要点）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-node-share.htm" title="1月16日→19.6M/S|2025年最新免费节点Shadowrocket/SSR/V2ray/Clash订阅链接地址">1月16日→19.6M/S|2025年最新免费节点Shadowrocket/SSR/V2ray/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-40878.htm" title="Python技法：实现简单的递归下降Parser_在线工具">Python技法：实现简单的递归下降Parser_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-node-share.htm" title="1月5日→18.4M/S|2025年最新免费节点SSR/V2ray/Clash订阅链接地址">1月5日→18.4M/S|2025年最新免费节点SSR/V2ray/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-42374.htm" title="动物防疫疫苗空瓶如何销毁处理方案及流程（动物疫苗未冷藏几小时失效）">动物防疫疫苗空瓶如何销毁处理方案及流程（动物疫苗未冷藏几小时失效）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
