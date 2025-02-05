@@ -1,0 +1,258 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-51415.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Spring的事务管理机制和传播机制</title>
+        <meta name="description" content="问：Spring的事务管理是怎么搞的？ Spring&nbsp;的事务，可以说是&nbsp;Spring&nbsp;AOP&nbsp;的一种实现。 AOP面向切面编程，即在不修改源代码的情况下，对原有" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-51415.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="Spring的事务管理机制和传播机制" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/9489b16dbcbcc1b1ed6ba241cc840019.webp" />
+        <meta property="og:release_date" content="2025-02-05T08:19:09" />
+    <meta property="og:updated_time" content="2025-02-05T08:19:09" />
+        <meta property="og:description" content="问：Spring的事务管理是怎么搞的？ Spring&nbsp;的事务，可以说是&nbsp;Spring&nbsp;AOP&nbsp;的一种实现。 AOP面向切面编程，即在不修改源代码的情况下，对原有" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring的事务管理机制和传播机制">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="#">关于</a></li>
+                                    <li class="contact"><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>Spring的事务管理机制和传播机制</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><span style="font-size:14px">问：Spring的事务管理是怎么搞的？</span></p> <p><span style="font-size:14px">Spring&nbsp;的事务，可以说是&nbsp;Spring&nbsp;AOP&nbsp;的一种实现。</span></p> <p><span style="font-size:14px">AOP面向切面编程，即在不修改源代码的情况下，对原有功能进行扩展，通过代理类来对具体类进行操作。</span></p> <p><span style="font-size:14px"><span style="font-family:Microsoft YaHei; font-size:14px; font-size:16px"><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="color:#FF0000">Spring声明式事务让我们从复杂的事务处理中得到解脱。使得我们再也无需要去处理获得连接、关闭连接、事务提交和回滚等这些操作。再也无需要我们在与事务相关的方法中处理大量的try…catch…finally代码。</span></span></span></span><br /></span></p> <p><span style="font-family:Microsoft YaHei; font-size:14px">Spring的事务管理分为<span style="color:#FF0000">声明式</span>和<span style="color:#FF0000">编程式</span>。声明式就是在Spring的配置文件中进行相关配置；编程式就是用注解的方式写到代码里。</span></p> <p><span style="font-family:Microsoft YaHei; font-size:14px"><br /></span></p> <p><span style="font-size:14px"><span style="color:#FF0000">核心接口</span>：</span></p> <p><span style="font-size:14px"><span id="Label3">Spring事务管理涉及的接口的联系如下：</span><br /></span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220708/231b8489544bcd6f5c9b9f6eda8df46d.jpg" alt="Spring的事务管理机制和传播机制"><br /></span></p> <p><span style="font-size:14px"><br /></span></p> <p><span style="font-size:14px"><span id="Label3">Spring并不直接管理事务，而是提供了多种事务管理器，他们将事务管理的职责委托给Hibernate或者JTA等持久化机制所提供的相关平台框架的事务来实现。 Spring事务管理器的接口是<span style="color:#FF0000">org.springframework.transaction.PlatformTransactionManager</span>，通过这个接口，Spring为各个平台如JDBC、Hibernate等都提供了对应的事务管理器，但是具体的实现就是各个平台自己的事情了。此接口的内容如下：</span><br /></span></p> <p><span style="font-size:14px"></span></p> <pre><code class="language-java">public interface PlatformTransactionManager()...{       // 由TransactionDefinition得到TransactionStatus对象     TransactionStatus getTransaction(TransactionDefinition definition) throws TransactionException;      // 提交     void commit(TransactionStatus status) throws TransactionException;       // 回滚     void rollback(TransactionStatus status) throws TransactionException;   }</code></pre> <p><span style="font-size:14px">Spring在TransactionDefinition接口中定义这些属性,以供PlatfromTransactionManager使用。<span style="font-size:14px">TransactionDefinition</span>接口定义如下：</span></p> <p><span style="font-size:14px"></span></p> <pre><code class="language-java">public interface TransactionDefinition {     int getPropagationBehavior();//返回事务的传播行为。     int getIsolationLevel();//返回事务的隔离级别，事务管理器根据它来控制另外一个事务可以看到本事务内的哪些数据。     int getTimeout();//返回事务必须在多少秒内完成。     boolean isReadOnly();//事务是否只读，事务管理器能够根据这个返回值进行优化，确保事务是只读的。 }</code></pre> <p> 上述接口定义了以下五种属性：</p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220708/761a5cbdf724187b83347c2647ef710f.jpg" alt="Spring的事务管理机制和传播机制"><br /></span></p> <p><span style="font-size:14px"><br /></span></p> <p><span style="font-size:14px"><span style="color:#FF0000">传播行为</span>：</span></p> <p><span style="font-size:14px"></span></p> <p><span style="font-family:Microsoft YaHei; font-size:16px"><strong>PROPAGATION_REQUIRED</strong>--支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。</span></p> <p><span style="font-family:Microsoft YaHei; font-size:16px"><strong>PROPAGATION_SUPPORTS</strong>--支持当前事务，如果当前没有事务，就以非事务方式执行。</span></p> <p><span style="font-family:Microsoft YaHei; font-size:16px"><strong>PROPAGATION_MANDATORY</strong>--支持当前事务，如果当前没有事务，就抛出异常。</span></p> <p><span style="font-family:Microsoft YaHei; font-size:16px"><strong>PROPAGATION_REQUIRES_NEW</strong>--新建事务，如果当前存在事务，把当前事务挂起。</span></p> <p><span style="font-family:Microsoft YaHei; font-size:16px"><strong>PROPAGATION_NOT_SUPPORTED</strong>--以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</span></p> <p><span style="font-family:Microsoft YaHei; font-size:16px"><strong>PROPAGATION_NEVER</strong>--以非事务方式执行，如果当前存在事务，则抛出异常。</span></p> <p><span style="font-family:Microsoft YaHei; font-size:16px"><strong>PROPAGATION_NESTED</strong>--如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则进行与PROPAGATION_REQUIRED类似的操作</span></p> <p><span style="font-size:14px"><br /></span></p> <p><span style="font-size:14px"><span style="color:#FF0000">声明式事务管理配置</span>：<br /></span></p> <p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="font-size:14px">Spring配置文件</span>中关于事务配置总是由三个组成部分，分别是DataSource、TransactionManager和代理机制（切面配置）</span><span style="font-family:'Microsoft YaHei'">。</span></p> <p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="font-family:'Microsoft YaHei'; font-size:16px">比如使用Hibernate进行数据访问时，DataSource实际为SessionFactory，TransactionManager的实现为HibernateTransactionManager。</span></span></p> <p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></span></p> <p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="font-family:'Microsoft YaHei'; font-size:16px">参考文献：</span></span></p> <p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="font-family:'Microsoft YaHei'; font-size:16px">http://www.mamicode.com/info-detail-1248286.html<br /></span></span></p> <p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="font-family:'Microsoft YaHei'; font-size:16px">http://www.cnblogs.com/newsouls/p/3988216.html<br /></span></span></p> <p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="font-family:'Microsoft YaHei'; font-size:16px">http://bbs.csdn.net/topics/390632361<br /></span></span></p> <p></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-50889.htm">襄阳有流浪狗救助站吗（襄阳流浪动物救助中心）</a></p>
+                                        <p>下一个：<a href="/news/article-51416.htm">宠物收购中心收购清远（宠物收购站）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-42874.htm" title="养狗最忌讳的三个属相是什么（养狗养不活是什么兆头）">养狗最忌讳的三个属相是什么（养狗养不活是什么兆头）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-node-share.htm" title="1月17日→21.2M/S|2025年最新免费节点Clash/V2ray/SSR/Shadowrocket订阅链接地址">1月17日→21.2M/S|2025年最新免费节点Clash/V2ray/SSR/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-free-high-speed-nodes.htm" title="2月4日→23M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">2月4日→23M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-free-high-speed-nodes.htm" title="1月6日→19.7M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址">1月6日→19.7M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-free-node-subscribe-links.htm" title="1月28日→20.5M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">1月28日→20.5M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48258.htm" title="动物疫苗销售招聘要求（动物疫苗销售招聘要求是什么）">动物疫苗销售招聘要求（动物疫苗销售招聘要求是什么）</a></li>
+                        <li class="py-2"><a href="/news/article-43383.htm" title="广州领养宠物狗的地方 广州领养宠物狗的地方在哪里">广州领养宠物狗的地方 广州领养宠物狗的地方在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-41369.htm" title="动物疫苗的生产原料有哪些呢图片（动物疫苗的生产过程）">动物疫苗的生产原料有哪些呢图片（动物疫苗的生产过程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-node-share-links.htm" title="1月21日→18.3M/S|2025年最新免费节点Clash/Shadowrocket/V2ray/SSR订阅链接地址">1月21日→18.3M/S|2025年最新免费节点Clash/Shadowrocket/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-42374.htm" title="动物防疫疫苗空瓶如何销毁处理方案及流程（动物疫苗未冷藏几小时失效）">动物防疫疫苗空瓶如何销毁处理方案及流程（动物疫苗未冷藏几小时失效）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
