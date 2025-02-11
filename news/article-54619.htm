@@ -1,0 +1,257 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-54619.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>shiro550反序列学习</title>
+        <meta name="description" content="shiro550和fastjson作为攻防演练的利器，前面学习了fastjson的相关利用和回显，本篇主要来学习一下shiro550的漏洞原理。 1、漏洞原因 在 Shiro &lt;= 1.2.4 " />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-54619.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="shiro550反序列学习" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/dce506f7416ab740c932949742a0d279.webp" />
+        <meta property="og:release_date" content="2025-02-11T05:42:26" />
+    <meta property="og:updated_time" content="2025-02-11T05:42:26" />
+        <meta property="og:description" content="shiro550和fastjson作为攻防演练的利器，前面学习了fastjson的相关利用和回显，本篇主要来学习一下shiro550的漏洞原理。 1、漏洞原因 在 Shiro &lt;= 1.2.4 " />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="shiro550反序列学习">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>shiro550反序列学习</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				</h1> <p>shiro550和fastjson作为攻防演练的利器，前面学习了fastjson的相关利用和回显，本篇主要来学习一下shiro550的漏洞原理。</p> <h2 id="1漏洞原因">1、漏洞原因</h2> <p>在 Shiro &lt;= 1.2.4 中，AES 加密算法的key是硬编码在源码中，当我们勾选remember me 的时候 shiro 会将我们的 cookie 信息序列化并且加密存储在 Cookie 的 rememberMe字段中，这样在下次请求时会读取 Cookie 中的 rememberMe字段并且进行解密然后反序列化，且AES的key 为固定的。</p> <h2 id="2环境搭建及复现">2、环境搭建及复现</h2> <pre><code>https://codeload.github.com/apache/shiro/zip/shiro-root-1.2.4 jdk1.7 Tomcat8 idea</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/b25036264d38b6049dd120f9fa698e29.jpg" alt="shiro550反序列学习"></p> <p><strong>坑点</strong></p> <p>原有版本的jstl会报错修改为1.2</p> <pre><code class="language-xml">&lt;dependency&gt;   &lt;groupId&gt;javax.servlet&lt;/groupId&gt;   &lt;artifactId&gt;jstl&lt;/artifactId&gt;   &lt;version&gt;1.2&lt;/version&gt; &lt;/dependency&gt; &lt;!-- 依赖cc链 --&gt; &lt;dependency&gt;   &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;   &lt;artifactId&gt;commons-collections4&lt;/artifactId&gt;   &lt;version&gt;4.0&lt;/version&gt; &lt;/dependency&gt;</code></pre> <p>toolchains的错误</p> <pre><code>&lt;?xml version="1.0" encoding="UTF8"?&gt; &lt;toolchains&gt;     &lt;toolchain&gt;         &lt;type&gt;jdk&lt;/type&gt;         &lt;provides&gt;             &lt;version&gt;1.6&lt;/version&gt;             &lt;vendor&gt;sun&lt;/vendor&gt;         &lt;/provides&gt;         &lt;configuration&gt;             &lt;jdkHome&gt;/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk&lt;/jdkHome&gt;         &lt;/configuration&gt;     &lt;/toolchain&gt; &lt;/toolchains&gt;</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/394685057164cd0a71d1bcdb6f482518.jpg" alt="shiro550反序列学习"></p> <p>然后启动即可</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/470927934c21bc920e8740afca425c5f.jpg" alt="shiro550反序列学习"></p> <p>漏洞复现</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9bd9fd8ee5ffbd7011b8834d304944e8.jpg" alt="shiro550反序列学习"></p> <h2 id="3漏洞分析">3、漏洞分析</h2> <h3 id="31生成cookie">3.1、生成cookie</h3> <h4 id="311原理解析">3.1.1、原理解析</h4> <p>shiro会提供rememberme功能，可以通过cookie记录登录用户，从而记录登录用户的身份认证信息，即下次无需登录即可访问。而其中对rememberme的cookie做了加密处理，漏洞主要原因是加密的AES密钥是硬编码在文件中的，那么对于AES加密算法我们已知密钥，并且IV为cookie进行base64解码后的前16个字节，因此我们可以构造任意的可控序列化payload。</p> <p>cookie的处理类<code>org.apache.shiro.web.mgt.CookieRememberMeManager</code>类出现了漏洞,而它继承了AbstractRememberMeManager类。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/03fbc390a414d2303a7949c6ea739ef3.jpg" alt="shiro550反序列学习"></p> <p>处理rememberme的cookie的类为<code>org.apache.shiro.web.mgt.CookieRememberMeManager</code>，其中的<code>rememberSerializedIdentity</code>方法，主要就是设置用户的cookie的值，这个值是通过base64解密serialized获取的。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/b0c27a15812a09fd6ecd958b4a50d1ba.jpg" alt="shiro550反序列学习"></p> <p>我们继续看看父类</p> <p>首先定义默认的秘钥通过base64固定解码得到，这个就是我们上门工具爆破出来的秘钥</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e67dfea4a50071c83727618d310f24a0.jpg" alt="shiro550反序列学习"></p> <p>还有就是方法<code> onSuccessfulLogin</code>,这方法就是登录成功的意思，判断<code>isRememberMe</code>，该方法就是判断token中是够含rememberMe。<strong>所以当我们成功登录时，如果勾选了rememberme选项，那么此时将进入onSuccessfulLogin方法</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/28d68f560815c93552e3ece8d14e89bb.jpg" alt="shiro550反序列学习"></p> <p>我们继续往下走，跟进rememberIdentity方法，这三个参数上面有解释我，我的理解是</p> <pre><code>subject:就是rememberMe字段的主体 token:成功的身份令牌 authcInfo:成功的身份验证信息</code></pre> <p>然后进入方法体，获取验证身份的主体，继续调用重载方法，再跟进去看看</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/76e7e5062aa33d668d8301569d101982.jpg" alt="shiro550反序列学习"></p> <p>进入后我看到，把accountPrincipals(身份验证信息)转成了byte字节，然后就是调用我们一开始分析的<code>rememberSerializedIdentity</code>方法设置cookie的值了。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1cd4c1f055a469142d80ab267e7a3fdb.jpg" alt="shiro550反序列学习"></p> <p>这就是生成cookie的过程，但是还是有些疑惑，<code>convertPrincipalsToBytes</code>是怎么实现的和默认秘钥在哪里使用了，我们在<code>org.apache.shiro.mgt.AbstractRememberMeManager</code>的onSuccessfulLogin方法打下断点看看。</p> <h4 id="311idea调试">3.1.1、idea调试</h4> <p>首先我们idea调试启动，然后勾选Rememberme，登录。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/3e521c86a93f464a6c9a8a035a7857bc.jpg" alt="shiro550反序列学习"></p> <p>成功捕获断点，跟进去</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/a918fdabbf9415835bdab4f660235494.jpg" alt="shiro550反序列学习"></p> <p>跟我们上面分析的一样，我们直接跟进<code>convertPrincipalsToBytes</code>方法</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/8a9fe2b7334a35bbac4ad74bac84dec7.jpg" alt="shiro550反序列学习"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6b695b9f106611a3b42bf8f6831d070e.jpg" alt="shiro550反序列学习"></p> <p>我们先跟进<code>serialize</code>,看他怎么序列化数据的</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/0ad8ee4c4347ed8935a4faa6e114fe4f.jpg" alt="shiro550反序列学习"></p> <p>获取序列化对象继续调用<code>serialize</code>,跟进去</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6631abfee6fdd3c2e89b02dd2cfe445a.jpg" alt="shiro550反序列学习"></p> <p>看到这我们就能很清晰的看到他是怎么序列化数据的了。我们继续回到<code>convertPrincipalsToBytes</code>方法</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d99205c02df25da4aa6cf3999c042b42.jpg" alt="shiro550反序列学习"></p> <p>接着判断<code>getCipherService</code>是否为空,字面意思就是<strong>获取密码算法服务</strong>，我们也跟进去看看</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/605ad5c9e4b6869a7e770bb4347bb395.jpg" alt="shiro550反序列学习"></p> <p>直接返回了<strong>加密算法服务</strong>，在注解中也可以看到，为<strong>CBC模式的AES算法</strong>。那他在哪里定义的呢</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/43f00664a023987f7bb0830d7a74f1fa.jpg" alt="shiro550反序列学习"></p> <p>我们看到在构造方法中，创建了AES加密服务，并且设置了加密服务的key，这个key就是我们上面定义的。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4ced570bdb550aa6b54d835a0a63f2ef.jpg" alt="shiro550反序列学习"></p> <p>我们继续返回<code>convertPrincipalsToBytes</code>方法中。看到其使用了<code>encrypt</code>方法对序列化后的principals进行加密，我们也跟进去看看。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6913e157450deadab5cf662f47652464.jpg" alt="shiro550反序列学习"></p> <p>首先还是获取了<strong>加密算法服务（AES）</strong>,调用该算法的加密方法<code>encrypt</code>，这个算法有两个参数，第一个我们知道就是序列化的字节码，我们看第二个，英文意思是获取加密算法的key，我们继续跟进去</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4e0f2ba046b1b538ae19aafd257e4795.jpg" alt="shiro550反序列学习"></p> <p>我们看到直接返回了加密key，这个key是通过<code>setEncryptionCipherKey</code>设置的，而<code>setCipherKey</code>调用了<code>setEncryptionCipherKey</code>,也就是我们在<code>encrypt</code>方法中的<code>getCipherService</code>方法设置的.</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/48635dc870a799ce9cb8ee1b0583af31.jpg" alt="shiro550反序列学习"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/177263822cff23068540c61bf0493bd6.jpg" alt="shiro550反序列学习"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e89ce4ab71e63d6230d14b3a56bb1600.jpg" alt="shiro550反序列学习"></p> <p>我们继续回到<code>encrypt</code>方法,参数是 bytes和key继续跟进</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ca208dc2f870e4618b803c66f9e2e2d5.jpg" alt="shiro550反序列学习"></p> <p>判断是够创建初始化载体，我们跟进<code>generateInitializationVector</code></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/761cff041796dd81d2153432b37f6841.jpg" alt="shiro550反序列学习"></p> <p>他会调用父类的<code>generateInitializationVector</code>，继续跟进</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/76929d8711385d16ee8f457630b10567.jpg" alt="shiro550反序列学习"></p> <p>我们可以看到，size为128（定义的静态字符串），然后新建长度为16的字节数组，调用了ensureSecureRandom，跟进看看</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/b0058f28eb0c9fb5b103b4ce648750d7.jpg" alt="shiro550反序列学习"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/50fdacea3c71c090383071136226b7b3.jpg" alt="shiro550反序列学习"></p> <p>就是获取一个随机值，nextBytes方法用于生成随机字节并将其置于用户提供的字节数组</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c46e8bbfbaf9edcb700c7171bc82591b.jpg" alt="shiro550反序列学习"></p> <p>然后返回，所以<strong>ivBytes</strong>就是一个随机的16位字节数组</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/0f36c5a56d661ba736c8637e178946da.jpg" alt="shiro550反序列学习"></p> <p>我们继续回到<code>encrypt</code>,然后调用重载方法，参数为byte数组、key，16为的随机字节数组ivBytes和布尔true。我们继续跟进</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/272c50a7907db0e62fccb611b483c745.jpg" alt="shiro550反序列学习"></p> <p>此<code>encrypt</code>就是我们最终的加密实现算法。把ivbytes和encrypted一起放入output，然后返回</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/38f06ffe495d02403a1159586f50d95e.jpg" alt="shiro550反序列学习"></p> <p>最后通过rememberSerializedIdentity设置cookie值</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ee2e45f98416d6b107a7120a90ec734e.jpg" alt="shiro550反序列学习"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/056a0476730fa9b90c5c5c74cb7db32f.jpg" alt="shiro550反序列学习"></p> <p>上面都是序列的过程，那么在那里反序列化呢</p> <h3 id="33解析cookie">3.3、解析cookie</h3> <p>在<code>org.apache.shiro.mgt.AbstractRememberMeManager#getRememberedPrincipals</code>的方法中，会从cookie中获取身份信息，我们在此打下断点，然后刷新web页面，成功捕获，会通过<code>org.apache.shiro.web.mgt.CookieRememberMeManager</code>类的getRememberedSerializedIdentity方法获取bytes，我们也跟进去看看</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1175959ff607eb8b9da2b8685425e72f.jpg" alt="shiro550反序列学习"></p> <p>可以看到该类会获取cookie，然后解密base64加密的字段，获取字节数组返回。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9f254f4b5f51767d092ec33292990f90.jpg" alt="shiro550反序列学习"></p> <p>我们继续返回其父类<code>org.apache.shiro.mgt.AbstractRememberMeManager#getRememberedPrincipals</code>的方法中，会调用convertBytesToPrincipals方法，跟生成cookie相反，我们也跟进去看看。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/fbfeaed456b23c26e21c2eeff14abe7f.jpg" alt="shiro550反序列学习"></p> <p>重复代码不再一一解释，直接进入decrypt方法</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1873d381eb2650abb3c4a7789f9d80de.jpg" alt="shiro550反序列学习"></p> <p>发现跟加密一样，通过decrypt解密AES。然后返回</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/8817a9deba449c361cfad7c84f7deb23.jpg" alt="shiro550反序列学习"></p> <p>然后反序列化解密的字符串</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/90851978c5e294a4919e097803961563.jpg" alt="shiro550反序列学习"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d09f6dbb02203a0576e68e8614cca0c3.jpg" alt="shiro550反序列学习"></p> <p>最后调用readObject方法,造成反序列化。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e7649ade4eefa788b27398ed7e61d60b.jpg" alt="shiro550反序列学习"></p> <p>值得注意的是该readObejct方法，是shiro重写过的，重写了<code>resolveClass</code>函数，调用了ClassUtils.forName(),而原生的则是Class.forName().所以导致很多链用不了 ，也是为什么要导入cc4的组件了。我们来看看ClassUtils.forName()</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/122b24bec7256864ed2ae6f15cee8c30.jpg" alt="shiro550反序列学习"></p> <p>看到<code>org.apache.shiro.util.ClassUtils</code>的forName()方法，他是调用了而ClassLoader.loadClass，该方法不支持装载数组类型的class，也就是cc1、cc3等用的<code>Transform</code>数组类都不行了，但是cc2和cc4是可以的 ，其利用的是javassist的TemplateImpl类实现的，所以不影响。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9b99935ba41cd4ac6d9ae54262a2b036.jpg" alt="shiro550反序列学习"></p> <p>还有就是通过改造利用链实现shiro原生的命令执行，具体查看https://www.anquanke.com/post/id/192619#h2-3。</p> <h2 id="参考">参考</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://y4er.com/post/shiro-rememberme-rce/"  target="_blank" rel="nofollow">https://y4er.com/post/shiro-rememberme-rce/</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/nice0e3/p/14183173.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/nice0e3/p/14183173.html</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://xz.aliyun.com/t/6493"  target="_blank" rel="nofollow">https://xz.aliyun.com/t/6493</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.anquanke.com/post/id/192619#h2-3"  target="_blank" rel="nofollow">https://www.anquanke.com/post/id/192619#h2-3</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-54074.htm">宠物粮食市场报告分析（宠物粮食市场前景）</a></p>
+                                        <p>下一个：<a href="/news/article-54620.htm">生物颗粒多少钱一吨呢济宁市（1吨的生物颗粒多少利润）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-39902.htm" title="mysql datetime详解_Mysql 之Date,DateTime,TimeStamp三种种类的详解">mysql datetime详解_Mysql 之Date,DateTime,TimeStamp三种种类的详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-node-subscribe-links.htm" title="1月11日→19.2M/S|2025年最新免费节点V2ray/Clash/Shadowrocket/SSR订阅链接地址">1月11日→19.2M/S|2025年最新免费节点V2ray/Clash/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-7-free-subscribe-node.htm" title="2月7日→20.3M/S|2025年最新免费节点V2ray/Shadowrocket/Clash/SSR订阅链接地址">2月7日→20.3M/S|2025年最新免费节点V2ray/Shadowrocket/Clash/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37918.htm" title="广州宠物食品批发市场有哪些（广州宠物食品批发市场有哪些品牌）">广州宠物食品批发市场有哪些（广州宠物食品批发市场有哪些品牌）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-node-share.htm" title="1月27日→19M/S|2025年最新免费节点Clash/Shadowrocket/V2ray/SSR订阅链接地址">1月27日→19M/S|2025年最新免费节点Clash/Shadowrocket/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-node-subscribe-links.htm" title="1月13日→19M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址">1月13日→19M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-50889.htm" title="襄阳有流浪狗救助站吗（襄阳流浪动物救助中心）">襄阳有流浪狗救助站吗（襄阳流浪动物救助中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-free-subscribe-node.htm" title="1月9日→22.9M/S|2025年最新免费节点Shadowrocket/Clash/V2ray/SSR订阅链接地址">1月9日→22.9M/S|2025年最新免费节点Shadowrocket/Clash/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-node-share.htm" title="1月5日→18.4M/S|2025年最新免费节点SSR/V2ray/Clash订阅链接地址">1月5日→18.4M/S|2025年最新免费节点SSR/V2ray/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-node-share-links.htm" title="1月21日→18.3M/S|2025年最新免费节点Clash/Shadowrocket/V2ray/SSR订阅链接地址">1月21日→18.3M/S|2025年最新免费节点Clash/Shadowrocket/V2ray/SSR订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
