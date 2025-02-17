@@ -1,0 +1,257 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-56843.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>基于Linux下openssl交叉编译详解</title>
+        <meta name="description" content="文章目录  一、openssl-1.1.1下载 二、交叉编译openssl-1.1.1 （本文使用的是openssl-1.1.g版本）     在https://www.openssl.org/sou" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-56843.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="基于Linux下openssl交叉编译详解" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/06733397fa897e86201dfbf3a5cf9a16.webp" />
+        <meta property="og:release_date" content="2025-02-15T05:21:33" />
+    <meta property="og:updated_time" content="2025-02-15T05:21:33" />
+        <meta property="og:description" content="文章目录  一、openssl-1.1.1下载 二、交叉编译openssl-1.1.1 （本文使用的是openssl-1.1.g版本）     在https://www.openssl.org/sou" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="基于Linux下openssl交叉编译详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>基于Linux下openssl交叉编译详解</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#openssl111_6" rel="nofollow">一、openssl-1.1.1下载</a></li> <li><a href="#openssl111_openssl11g_17" rel="nofollow">二、交叉编译openssl-1.1.1 （本文使用的是openssl-1.1.g版本）</a></li> </ul> </div> <hr color="#000000" size="1&quot;"/> </h1> <p><font color="#999AAA">在https://www.openssl.org/source/下载openssl-1.1.1源代码，下载流程大概如下图所示：</font><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/0e7c9991122a9f116babd41340d40a9b.jpg" alt="基于Linux下openssl交叉编译详解"></p> <hr color="#000000" size="1&quot;"/> <p><font color="#999AAA">点击openssl-1.1.k.tar.gz进行下载,下载完成后将openssl-1.1.k.tar.gz复制到linux下的/opt/openssl目录下。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/1bb3203efb1de046618c4370d09fbfea.jpg" alt="基于Linux下openssl交叉编译详解"></font></p> </h1> <pre><code class="prism language-c"><span class="token number">1</span>、解压openssl<span class="token operator">-</span><span class="token number">1.1</span><span class="token punctuation">.</span>g<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz<span class="token operator">:</span>  	tar zxvf openssl<span class="token operator">-</span><span class="token number">1.1</span><span class="token number">.1</span><span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz</code></pre> <pre><code class="prism language-c"><span class="token number">2</span>、进入openssl<span class="token operator">-</span><span class="token number">1.1</span><span class="token punctuation">.</span>g文件<span class="token operator">:</span> 	cd openssl<span class="token operator">-</span><span class="token number">1.1</span><span class="token punctuation">.</span>g</code></pre> <pre><code class="prism language-c"><span class="token number">3</span>、创建 build_arm文件夹 	mkdir build_arm</code></pre> <pre><code class="prism language-c"><span class="token number">4</span>、执行config<span class="token punctuation">.</span><span class="token operator">/</span>config no<span class="token operator">-</span><span class="token keyword">asm</span> shared no<span class="token operator">-</span>async<span class="token operator">--</span>prefix<span class="token operator">=</span><span class="token operator">/</span>opt<span class="token operator">/</span>openssl<span class="token operator">/</span>openssl<span class="token operator">-</span><span class="token number">1.1</span><span class="token punctuation">.</span>g<span class="token operator">/</span>build_arm<span class="token operator">--</span>cross<span class="token operator">-</span>compile<span class="token operator">-</span>prefix<span class="token operator">=</span>arm<span class="token operator">-</span>linux<span class="token operator">-</span> 	 ———————————————————————————————————————————————————————————————————————————————————————————————— 参数说明<span class="token operator">:</span> 	no<span class="token operator">-</span><span class="token keyword">asm</span><span class="token operator">:</span> 在交叉编译过程中不使用汇编代码代码加速编译过程<span class="token punctuation">.</span>原因是它的汇编代码是对arm格式不支持的。 	shared<span class="token operator">:</span> 生成动态连接库。 	no<span class="token operator">-</span>async<span class="token operator">:</span> 交叉编译工具链没有提供GNU C的ucontext库 	–prefix<span class="token operator">=</span><span class="token operator">:</span> 安装路径，编译完成install后将有bin，lib，include等文件夹 	–cross<span class="token operator">-</span>compile<span class="token operator">-</span>prefix<span class="token operator">=</span><span class="token operator">:</span> 交叉编译工具 ————————————————————————————————————————————————————————————————————————————————————————————————</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/718b07a34d382bee917d89eec22f1564.jpg" alt="基于Linux下openssl交叉编译详解"></p> <pre><code class="prism language-c"><span class="token number">5</span>、修改makefile，去除掉<span class="token operator">-</span>m64和<span class="token operator">-</span>m32选项</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/124a861611bfe0f7a906ea37cceba1a4.jpg" alt="基于Linux下openssl交叉编译详解"></p> <pre><code class="prism language-c">后执行 make<span class="token operator">&amp;&amp;</span> make install</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/4eb1638be73f77aae17c9d9cba9f50a9.jpg" alt="基于Linux下openssl交叉编译详解"></p> <hr color="#000000" size="1&quot;"/> <p><font color="#999AAA">交叉编译完成之后就可以使用库文件去敲代码啦，库文件位置：/opt/openssl/openssl-1.1.g/build_arm/lib 如下图所示：</font></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/6bc4a85eda6eb9f294a13a8ba5e9c72f.jpg" alt="基于Linux下openssl交叉编译详解"></p> <hr color="#000000" size="1&quot;"/> <p><font color="#999AAA">若需要使用的详解多的话，有机会可以写一篇。</font></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-56842.htm">PHP重载</a></p>
+                                        <p>下一个：<a href="/news/article-57409.htm">Vue刷新页面的三种方式</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-51416.htm" title="宠物收购中心收购清远（宠物收购站）">宠物收购中心收购清远（宠物收购站）</a></li>
+                        <li class="py-2"><a href="/news/article-38913.htm" title="动物疫苗行业分析报告 动物疫苗行业分析报告怎么写">动物疫苗行业分析报告 动物疫苗行业分析报告怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-36332.htm" title="一个月小猫身上的跳蚤怎么彻底去除（一个月小猫身上的跳蚤怎么彻底去除呢）">一个月小猫身上的跳蚤怎么彻底去除（一个月小猫身上的跳蚤怎么彻底去除呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-node-share.htm" title="2月1日→18.6M/S|2025年最新免费节点Clash/SSR/V2ray/Shadowrocket订阅链接地址">2月1日→18.6M/S|2025年最新免费节点Clash/SSR/V2ray/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-49839.htm" title="开个宠物美容店怎么样（开个宠物美容店大概需要多少钱）">开个宠物美容店怎么样（开个宠物美容店大概需要多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-node-share-links.htm" title="2月16日→21M/S|2025年最新免费节点Shadowrocket/Clash/V2ray/SSR订阅链接地址">2月16日→21M/S|2025年最新免费节点Shadowrocket/Clash/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-55173.htm" title="2022公务员国考人数多少（今年公务员国考人数）">2022公务员国考人数多少（今年公务员国考人数）</a></li>
+                        <li class="py-2"><a href="/news/article-39902.htm" title="mysql datetime详解_Mysql 之Date,DateTime,TimeStamp三种种类的详解">mysql datetime详解_Mysql 之Date,DateTime,TimeStamp三种种类的详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-node-share.htm" title="2月3日→22.7M/S|2025年最新免费节点V2ray/SSR/Clash/Shadowrocket订阅链接地址">2月3日→22.7M/S|2025年最新免费节点V2ray/SSR/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36333.htm" title="1970年10月8号是什么命（1970年10月8日）">1970年10月8号是什么命（1970年10月8日）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

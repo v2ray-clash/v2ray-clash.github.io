@@ -1,0 +1,257 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-57410.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue创建注册页面</title>
+        <meta name="description" content="开发注册页面，对输入账号和昵称进行判空处理，两次密码判断是否相同，注册成功后进入到首页 二、删除一些不需要的组件 1：删除scr/views/下的About.vue和Home.vue 2.把App.v" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-57410.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="Vue创建注册页面" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/dce506f7416ab740c932949742a0d279.webp" />
+        <meta property="og:release_date" content="2025-02-16T07:19:45" />
+    <meta property="og:updated_time" content="2025-02-16T07:19:45" />
+        <meta property="og:description" content="开发注册页面，对输入账号和昵称进行判空处理，两次密码判断是否相同，注册成功后进入到首页 二、删除一些不需要的组件 1：删除scr/views/下的About.vue和Home.vue 2.把App.v" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Vue创建注册页面">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>Vue创建注册页面</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>开发注册页面，对输入账号和昵称进行判空处理，两次密码判断是否相同，注册成功后进入到首页</p> <h2><strong>二、删除一些不需要的组件</strong></h2> <p><strong>1</strong>：删除scr/views/下的About.vue和Home.vue</p> <p>2.把App.vue还原成下图：</p> <pre><code class="language-javascript">&lt;template&gt;   &lt;div id="app"&gt;         &lt;router-view /&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;style lang="less"&gt;  &lt;/style&gt;</code></pre> <p>3.删除router文件夹下的index.js部分代码，剩下的如下图：</p> <pre><code class="language-javascript">import Vue from "vue"; import VueRouter from "vue-router";   Vue.use(VueRouter);  const routes = [{         path: "/",         name: "Home",         component: Home,     },  ];  const router = new VueRouter({     routes, });  export default router;</code></pre> <p>4.再去helloworld.vue中把style样式里的代码清除：</p> <pre><code class="language-javascript">&lt;style scoped lang="less"&gt;  &lt;/style&gt;</code></pre> <h2>三、创建要渲染的.vue文件（注册页面）</h2> <p>1.在views文件下，新建一个register文件夹，在register文件夹下新建一个index.vue文件，书写如下代码。</p> <pre><code class="language-html">&lt;template&gt;   &lt;div&gt;     &lt;!-- 根标签 --&gt;     &lt;h1&gt;新创建出来的&lt;/h1&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {}; &lt;/script&gt;  &lt;style scoped&gt; &lt;/style&gt;</code></pre> <h2>四、配置路由</h2> <p>1.现在所有的组件的渲染，都在router中，所以回到router下的index.js文件，配置如下代码。</p> <pre><code class="language-javascript">import Vue from "vue"; import VueRouter from "vue-router"; import Register from "../views/register/index.vue" //../views/register可以写成这种模式，他会自动去找../views/register下的.vue文件  Vue.use(VueRouter);  const routes = [{         path: "/register",         name: "register", //是这个路由的名字         component: Register,     },  ];  const router = new VueRouter({     routes, });  export default router;</code></pre> <p>2.现在访问register这个路径，就会渲染Register这个组件了。</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220604/46017a05e2d3795ec14143de0bfdd89e.jpg"></p> <p>3.梳理思路：首先所有组件的根组件是App.vue,里面有router-view视口，所有通过路由渲染的组件都会显示在这，然后我们创建的index.vue文件，被引入到router下的index.js文件里，被路由管理，然后整体给他导出了，在main.js中，创建的vue实例，使用了这个router，有这个#app，然后#app找index.html里的#app，相当于把所有的组件替换到那里去。</p> <h2>五、注册界面书写</h2> <p>1.去element官网，找到Form表单，在index.vue中复制并修改下面代码：</p> <pre><code class="language-html">&lt;template&gt;   &lt;div&gt;     &lt;!-- 根标签 --&gt;     &lt;el-form       :model="form"       status-icon       :rules="rules"       ref="form"       label-width="100px"       class="demo-ruleForm"     &gt;        &lt;el-form-item label="账号" prop="username"&gt;         &lt;el-input v-model.number="form.username"&gt;&lt;/el-input&gt;       &lt;/el-form-item&gt;         &lt;el-form-item label="昵称" prop="nickname"&gt;         &lt;el-input v-model.number="form.nickname"&gt;&lt;/el-input&gt;       &lt;/el-form-item&gt;        &lt;el-form-item label="密码" prop="password"&gt;         &lt;el-input           type="password"           v-model="form.password"           autocomplete="off"         &gt;&lt;/el-input&gt;       &lt;/el-form-item&gt;       &lt;el-form-item label="确认密码" prop="checkPass"&gt;         &lt;el-input           type="password"           v-model="form.checkPass"           autocomplete="off"         &gt;&lt;/el-input&gt;       &lt;/el-form-item&gt;             &lt;el-form-item&gt;         &lt;el-button type="primary" @click="submitForm('form')"           &gt;提交&lt;/el-button         &gt;         &lt;el-button @click="resetForm('form')"&gt;重置&lt;/el-button&gt;       &lt;/el-form-item&gt;     &lt;/el-form&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {     data () {         return {             form:{},             rules:{}         }     } }; &lt;/script&gt;  &lt;style scoped&gt; &lt;/style&gt;</code></pre> <p>2.运行完是下图中效果：</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220604/ff876fef5f9870cc3a015306bf02d50e.jpg"></p> <p>&nbsp;3.先还原一下数据，再写<span style="color:#fe2c24;">表单提交功能</span>：(点击提交发生的事件)：</p> <pre><code class="language-javascript">&lt;script&gt; export default {   data() {     return {       form: {         username: "",         nickname: "",         password: "",         checkPass: "",       },       rules: {},     };   },   methods: {     submitForm(formName) {       this.$refs[formName].validate((valid) =&gt; {         if (valid) {           alert("提交成功!");         } else {           console.log("提交失败!!");           return false;         }       });     },     resetForm(formName) {       this.$refs[formName].resetFields();     },   }, }; &lt;/script&gt;</code></pre> <p><strong>六、添加样式</strong></p> <p><strong>1.</strong>在index.vue中，<strong>template标签中给div加个类：</strong></p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220604/9fc38078ebdec723f2986b6303481939.jpg"></p> <p>代码段：</p> <pre><code class="language-html">&lt;style scoped&gt; .register-container {   position: absolute;   width: 100%;   height: 100%;   overflow: hidden;   background-image: url("../../assets/4.jpg");   background-size: 100% 100%;   background-repeat: no-repeat; } &lt;/style&gt;</code></pre> <p>2.在App.vue中 ，style样式如下：</p> <pre><code class="language-html">&lt;style lang="less"&gt; body{   margin: 0; } &lt;/style&gt;</code></pre> <p>3.给form表单添加类：</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220604/36b711cff290760fba2e850acca4d54b.jpg"></p> <p>4.写类样式：</p> <pre><code class="language-html">.register-form {   width: 350px;   margin: 150px auto;   background-color: rgba(90, 187, 211, 0.7);   padding: 30px;   border-radius: 20px; }</code></pre> <p>&nbsp;5.在template标签添加一个h2标签，内容为注册页，添加一个类.title-zc&nbsp;类添加样式：</p> <pre><code class="language-html">.title-zc {   text-align: center; }</code></pre> <p>6.最终style样式代码如下：</p> <pre><code class="language-html">&lt;style scoped&gt; .register-container {   position: absolute;   width: 100%;   height: 100%;   overflow: hidden;   background-image: url("../../assets/4.jpg");   background-size: 100% 100%;   background-repeat: no-repeat; } .register-form {   width: 350px;   margin: 150px auto;   background-color: rgba(90, 187, 211, 0.7);   padding: 30px;   border-radius: 20px; } .title-zc {   text-align: center; } &lt;/style&gt;</code></pre> <p>7.运行界面：</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220604/0fc7e3911ee772999a6d4899b7093ae8.jpg"></p> <h2>七、表单效验</h2> <p>校验输入的帐号和昵称都不允许为空，两次密码必须相同。通过 rules 属性传入约定的验证规则。并将 el-form-item 的 prop 属性设置为需校验的字段名即可。</p> <p>1.校验输入的帐号和昵称都不允许为空，对应 label 左边会有红色 ，在index.vue的rules添加如下代码：</p> <pre><code class="language-javascript"> rules: {         username: [{ required: true, message: "请输入账号", trigger: "blur" }],//校验规则：必填、信息提示、失去焦点         nickname: [{ required: true, message: "请输入昵称", trigger: "blur" }],       },</code></pre> <p>2.校验两次密码必须相同，先在index.vue的rules中添加密码的校验规则，再在data选项的return外面自定义校验规则：（写在data里面，是变量，写在return里面，是数据）</p> <pre><code class="language-javascript"> rules: {         username: [{ required: true, message: "请输入账号", trigger: "blur" }],//校验规则：必填、信息提示、失去焦点         nickname: [{ required: true, message: "请输入昵称", trigger: "blur" }],         password: [{ validator: validatePass, trigger: "blur" }],         checkPass: [{ validator: validatePass2, trigger: "blur" }],       },</code></pre> <pre><code class="language-javascript"> data() {     var validatePass = (rule, value, callback) =&gt; {       //rule:password的详细信息，value：password的值，callback:如果都不满足，则正常提交       if (value === "") {         callback(new Error("请输入密码"));//输入为空的提示信息       } else {         if (this.form.checkPass !== "") {           this.$refs.form.validateField("checkPass");//如果确认密码不为空，则去validatePass2这个函数         }         callback();       }     };     var validatePass2 = (rule, value, callback) =&gt; {       if (value === "") {         callback(new Error("请再次输入密码"));       } else if (value !== this.form.password) {         callback(new Error("两次输入密码不一致!"));       } else {         callback();       }     };</code></pre> <h2>八、创建接口，nodejs添加注册认证接口</h2> <p><strong>1.配置node环境</strong></p> <p>在项目文件夹Attic下创建一个文件夹node,作为接口，用另一个vscode打开node文件夹,在终端打开，运行npm i express mongoose blueimp-md5 body-parser命令，安装node环境。（如果没有package.json这个文件，就运行npm init -y命令，检查express mongoose blueimp-md5 body-parser这四个是否安装成功，package.json文件中有这四个就是成功）</p> <p><strong>2<span style="color:#fe2c24;">.需求：</span></strong></p> <p>当接收到注册请求后，验证账号或昵称是否存在。验证成功，生成对应token和用户权限。将新用户添加到mongodb数据库中，响应状态码2000(2000:注册成功,3000:服务器错误,4000,昵称或账号存在)，跳转到登录页面</p> <p>3.在node文件根目录下创建app.js文件，配置如下代码，并运行&nbsp;node .\app.js命令启动服务：</p> <pre><code class="language-javascript">let express = require('express') let bodyParser = require('body-parser') let router = require('./router.js') let path = require('path')     // 引入模块 let app = express()     // 创建实例  app.use(bodyParser.urlencoded({ extended: false })) app.use(bodyParser.json())     // 固定写法  app.use('/node_modules', express.static(path.join(__dirname, "/node_modules")))     // 静态资源 app.use(router)     // 使用路由  app.listen(3000, () =&gt; console.log('服务已启动'))     // 监听服务</code></pre> <p>4.在node文件根目录下创建router.js路由文件</p> <pre><code class="language-javascript">let express = require('express')  let router = express.Router()  router.post("/user/register", (req, res) =&gt; { //发起post请求，更安全， post不会把值放在path上      let body = req.body     console.log(body); //在此log一下body才能再后来终端中拿到客户端的数据  }) module.exports = router</code></pre> <p>5.现在点击提交，仅仅弹出一个提交成功的信息，现在对应访问的接口还没有，所以要写出来，在前端src的api文件夹下新建一个login.js文件并配置如下代码（<span style="color:#956fe7;"><strong>个人理解</strong></span>：login.js是用来访问注册页和登录页的地址）：</p> <pre><code class="language-javascript">import request from "@/utils/request.js" export function register(username, nickname, password) { //访问注册页     return request({         url: "/user/register", //和node接口地址一致         method: "post",         data: {             username,             nickname,             password         }     }) }</code></pre> <p>6.在index.vue中导入login文件，在script标签里第一行引入：</p> <pre><code class="language-javascript">import { register } from "@/api/login.js";</code></pre> <p>7.现在点击提交，让它拿到数据，在&nbsp;alert("提交成功!")后书写下面代码：</p> <pre><code class="language-javascript"> register(this.form.username, this.form.nickname, this.form.password)             .then((res) =&gt; {               console.log("成功接口");             })             .catch((err) =&gt; {               console.log("失败");             });</code></pre> <p>8.改一下访问的端口，在前端的.env.development文件中把8888改成3000.</p> <p>9.重启node，看看能否在node终端拿到输入的数据</p> <h2><strong>九、把数据存到数据库里</strong></h2> <p>1.在node文件夹下建立一个crud.js文件，用来对数据库进行操作,并配置如下代码。</p> <pre><code class="language-javascript">const mongoose = require('mongoose')  mongoose.connect('mongodb://localhost/test') //和test数据库创建连接  module.exports = mongoose.model('Stu', { //数据库的规则     username: {         type: String,         required: true     },     nickname: {         type: String,         required: true     },     password: {         type: String,         required: true     },     token: {         type: String,         required: true     } })</code></pre> <p>2.在cmd中输入mongo，打开数据库，输入show dbs查看数据库，然后输入use test使用test这个库(这是我原来mongoose里面有的数据库，要是没有可以自己创建数据库，然后使用一下)，然后输入show collections查看所有的表</p> <p>3.在router.js里使用一下crud.js文件</p> <pre><code class="language-javascript">let User = require('./crud.js')</code></pre> <p>4.现在拿到了数据，要实现：去<span style="color:#a2e043;">数据库中查询这个数据</span>，如果有就不用创建了，如果没有就注册成功（响应状态码2000(2000:注册成功,3000:服务器错误,4000,昵称或账号存在)），然后把<span style="color:#956fe7;">数据存在数据库中，</span>重启下服务，在数据库输入db.stus.find()命令，查看数据是否存储成功代码如下<span style="color:#956fe7;">：</span></p> <pre><code class="language-javascript">let express = require('express') let User = require('./crud.js') let md5 = require('blueimp-md5') let router = express.Router()  router.post("/user/register", (req, res) =&gt; { //发起post请求，更安全， post不会把值放在path上      let body = req.body         // console.log(body); //在此log一下body才能再后来终端中拿到客户端的数据         // 在上面拿到了数据了，然后去数据库中查询，如果有就不用创建了，如果没有就注册成功       User.find({ // 去数据库中查询这个数据， 如果有就不用创建了（？？？？但是如果两个中只有一个数据库中有，他是注册成功还是失败，应该设置一下用户名唯一）         $or: [{             username: body.username         }, {             nickname: body.nickname         }]     }, (err, data) =&gt; {         if (err) {             return res.status(500).json({ //如果err，就是错误就是数据库中没有                 code: 3000,                 flag: false,                 message: "查询失败"             })         }         if (data.length !== 0) {             return res.status(200).json({ //如果数据库中有，就是账户被注册过                 code: 2000,                 flag: false,                 message: "用户或昵称已存在"             })         }         body.token = md5(md5(body.username) + "meimv")         console.log(body);         new User(body).save().then((data, err) =&gt; { //把数据存在数据库中             if (data) {                 return res.status(200).json({                     code: 2000,                     flag: true,                     message: "数据存储成功"                 })             }             if (err) {                 return res.status(500).json({                     code: 3000,                     flag: false,                     message: "存储失败"                 })             }         })     }) }) module.exports = router</code></pre> <h2>十、现在要实现：<span style="color:#ffd900;">跳转到登录界面</span>。</h2> <p>1.在前台register下的index.vue文件中的register的then里，添加如下代码，实现跳转到登录界面：</p> <pre><code class="language-javascript"> if (res.data.flag) {                 this.$router.push("/login");//实现跳转到登录界面               }</code></pre> <p>2.现在创建登录页面的路由地址，在前台router文件夹下的index.js文件的routes里添加如下代码：</p> <pre><code class="language-javascript">, {     path: "/login",     name: "login",     component: login, }];</code></pre> <p>&nbsp;3.现在要实现：跳转到登录页面，在前台router文件夹下的index.js文件中引入helloword.vue&nbsp;文件作为登录页面：</p> <pre><code class="language-javascript">import login from "../components/HelloWorld.vue"</code></pre> <h2>十一、现在实现：注册成功、失败弹出的提示信息</h2> <p>1.可以去element官网找样式，我已经复制过来，methods如下：</p> <pre><code class="language-javascript">methods: {     submitForm(formName) {       this.$refs[formName].validate((valid) =&gt; {         if (valid) {           // alert("submit!");           register(this.form.username, this.form.nickname, this.form.password)             .then((res) =&gt; {               //  console.log(res);               //  console.log("成功接口");               if (res.data.flag) {                 this.$message({                   showClose: true,                   message: "恭喜你，注册成功！",                   type: "success",                 });                 this.$router.push("/login");//实现跳转到登录界面               }             })             .catch((err) =&gt; {               // console.log("失败");               this.$message({                 showClose: true,                 message: "错了哦，这是一条错误消息",                 type: "error",               });             });         } else {           // console.log("error submit!!");            this.$message({                 showClose: true,                 message: "错了哦，注册失败！",                 type: "error",               });                        return false;         }       });     },     resetForm(formName) {       this.$refs[formName].resetFields();     },   },</code></pre> <p>注释：&nbsp;清空数据库表里的数据：db.stus.drop()</p> <p><span style="color:#ff9900;">2.弹出信息实时响应</span></p> <p><span style="color:#ff9900;">现在存在的一个问题：注册过的应该显示</span></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57409.htm">Vue刷新页面的三种方式</a></p>
+                                        <p>下一个：<a href="/news/article-57978.htm">宠物粮食加工厂设备有哪些种类的呢 宠物粮食加工厂设备有哪些种类的呢图片</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-57978.htm" title="宠物粮食加工厂设备有哪些种类的呢 宠物粮食加工厂设备有哪些种类的呢图片">宠物粮食加工厂设备有哪些种类的呢 宠物粮食加工厂设备有哪些种类的呢图片</a></li>
+                        <li class="py-2"><a href="/news/article-44855.htm" title="动物医院评论（动物医院评价）">动物医院评论（动物医院评价）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-5-free-node-subscribe-links.htm" title="2月5日→21.4M/S|2025年最新免费节点V2ray/Clash/Shadowrocket/SSR订阅链接地址">2月5日→21.4M/S|2025年最新免费节点V2ray/Clash/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-node-subscribe-links.htm" title="1月11日→19.2M/S|2025年最新免费节点V2ray/Clash/Shadowrocket/SSR订阅链接地址">1月11日→19.2M/S|2025年最新免费节点V2ray/Clash/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-free-node-subscribe-links.htm" title="1月28日→20.5M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">1月28日→20.5M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-52987.htm" title="实现宠物领养功能的意义（实现领养宠物的功能对象）">实现宠物领养功能的意义（实现领养宠物的功能对象）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-subscribe-node.htm" title="2月15日→20M/S|2025年最新免费节点SSR/V2ray/Shadowrocket/Clash订阅链接地址">2月15日→20M/S|2025年最新免费节点SSR/V2ray/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-55174.htm" title="延吉市动物卫生监督所电话（延吉市动物卫生监督所电话号码）">延吉市动物卫生监督所电话（延吉市动物卫生监督所电话号码）</a></li>
+                        <li class="py-2"><a href="/news/article-43382.htm" title="Vue+element搭建后台管理系统-二、安装插件">Vue+element搭建后台管理系统-二、安装插件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-free-high-speed-nodes.htm" title="2月10日→20.2M/S|2025年最新免费节点Clash/V2ray/SSR/Shadowrocket订阅链接地址">2月10日→20.2M/S|2025年最新免费节点Clash/V2ray/SSR/Shadowrocket订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
