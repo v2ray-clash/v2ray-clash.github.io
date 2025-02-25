@@ -1,0 +1,257 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-62036.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>仅用四步就整合好SpringSecurity+JWT实现登录认证！</title>
+        <meta name="description" content="小二是新来的实习生，作为技术 leader，我还是很负责任的，有什么锅都想甩给他，啊，不，一不小心怎么把心里话全说出来了呢？重来！ 小二是新来的实习生，作为技术 leader，我还是很负责任的，有什么" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-62036.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="仅用四步就整合好SpringSecurity+JWT实现登录认证！" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/03bf0d86a25b7d4a4d86029c3fa885ad.webp" />
+        <meta property="og:release_date" content="2025-02-24T09:15:15" />
+    <meta property="og:updated_time" content="2025-02-24T09:15:15" />
+        <meta property="og:description" content="小二是新来的实习生，作为技术 leader，我还是很负责任的，有什么锅都想甩给他，啊，不，一不小心怎么把心里话全说出来了呢？重来！ 小二是新来的实习生，作为技术 leader，我还是很负责任的，有什么" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="仅用四步就整合好SpringSecurity+JWT实现登录认证！">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>仅用四步就整合好SpringSecurity+JWT实现登录认证！</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<p>小二是新来的实习生，作为技术 leader，我还是很负责任的，有什么锅都想甩给他，啊，不，一不小心怎么把心里话全说出来了呢？重来！</p> <p>小二是新来的实习生，作为技术 leader，我还是很负责任的，有什么好事都想着他，这不，我就安排了一个整合SpringSecurity+JWT实现登录认证的小任务交，没想到，他仅用四步就搞定了，这让我感觉倍有面。</p> <h3 id="一关于-springsecurity">一、关于 SpringSecurity</h3> <p>在 Spring Boot 出现之前，SpringSecurity 的使用场景是被另外一个安全管理框架 Shiro 牢牢霸占的，因为相对于 SpringSecurity 来说，SSM 中整合 Shiro 更加轻量级。Spring Boot 出现后，使这一情况情况大有改观。正应了那句古话：一人得道鸡犬升天，虽然有点不大合适，就将就着用吧。</p> <p>这是因为 Spring Boot 为 SpringSecurity 提供了自动化配置，大大降低了 SpringSecurity 的学习成本。另外，SpringSecurity 的功能也比 Shiro 更加强大。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/551ee1edbfdb73a7f5c2f3dde77c6d65.jpg" alt="仅用四步就整合好SpringSecurity+JWT实现登录认证！"></p> <h3 id="二关于-jwt">二、关于 JWT</h3> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/s/Nsk43BHIqVxEHUVIfHJTTQ"  target="_blank" rel="nofollow">JWT</a>，是目前最流行的一个<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/s/HTMDZaukCb7pyfHefVcfyg"  target="_blank" rel="nofollow">跨域</a>认证解决方案：客户端发起用户登录请求，服务器端接收并认证成功后，生成一个 JSON 对象（如下所示），然后将其返回给客户端。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d98fdb98eb9afada8b92b40df70ab7ba.jpg" alt="仅用四步就整合好SpringSecurity+JWT实现登录认证！"></p> <p>从本质上来说，JWT 就像是一种生成加密用户身份信息的 Token，更安全也更灵活。</p> <h3 id="三整合步骤">三、整合步骤</h3> <p>第一步，给需要登录认证的模块添加 codingmore-security 依赖：</p> <pre><code>&lt;dependency&gt;     &lt;groupId&gt;top.codingmore&lt;/groupId&gt;     &lt;artifactId&gt;codingmore-security&lt;/artifactId&gt;     &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</code></pre> <p>比如说 codingmore-admin 后端管理模块需要登录认证，就在 codingmore-admin/pom.xml 文件中添加 codingmore-security 依赖。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c2988d90bab054ed7f57eb3f3f2a306d.jpg" alt="仅用四步就整合好SpringSecurity+JWT实现登录认证！"></p> <p>第二步，在需要登录认证的模块里添加 CodingmoreSecurityConfig 类，继承自 codingmore-security 模块中的 SecurityConfig 类。</p> <pre><code class="language-java">@Configuration @EnableWebSecurity @EnableGlobalMethodSecurity(prePostEnabled = true) public class CodingmoreSecurityConfig extends SecurityConfig {     @Autowired     private IUsersService usersService;      @Bean     public UserDetailsService userDetailsService() {         //获取登录用户信息         return username -&gt; usersService.loadUserByUsername(username);     } }</code></pre> <p>UserDetailsService 这个类主要是用来加载用户信息的，包括用户名、密码、权限、角色集合....其中有一个方法如下：</p> <pre><code class="language-java">UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;</code></pre> <p>认证逻辑中，SpringSecurity 会调用这个方法根据客户端传入的用户名加载该用户的详细信息，包括判断：</p> <ul> <li>密码是否一致</li> <li>通过后获取权限和角色</li> </ul> <pre><code class="language-java">    public UserDetails loadUserByUsername(String username) {         // 根据用户名查询用户         Users admin = getAdminByUsername(username);         if (admin != null) {             List&lt;Resource&gt; resourceList = getResourceList(admin.getId());             return new AdminUserDetails(admin,resourceList);         }         throw new UsernameNotFoundException("用户名或密码错误");     }</code></pre> <p>getAdminByUsername 负责根据用户名从数据库中查询出密码、角色、权限等。</p> <pre><code class="language-java">    public Users getAdminByUsername(String username) {         QueryWrapper&lt;Users&gt; queryWrapper = new QueryWrapper&lt;&gt;();         queryWrapper.eq("user_login", username);         List&lt;Users&gt; usersList = baseMapper.selectList(queryWrapper);          if (usersList != null &amp;&amp; usersList.size() &gt; 0) {             return usersList.get(0);         }          // 用户名错误，提前抛出异常         throw new UsernameNotFoundException("用户名错误");     }</code></pre> <p>第三步，在 application.yml 中配置下不需要安全保护的资源路径：</p> <pre><code class="language-java">secure:   ignored:     urls: #安全路径白名单       - /doc.html       - /swagger-ui/**       - /swagger/**       - /swagger-resources/**       - /**/v3/api-docs       - /**/*.js       - /**/*.css       - /**/*.png       - /**/*.ico       - /webjars/springfox-swagger-ui/**       - /actuator/**       - /druid/**       - /users/login       - /users/register       - /users/info       - /users/logout</code></pre> <p>第四步，在登录接口中添加登录和刷新 token 的方法：</p> <pre><code class="language-java">@Controller @Api(tags = "用户") @RequestMapping("/users") public class UsersController {     @Autowired     private IUsersService usersService;     @Value("${jwt.tokenHeader}")     private String tokenHeader;     @Value("${jwt.tokenHead}")     private String tokenHead;  @ApiOperation(value = "登录以后返回token")     @RequestMapping(value = "/login", method = RequestMethod.POST)     @ResponseBody     public ResultObject login(@Validated UsersLoginParam users, BindingResult result) {         String token = usersService.login(users.getUserLogin(), users.getUserPass());          if (token == null) {             return ResultObject.validateFailed("用户名或密码错误");         }          // 将 JWT 传递回客户端         Map&lt;String, String&gt; tokenMap = new HashMap&lt;&gt;();         tokenMap.put("token", token);         tokenMap.put("tokenHead", tokenHead);         return ResultObject.success(tokenMap);     }      @ApiOperation(value = "刷新token")     @RequestMapping(value = "/refreshToken", method = RequestMethod.GET)     @ResponseBody     public ResultObject refreshToken(HttpServletRequest request) {         String token = request.getHeader(tokenHeader);         String refreshToken = usersService.refreshToken(token);         if (refreshToken == null) {             return ResultObject.failed("token已经过期！");         }         Map&lt;String, String&gt; tokenMap = new HashMap&lt;&gt;();         tokenMap.put("token", refreshToken);         tokenMap.put("tokenHead", tokenHead);         return ResultObject.success(tokenMap);     } }</code></pre> <p>使用 Apipost 来测试一下，首先是文章获取接口，在没有登录的情况下会提示暂未登录或者 token 已过期。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/3242da5fc1745fbfba6689d4cdfaeabe.jpg" alt="仅用四步就整合好SpringSecurity+JWT实现登录认证！"></p> <h2 id="四实现原理">四、实现原理</h2> <p>小二之所以能仅用四步就实现了登录认证，主要是因为他将 SpringSecurity+JWT 的代码封装成了通用模块，我们来看看 codingmore-security 的目录结构。</p> <pre><code>codingmore-security ├── component |    ├── JwtAuthenticationTokenFilter -- JWT登录授权过滤器 |    ├── RestAuthenticationEntryPoint |    └── RestfulAccessDeniedHandler ├── config |    ├── IgnoreUrlsConfig |    └── SecurityConfig └── util      └── JwtTokenUtil -- JWT的token处理工具类</code></pre> <p>JwtAuthenticationTokenFilter 和 JwtTokenUtil 在讲<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/s/Nsk43BHIqVxEHUVIfHJTTQ"  target="_blank" rel="nofollow">JWT</a> 的时候已经详细地讲过了，这里再简单补充一点。</p> <p>客户端的请求头里携带了 token，服务端肯定是需要针对每次请求解析校验 token 的，所以必须得定义一个过滤器，也就是 JwtAuthenticationTokenFilter：</p> <ul> <li>从请求头中获取 token</li> <li>对 token 进行解析、验签、校验过期时间</li> <li>校验成功，将验证结果放到 ThreadLocal 中，供下次请求使用</li> </ul> <p>重点来看其他四个类。第一个 RestAuthenticationEntryPoint（自定义返回结果：未登录或登录过期）：</p> <pre><code class="language-java">public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {     @Override     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {         response.setHeader("Access-Control-Allow-Origin", "*");         response.setHeader("Cache-Control","no-cache");         response.setCharacterEncoding("UTF-8");         response.setContentType("application/json");         response.getWriter().println(JSONUtil.parse(ResultObject.unauthorized(authException.getMessage())));         response.getWriter().flush();     } }</code></pre> <p>可以通过 debug 的方式看一下返回的信息正是之前用户未登录状态下访问文章页的错误信息。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/6ff9ff0e5bb8b7048bbf1868bb3cb168.jpg" alt="仅用四步就整合好SpringSecurity+JWT实现登录认证！"></p> <p>具体的信息是在 ResultCode 类中定义的。</p> <pre><code class="language-java">public enum ResultCode implements IErrorCode {     SUCCESS(0, "操作成功"),     FAILED(500, "操作失败"),     VALIDATE_FAILED(506, "参数检验失败"),     UNAUTHORIZED(401, "暂未登录或token已经过期"),     FORBIDDEN(403, "没有相关权限");     private long code;     private String message;      private ResultCode(long code, String message) {         this.code = code;         this.message = message;     } }</code></pre> <p>第二个 RestfulAccessDeniedHandler（自定义返回结果：没有权限访问时）：</p> <pre><code class="language-java">public class RestfulAccessDeniedHandler implements AccessDeniedHandler{     @Override     public void handle(HttpServletRequest request,                        HttpServletResponse response,                        AccessDeniedException e) throws IOException, ServletException {         response.setHeader("Access-Control-Allow-Origin", "*");         response.setHeader("Cache-Control","no-cache");         response.setCharacterEncoding("UTF-8");         response.setContentType("application/json");         response.getWriter().println(JSONUtil.parse(ResultObject.forbidden(e.getMessage())));         response.getWriter().flush();     } }</code></pre> <p>第三个IgnoreUrlsConfig（用于配置不需要安全保护的资源路径）：</p> <pre><code class="language-java">@Getter @Setter @ConfigurationProperties(prefix = "secure.ignored") public class IgnoreUrlsConfig {     private List&lt;String&gt; urls = new ArrayList&lt;&gt;(); }</code></pre> <p>通过 lombok 注解的方式直接将配置文件中不需要权限校验的路径放开，比如说 Knife4j 的接口文档页面。如果不放开的话，就被 SpringSecurity 拦截了，没办法访问到了。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/abd8323843889c7d968fc588b1fe7054.jpg" alt="仅用四步就整合好SpringSecurity+JWT实现登录认证！"></p> <p>第四个SecurityConfig（SpringSecurity通用配置）：</p> <pre><code class="language-java">public class SecurityConfig extends WebSecurityConfigurerAdapter {      @Autowired(required = false)     private DynamicSecurityService dynamicSecurityService;      @Override     protected void configure(HttpSecurity httpSecurity) throws Exception {         ExpressionUrlAuthorizationConfigurer&lt;HttpSecurity&gt;.ExpressionInterceptUrlRegistry registry = httpSecurity                 .authorizeRequests();          //不需要保护的资源路径允许访问         for (String url : ignoreUrlsConfig().getUrls()) {             registry.antMatchers(url).permitAll();         }          // 任何请求需要身份认证         registry.and()                 .authorizeRequests()                 .anyRequest()                 .authenticated()                 // 关闭跨站请求防护及不使用session                 .and()                 .csrf()                 .disable()                 .sessionManagement()                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)                 // 自定义权限拒绝处理类                 .and()                 .exceptionHandling()                 .accessDeniedHandler(restfulAccessDeniedHandler())                 .authenticationEntryPoint(restAuthenticationEntryPoint())                 // 自定义权限拦截器JWT过滤器                 .and()                 .addFilterBefore(jwtAuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);         //有动态权限配置时添加动态权限校验过滤器         if(dynamicSecurityService!=null){             registry.and().addFilterBefore(dynamicSecurityFilter(), FilterSecurityInterceptor.class);         }     } }</code></pre> <p>这个类的主要作用就是告诉 SpringSecurity 那些路径不需要拦截，除此之外的，都要进行 RestfulAccessDeniedHandler（登录校验）、RestAuthenticationEntryPoint（权限校验）和 JwtAuthenticationTokenFilter（JWT 过滤）。</p> <p>并且将 JwtAuthenticationTokenFilter 过滤器添加到 UsernamePasswordAuthenticationFilter 过滤器之前。</p> <h3 id="五测试">五、测试</h3> <p>第一步，测试登录接口，Apipost 直接访问<code>http://localhost:9002/users/login</code>，可以看到 token 正常返回。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d62a28e6839e82b9b4edc2442e55de95.jpg" alt="仅用四步就整合好SpringSecurity+JWT实现登录认证！"></p> <p>第二步，不带 token 直接访问文章接口，可以看到进入了 RestAuthenticationEntryPoint 这个处理器：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/eaf4eaf638b033106545ccc38321cf38.jpg" alt="仅用四步就整合好SpringSecurity+JWT实现登录认证！"></p> <p>第三步，携带 token，这次我们改用 Knife4j 来测试，发现可以正常访问：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/690f1625bf081261229217d9447a2f38.jpg" alt="仅用四步就整合好SpringSecurity+JWT实现登录认证！"></p> <p>源码链接：</p> <blockquote> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/itwanger/coding-more"  target="_blank" rel="nofollow">https://github.com/itwanger/coding-more</a></p> </blockquote> <p></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-61445.htm">猫粮加工设备全套多少钱（猫粮加工机器）</a></p>
+                                        <p>下一个：<a href="/news/article-62037.htm">宠物领养app申请界面在哪找（宠物领养app申请界面在哪找到）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-free-high-speed-nodes.htm" title="2月13日→21.9M/S|2025年最新免费节点Clash/V2ray/Shadowrocket/SSR订阅链接地址">2月13日→21.9M/S|2025年最新免费节点Clash/V2ray/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-62628.htm" title="三国杀已出武将（三国杀出武将顺序）">三国杀已出武将（三国杀出武将顺序）</a></li>
+                        <li class="py-2"><a href="/news/article-38912.htm" title="动物疫苗制备流程视频教程（动物疫苗制作）">动物疫苗制备流程视频教程（动物疫苗制作）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-free-subscribe-node.htm" title="1月19日→19.1M/S|2025年最新免费节点SSR/Clash/V2ray/Shadowrocket订阅链接地址">1月19日→19.1M/S|2025年最新免费节点SSR/Clash/V2ray/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-45862.htm" title="动物疫苗行业的毛利润率是多少啊（动物疫苗赚钱吗）">动物疫苗行业的毛利润率是多少啊（动物疫苗赚钱吗）</a></li>
+                        <li class="py-2"><a href="/news/article-40879.htm" title="开动物医院什么资质可以开药（开动物医院什么资质可以开药店）">开动物医院什么资质可以开药（开动物医院什么资质可以开药店）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-node-share.htm" title="2月1日→18.6M/S|2025年最新免费节点Clash/SSR/V2ray/Shadowrocket订阅链接地址">2月1日→18.6M/S|2025年最新免费节点Clash/SSR/V2ray/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-free-subscribe-node.htm" title="2月17日→20.7M/S|2025年最新免费节点Shadowrocket/V2ray/SSR/Clash订阅链接地址">2月17日→20.7M/S|2025年最新免费节点Shadowrocket/V2ray/SSR/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-free-subscribe-node.htm" title="2月25日→20.9M/S|2025年最新免费节点Clash/Shadowrocket/V2ray/SSR订阅链接地址">2月25日→20.9M/S|2025年最新免费节点Clash/Shadowrocket/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-47807.htm" title="动物疫苗生产企业 动物疫苗生产企业排行">动物疫苗生产企业 动物疫苗生产企业排行</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
