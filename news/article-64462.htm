@@ -1,0 +1,257 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-64462.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>kerberos kafka 问题解决</title>
+        <meta name="description" content="修改 kafka界面 security.inter.broker.protocol SASL_PLAINTEXT 登录添加用户生成keytab kadmin.local add_principal f" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-64462.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="kerberos kafka 问题解决" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/12e9a67f8c0065b53692cdf908318a56.webp" />
+        <meta property="og:release_date" content="2025-02-28T06:56:05" />
+    <meta property="og:updated_time" content="2025-02-28T06:56:05" />
+        <meta property="og:description" content="修改 kafka界面 security.inter.broker.protocol SASL_PLAINTEXT 登录添加用户生成keytab kadmin.local add_principal f" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="kerberos kafka 问题解决">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>kerberos kafka 问题解决</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>修改 kafka界面 security.inter.broker.protocol SASL_PLAINTEXT<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221228/708512055aec312fe0d4357fb302ff31.jpg" alt="kerberos kafka 问题解决"></p> <p><strong>登录添加用户生成keytab</strong></p> <pre><code>kadmin.local add_principal flink/master@AQ.COM add_principal flink/worker-1@AQ.COM add_principal flink/worker-2@AQ.COM 生成文件 xst -k /usr/local/keytab/flink/flink-master.keytab flink/master@AQ.COM xst -k /usr/local/keytab/flink/flink-worker-1.keytab flink/worker-1@AQ.COM xst -k /usr/local/keytab/flink/flink-worker-2.keytab flink/worker-2@AQ.COM 或者 kadmin.local -q "xst -k /usr/local/keytab/flink/flink-master.keytab flink/master@AQ.COM" </code></pre> <p><strong>keytab合并</strong></p> <pre><code>ktutil rkt /usr/local/keytab/flink/flink-master.keytab rkt /usr/local/keytab/flink/flink-worker-1.keytab rkt /usr/local/keytab/flink/flink-worker-2.keytab wkt /usr/local/keytab/flink/flink.keytab </code></pre> <p><strong>查看keytab</strong></p> <pre><code>klist -ket user.keytab  </code></pre> <p><strong>kinit登录与kadmin.local不能同时存在</strong></p> <pre><code>kinit -kt /usr/local/keytab/flink/flink-master.keytab flink/master@AQ.COM </code></pre> <p><strong>删除认证缓存</strong></p> <pre><code>kdestroy </code></pre> <p><strong>kafka生产消费</strong></p> <pre><code>1.客户端操作kafka生产消费需要jaas.conf以及各自的生产消费的配置文件 2.代码需要设置两个变量 </code></pre> <p><strong>jaas.conf</strong></p> <pre><code>KafkaClient{  com.sun.security.auth.module.Krb5LoginModule required  keyTab="/usr/local/keytab/flink/flink.keytab"  principal="flink/master@AQ.COM"  useKeyTab=true  useTicketCache=true; }; Client{  com.sun.security.auth.module.Krb5LoginModule required  keyTab="/usr/local/keytab/flink/flink.keytab"  principal="flink/master@AQ.COM"  useKeyTab=true  useTicketCache=true; }; KafkaServer{  com.sun.security.auth.module.Krb5LoginModule required  keyTab="/usr/local/keytab/flink/flink.keytab"  principal="flink/master@AQ.COM"  useKeyTab=true  useTicketCache=true; }; </code></pre> <p><strong>producer.properties</strong></p> <pre><code>security.protocol=SASL_PLAINTEXT sasl.mechanism=GSSAPI sasl.kerberos.service.name=kafka </code></pre> <p><strong>consumer.properties</strong></p> <pre><code>security.protocol=SASL_PLAINTEXT sasl.mechanism=GSSAPI sasl.kerberos.service.name=kafka group.id=testClient </code></pre> <p><strong>客户端消费命令</strong></p> <pre><code>export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/local/keytab/kafka/jaas.conf" kafka-console-consumer --bootstrap-server master:9092 --topic tes  --consumer.config /usr/local/keytab/kafka/consumer.properties kafka-console-producer --broker-list master:9092 --topic tes --producer.config /usr/local/keytab/kafka/producer.properties  </code></pre> <p><strong>springboot-kafka配置问题</strong><br /> yml配置</p> <pre><code>  kafka:     bootstrap-servers: master:9092,worker-2:9092     producer:       #procedure要求leader在考虑完成请求之前收到的确认数，用于控制发送记录在服务端的持久化，其值可以为如下：       #acks = 0 如果设置为零，则生产者将不会等待来自服务器的任何确认，该记录将立即添加到套接字缓冲区并视为已发送。在这种情况下，无法保证服务器已收到记录，并且重试配置将不会生效（因为客户端通常不会知道任何故障），为每条记录返回的偏移量始终设置为-1。       #acks = 1 这意味着leader会将记录写入其本地日志，但无需等待所有副本服务器的完全确认即可做出回应，在这种情况下，如果leader在确认记录后立即失败，但在将数据复制到所有的副本服务器之前，则记录将会丢失。       #acks = all 这意味着leader将等待完整的同步副本集以确认记录，这保证了只要至少一个同步副本服务器仍然存活，记录就不会丢失，这是最强有力的保证，这相当于acks = -1的设置。       #可以设置的值为：all, -1, 0, 1       acks: 1       key-serializer: org.apache.kafka.common.serialization.StringSerializer       value-serializer: org.apache.kafka.common.serialization.StringSerializer       #=============== provider  =======================       # 写入失败时，重试次数。当leader节点失效，一个repli节点会替代成为leader节点，此时可能出现写入失败，       # 当retris为0时，produce不会重复。retirs重发，此时repli节点完全成为leader节点，不会产生消息丢失。       retries: 0     consumer:       group-id: mysqltestUserBehaviorGroup       enable-auto-commit: true       auto-offset-reset: latest       key-serializer: org.apache.kafka.common.serialization.StringSerializer       value-serializer: org.apache.kafka.common.serialization.StringSerializer     jaas:       enabled: true     properties:       security.protocol: SASL_PLAINTEXT       sasl.kerberos.service.name: kafka  </code></pre> <p>java flink 消费时候getKerberosJaas就好</p> <pre><code> import org.springframework.boot.SpringApplication; import org.springframework.boot.autoconfigure.SpringBootApplication;  @SpringBootApplication(scanBasePackages = "org.fuwushe") public class KafkaApplication {     public static void main(String []args){         getKerberosJaas();         SpringApplication.run(KafkaApplication.class,args);     }      public static void getKerberosJaas(){         System.setProperty("java.security.krb5.conf", "/etc/krb5.conf");         //加载本地jass.conf文件         System.setProperty("java.security.auth.login.config", "/usr/local/keytab/kafka/jaas.conf");          //System.setProperty("javax.security.auth.useSubjectCredsOnly", "false");         //System.setProperty("sun.security.krb5.debug","true");         //System.setProperty("java.security.auth.login.config", "/load/data/flink.keytab");      }  }   import org.apache.kafka.clients.consumer.ConsumerConfig; import org.apache.kafka.common.serialization.StringDeserializer; import org.fuwushe.da.kafka.ConsumerListener; import org.springframework.beans.factory.annotation.Value; import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration; import org.springframework.kafka.annotation.EnableKafka; import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory; import org.springframework.kafka.config.KafkaListenerContainerFactory; import org.springframework.kafka.core.ConsumerFactory; import org.springframework.kafka.core.DefaultKafkaConsumerFactory; import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;  import java.net.InetAddress; import java.net.UnknownHostException; import java.util.HashMap; import java.util.Map;   @Configuration @EnableKafka public class KafkaConsumerConfig {      @Value("${spring.kafka.bootstrap-servers}")     private String servers;      @Value("${spring.kafka.consumer.enable-auto-commit}")     private boolean enableAutoCommit;       @Value("${spring.kafka.consumer.group-id}")     private String groupId;      @Value("${spring.kafka.consumer.auto-offset-reset}")     private String autoOffsetReset;      @Bean     public KafkaListenerContainerFactory&lt;ConcurrentMessageListenerContainer&lt;String, String&gt;&gt; kafkaListenerContainerFactory() {          ConcurrentKafkaListenerContainerFactory&lt;String, String&gt; factory = new ConcurrentKafkaListenerContainerFactory&lt;&gt;();         factory.setConsumerFactory(consumerFactory());         factory.getContainerProperties().setPollTimeout(1500);         return factory;     }      public ConsumerFactory&lt;String, String&gt; consumerFactory() {          return new DefaultKafkaConsumerFactory&lt;&gt;(consumerConfigs());     }       public Map&lt;String, Object&gt; consumerConfigs() {          Map&lt;String, Object&gt; propsMap = new HashMap&lt;&gt;();         try {             String addr = InetAddress.getLocalHost().getHostAddress().replaceAll("\\.", "");//获得本机IP             propsMap.put(ConsumerConfig.GROUP_ID_CONFIG, groupId + addr);         } catch (UnknownHostException e) {             e.printStackTrace();         }  //        propsMap.put("security.protocol", "SASL_PLAINTEXT"); //        propsMap.put("sasl.kerberos.service.name", "kafka"); //        propsMap.put("java.security.auth.login.config","/load/data/jaas.conf"); //        propsMap.put("java.security.krb5.conf","/load/data/krb5.conf");         propsMap.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, servers);         propsMap.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, enableAutoCommit);         propsMap.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);         propsMap.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);          propsMap.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, autoOffsetReset);         return propsMap;     }      /**      * kafka监听      * @return      */     @Bean     public ConsumerListener listener() {          return new ConsumerListener();     }  } </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-63837.htm">动物疫苗属于疫苗分类吗对吗（动物疫苗属于疫苗的分类吗）</a></p>
+                                        <p>下一个：<a href="/news/article-64465.htm">动物疫苗和人体疫苗的区别是什么呢图片（动物疫苗对人体有害吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-38421.htm" title="宠物粮食批发网站有哪些平台（宠物粮食批发进货渠道）">宠物粮食批发网站有哪些平台（宠物粮食批发进货渠道）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-node-share.htm" title="2月3日→22.7M/S|2025年最新免费节点V2ray/SSR/Clash/Shadowrocket订阅链接地址">2月3日→22.7M/S|2025年最新免费节点V2ray/SSR/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-61444.htm" title="领养宠物合同怎么写（领养宠物的合同）">领养宠物合同怎么写（领养宠物的合同）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-high-speed-nodes.htm" title="1月10日→22.7M/S|2025年最新免费节点V2ray/SSR/Shadowrocket/Clash订阅链接地址">1月10日→22.7M/S|2025年最新免费节点V2ray/SSR/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37918.htm" title="广州宠物食品批发市场有哪些（广州宠物食品批发市场有哪些品牌）">广州宠物食品批发市场有哪些（广州宠物食品批发市场有哪些品牌）</a></li>
+                        <li class="py-2"><a href="/news/article-54619.htm" title="shiro550反序列学习">shiro550反序列学习</a></li>
+                        <li class="py-2"><a href="/news/article-41873.htm" title="天宠宠物医院张家窝（宠天福宠物医院）">天宠宠物医院张家窝（宠天福宠物医院）</a></li>
+                        <li class="py-2"><a href="/news/article-64465.htm" title="动物疫苗和人体疫苗的区别是什么呢图片（动物疫苗对人体有害吗）">动物疫苗和人体疫苗的区别是什么呢图片（动物疫苗对人体有害吗）</a></li>
+                        <li class="py-2"><a href="/news/article-63224.htm" title="动物疫苗新法案例分享会 动物疫苗新法案例分享会发言稿">动物疫苗新法案例分享会 动物疫苗新法案例分享会发言稿</a></li>
+                        <li class="py-2"><a href="/news/article-36332.htm" title="一个月小猫身上的跳蚤怎么彻底去除（一个月小猫身上的跳蚤怎么彻底去除呢）">一个月小猫身上的跳蚤怎么彻底去除（一个月小猫身上的跳蚤怎么彻底去除呢）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
