@@ -1,0 +1,260 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-67575.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>mysql数据库备份为空_解决JAVA调用mysqldump备份数据库时文件为空的问题</title>
+        <meta name="description" content="今天客户打电话来说我们的系统备份的sql文件为空文件。 这让我很凌乱，我们测试过滴，执行很成功嘛。 可客户使用的时候确实是备份失败嘛 ，这是事实。 我东测试西测试，在本机咋滴还是没出现这样的问题； 没" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-67575.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="mysql数据库备份为空_解决JAVA调用mysqldump备份数据库时文件为空的问题" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/e8d831ce91da6ef1e39f406c52607fa1.webp" />
+        <meta property="og:release_date" content="2025-03-05T11:11:19" />
+    <meta property="og:updated_time" content="2025-03-05T11:11:19" />
+        <meta property="og:description" content="今天客户打电话来说我们的系统备份的sql文件为空文件。 这让我很凌乱，我们测试过滴，执行很成功嘛。 可客户使用的时候确实是备份失败嘛 ，这是事实。 我东测试西测试，在本机咋滴还是没出现这样的问题； 没" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="mysql数据库备份为空_解决JAVA调用mysqldump备份数据库时文件为空的问题">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>mysql数据库备份为空_解决JAVA调用mysqldump备份数据库时文件为空的问题</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>今天客户打电话来说我们的系统备份的sql文件为空文件。</p> <p>这让我很凌乱，我们测试过滴，执行很成功嘛。</p> <p>可客户使用的时候确实是备份失败嘛 ，这是事实。</p> <p>我东测试西测试，在本机咋滴还是没出现这样的问题；</p> <p>没办法装了个虚拟机，安装了和客户一样的操作系统 ，并且按照客户安装步骤进行部署。</p> <p>结果，神奇事情出现了，所备份的数据库文件确实是空的，最后是东找西找，又是百度又是谷歌的,还是没有解决。</p> <p>后来我一想，mysql的安装路径不一样，我都喜欢把软件工具都安装在C盘以外，自定义的安装路径，而客户是安装在默认的Program Files下面，</p> <p>而文件夹有空格的名称的经常会致使一些莫名其妙的问题出现。</p> <p>想到就做，我将mysql bin目录下的mysqldump复制放到c盘,并且把系统语句改为</p> <p>Runtime rt = Runtime.getRuntime();</p> <p>rt.exec("cmd /c c:\\mysqldump -hlocalhost -uroot -p123456 --opt databaseName&gt;d:\\bk.sql");</p> <p>居然成功了，文件不再是0KB的空文件。自此，问题解决。</p> <p>罪魁祸首是Program Files文件夹的空字符串，不知道当初微软为啥要在中间加个空格。</p> <p>我项目的解决方案就是：</p> <p>1、将mysqldump.exe复制放到我的项目文件夹下</p> <p>2、执行备份时，先得到项目部署路径，然后执行</p> <p>Runtime rt = Runtime.getRuntime();</p> <p>String path = 获取mysqldump所在路径。</p> <p>rt.exec("cmd /c "+path+"\\mysqldump -hlocalhost -uroot -p123456 --opt databaseName&gt;d:\\bk.sql");</p> <p>3、前提是让客户部署时，别将项目部署在含有空格的文件夹下面。</p> <p>记录下问题的解决方法以供参考。</p> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-66956.htm">动物疫苗接种间隔时间短有什么危害 动物疫苗接种间隔时间短有什么危害吗</a></p>
+                                        <p>下一个：<a href="/news/article-67576.htm">天津宠物寄养多少钱一天（天津宠物寄养服务价格）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-57979.htm" title="宠物领养协议书范本模板下载大全 宠物领养协议书范本模板下载大全图片">宠物领养协议书范本模板下载大全 宠物领养协议书范本模板下载大全图片</a></li>
+                        <li class="py-2"><a href="/news/article-48260.htm" title="合肥宠物领养中心地址在哪里呀（合肥哪里领养宠物狗）">合肥宠物领养中心地址在哪里呀（合肥哪里领养宠物狗）</a></li>
+                        <li class="py-2"><a href="/news/article-53524.htm" title="宠物粮食批发市场地址查询官网（宠物粮食批发进货渠道）">宠物粮食批发市场地址查询官网（宠物粮食批发进货渠道）</a></li>
+                        <li class="py-2"><a href="/news/article-42373.htm" title="动物疫苗价格表最新图片及价格表 动物疫苗价格表最新图片及价格表大全">动物疫苗价格表最新图片及价格表 动物疫苗价格表最新图片及价格表大全</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-node-share-links.htm" title="3月5日→22.9M/S|2025年最新免费节点Clash/V2ray/Shadowrocket/SSR订阅链接地址">3月5日→22.9M/S|2025年最新免费节点Clash/V2ray/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36454.htm" title="宠物粮商标取名大全图片 宠物粮商标取名大全图片及名字">宠物粮商标取名大全图片 宠物粮商标取名大全图片及名字</a></li>
+                        <li class="py-2"><a href="/news/article-61445.htm" title="猫粮加工设备全套多少钱（猫粮加工机器）">猫粮加工设备全套多少钱（猫粮加工机器）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-node-share-links.htm" title="2月18日→18.6M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">2月18日→18.6M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-54620.htm" title="生物颗粒多少钱一吨呢济宁市（1吨的生物颗粒多少利润）">生物颗粒多少钱一吨呢济宁市（1吨的生物颗粒多少利润）</a></li>
+                        <li class="py-2"><a href="/news/article-41872.htm" title="spring集成mongodb及基础使用">spring集成mongodb及基础使用</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
