@@ -1,0 +1,260 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-70160.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SpringBoot分组校验及自定义校验注解</title>
+        <meta name="description" content="前言   在日常的开发中，参数校验是非常重要的一个环节，严格参数校验会减少很多出bug的概率，增加接口的安全性。在此之前写过一篇SpringBoot统一参数校验主要介绍了一些简单的校验方法。而这篇则是" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-70160.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="SpringBoot分组校验及自定义校验注解" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/fe6507b610d66b34cf8a0ec6dfa6482f.webp" />
+        <meta property="og:release_date" content="2025-03-09T09:44:43" />
+    <meta property="og:updated_time" content="2025-03-09T09:44:43" />
+        <meta property="og:description" content="前言   在日常的开发中，参数校验是非常重要的一个环节，严格参数校验会减少很多出bug的概率，增加接口的安全性。在此之前写过一篇SpringBoot统一参数校验主要介绍了一些简单的校验方法。而这篇则是" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot分组校验及自定义校验注解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>SpringBoot分组校验及自定义校验注解</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atelier-sulphurpool-light"> <p></p> <h3> <a id="_2" rel="nofollow"></a>前言</h3> <p>  在日常的开发中，<strong>参数校验</strong>是非常重要的一个环节，严格参数校验会减少很多出bug的概率，增加接口的安全性。在此之前写过一篇<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/u012110298/article/details/104664156"  rel="nofollow">SpringBoot统一参数校验</a>主要介绍了一些简单的校验方法。而这篇则是介绍一些进阶的校验方式。比如说：在某个接口编写的过程中肯定会遇到，当xxType值为A，paramA值必传。xxType值为B，paramB值必须传。对于这样的，通常的做法就是在controller加上各种if判断。显然这样的代码是不够优雅的，而分组校验及自定义参数校验，就是来解决这个问题的。</p> <h3> <a id="PathVariable_6" rel="nofollow"></a>PathVariable参数校验</h3> <p>  Restful的接口，在现在来讲应该是比较常见的了，常用的地址栏的参数，我们都是这样校验的。</p> <pre><code class="prism language-java"><span class="token comment">/**  * 获取电话号码信息  */</span> <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/phoneInfo/{phone}"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> ResultVo <span class="token function">phoneInfo</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"phone"</span><span class="token punctuation">)</span> String phone<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     <span class="token comment">// 验证电话号码是否有效</span>     String pattern <span class="token operator">=</span> <span class="token string">"^[1][3,4,5,7,8][0-9]{9}$"</span><span class="token punctuation">;</span>     <span class="token keyword">boolean</span> isValid <span class="token operator">=</span>  Pattern<span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> phone<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">if</span><span class="token punctuation">(</span>isValid<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token comment">// 执行相应逻辑</span>         <span class="token keyword">return</span> ResultVoUtil<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{<!-- --></span>         <span class="token comment">// 返回错误信息</span>         <span class="token keyword">return</span> ResultVoUtil<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"手机号码无效"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>很显然上面的代码不够优雅，所以我们可以在参数后面，添加对应的正则表达式<code>phone:正则表达式</code>来进行验证。这样就省去了在controller编写校验代码了。</p> <pre><code class="prism language-java"><span class="token comment">/**  * 获取电话号码信息  */</span> <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/phoneInfo/{phone:^[1][3,4,5,7,8][0-9]{9}$}"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> ResultVo <span class="token function">phoneInfo</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"phone"</span><span class="token punctuation">)</span> String phone<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     <span class="token keyword">return</span> ResultVoUtil<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <p>虽然这样处理后代码更精简了。但是如果传入的手机号码，不符合规则会直接返回404。而不是提示手机号码错误。错误信息如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230118/dcf7a9fc8b66e8b66cd9ba698328cb08.jpg" alt="SpringBoot分组校验及自定义校验注解"></p> <h3> <a id="_44" rel="nofollow"></a>自定义校验注解</h3> <p>  我们以校验手机号码为例，虽然<code>validation</code>提供了<code>@Pattern</code>这个注解来使用正则表达式进行校验。如果被使用在多处，一旦正则表达式发生更改，则需要一个一个的进行修改。很显然为了避免做这样的无用功，<code>自定义校验注解</code>就是你的好帮手。</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@Data</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PhoneForm</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">/**      * 电话号码      */</span>     <span class="token annotation punctuation">@Pattern</span><span class="token punctuation">(</span>regexp <span class="token operator">=</span> <span class="token string">"^[1][3,4,5,7,8][0-9]{9}$"</span> <span class="token punctuation">,</span> message <span class="token operator">=</span> <span class="token string">"电话号码有误"</span><span class="token punctuation">)</span>     <span class="token keyword">private</span> String phone<span class="token punctuation">;</span>  <span class="token punctuation">}</span> </code></pre> <p>  要实现一个自定义校验注解，主要是有两步。一是<strong>注解本身</strong>，二是<strong>校验逻辑实现类</strong>。</p> <h4> <a id="PhoneVerify__61" rel="nofollow"></a>PhoneVerify 校验注解</h4> <pre><code class="prism language-java"><span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>ElementType<span class="token punctuation">.</span>FIELD<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span>RetentionPolicy<span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span> <span class="token annotation punctuation">@Constraint</span><span class="token punctuation">(</span>validatedBy <span class="token operator">=</span> PhoneValidator<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token keyword">public</span> @<span class="token keyword">interface</span> <span class="token class-name">Phone</span> <span class="token punctuation">{<!-- --></span>       String <span class="token function">message</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token string">"手机号码格式有误"</span><span class="token punctuation">;</span>      Class<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">&gt;</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">groups</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">;</span>      Class<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">Payload</span><span class="token operator">&gt;</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">payload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span> </code></pre> <h4> <a id="PhoneValidator__77" rel="nofollow"></a>PhoneValidator 校验实现类</h4> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PhoneValidator</span> <span class="token keyword">implements</span> <span class="token class-name">ConstraintValidator</span><span class="token generics function"><span class="token punctuation">&lt;</span>Phone<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span> <span class="token punctuation">{<!-- --></span>      <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValid</span><span class="token punctuation">(</span>Object telephone<span class="token punctuation">,</span> ConstraintValidatorContext constraintValidatorContext<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         String pattern <span class="token operator">=</span> <span class="token string">"^1[3|4|5|7|8]\\d{9}$"</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> Pattern<span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> telephone<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <h4> <a id="CustomForm__90" rel="nofollow"></a>CustomForm 表单数据</h4> <pre><code class="prism language-java"><span class="token annotation punctuation">@Data</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CustomForm</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">/**      * 电话号码      */</span>     <span class="token annotation punctuation">@Phone</span>     <span class="token keyword">private</span> String phone<span class="token punctuation">;</span>  <span class="token punctuation">}</span> </code></pre> <h4> <a id="_105" rel="nofollow"></a>测试接口</h4> <pre><code class="prism language-java"><span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/customTest"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> ResultVo <span class="token function">customTest</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token annotation punctuation">@Validated</span> CustomForm form<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	<span class="token keyword">return</span> ResultVoUtil<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>form<span class="token punctuation">.</span><span class="token function">getPhone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h4> <a id="_114" rel="nofollow"></a>注解的含义</h4> <h5> <a id="TargetElementTypeFIELD_116" rel="nofollow"></a>@Target({ElementType.FIELD})</h5> <p>  注解是指定当前自定义注解可以使用在哪些地方，这里仅仅让他可以使用属性上。但还可以使用在更多的地方，比如说方法上、构造器上等等。</p> <ul> <li>TYPE - 类，接口（包括注解类型）或枚举</li> <li>FIELD - 字段（包括枚举常量）</li> <li>METHOD - 方法</li> <li>PARAMETER - 参数</li> <li>CONSTRUCTOR - 构造函数</li> <li>LOCAL_VARIABLE - 局部变量</li> <li>ANNOTATION_TYPE -注解类型</li> <li>PACKAGE - 包</li> <li>TYPE_PARAMETER - 类型参数</li> <li>TYPE_USE - 使用类型</li> </ul> <h5> <a id="RetentionRetentionPolicyRUNTIME_130" rel="nofollow"></a>@Retention(RetentionPolicy.RUNTIME)</h5> <p>  指定当前注解保留到运行时。保留策略有下面三种：</p> <ul> <li>SOURCE - 注解只保留在源文件，当Java文件编译成class文件的时候，注解被遗弃。</li> <li>CLASS - 注解被保留到class文件，但jvm加载class文件时候被遗弃，这是默认的生命周期。</li> <li>RUNTIME - 注解不仅被保存到class文件中，jvm加载class文件之后，仍然存在。</li> </ul> <h5> <a id="ConstraintvalidatedBy__PhoneValidatorclass_136" rel="nofollow"></a>@Constraint(validatedBy = PhoneValidator.class)</h5> <p>  指定了当前注解使用哪个校验类来进行校验。</p> <h3> <a id="_140" rel="nofollow"></a>分组校验</h3> <h4> <a id="UserForm_142" rel="nofollow"></a>UserForm</h4> <pre><code class="prism language-java"><span class="token annotation punctuation">@Data</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserForm</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">/**      * id      */</span>     <span class="token annotation punctuation">@Null</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">"新增时id必须为空"</span><span class="token punctuation">,</span> groups <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span>Insert<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token annotation punctuation">@NotNull</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">"更新时id不能为空"</span><span class="token punctuation">,</span> groups <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span>Update<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token keyword">private</span> String id<span class="token punctuation">;</span>      <span class="token comment">/**      * 类型      */</span>     <span class="token annotation punctuation">@NotEmpty</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">"姓名不能为空"</span> <span class="token punctuation">,</span> groups <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span>Insert<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token keyword">private</span> String name<span class="token punctuation">;</span>      <span class="token comment">/**      * 年龄      */</span>     <span class="token annotation punctuation">@NotEmpty</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">"年龄不能为空"</span> <span class="token punctuation">,</span> groups <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span>Insert<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token keyword">private</span> String age<span class="token punctuation">;</span>      <span class="token punctuation">}</span> </code></pre> <h4> <a id="Insert_170" rel="nofollow"></a>Insert分组</h4> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Insert</span> <span class="token punctuation">{<!-- --></span> <span class="token punctuation">}</span> </code></pre> <h4> <a id="Update_176" rel="nofollow"></a>Update分组</h4> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Update</span> <span class="token punctuation">{<!-- --></span> <span class="token punctuation">}</span> </code></pre> <h4> <a id="_181" rel="nofollow"></a>测试接口</h4> <pre><code class="prism language-java"><span class="token comment">/**  * 添加用户  */</span> <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/addUser"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> ResultVo <span class="token function">addUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token annotation punctuation">@Validated</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>Insert<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span> UserForm form<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>   	<span class="token comment">// 选择对应的分组进行校验</span>     <span class="token keyword">return</span> ResultVoUtil<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>form<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token comment">/**  * 更新用户  */</span> <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/updateUser"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> ResultVo <span class="token function">updateUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token annotation punctuation">@Validated</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>Update<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span> UserForm form<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     <span class="token comment">// 选择对应的分组进行校验</span>     <span class="token keyword">return</span> ResultVoUtil<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>form<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h4> <a id="_202" rel="nofollow"></a>测试结果</h4> <h5> <a id="_204" rel="nofollow"></a>添加测试</h5> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230118/151582929d4883f568f995512a9231f2.jpg" alt="SpringBoot分组校验及自定义校验注解"></p> <h5> <a id="_208" rel="nofollow"></a>更新测试</h5> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230118/702a39b684d9c685f42fdcc0127d26d9.jpg" alt="SpringBoot分组校验及自定义校验注解"></p> <h4> <a id="GroupSequence_212" rel="nofollow"></a>顺序校验<code>@GroupSequence</code><br /> </h4> <p>  在<code>@GroupSequence</code>内可以指定，分组校验的顺序。比如说<code>@GroupSequence({Insert.class, Update.class, UserForm.class})</code>先执行<code>Insert</code>校验，然后执行<code>Update</code>校验。如果<code>Insert</code>分组，校验失败了，则不会进行<code>Update</code>分组的校验。</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@Data</span> <span class="token annotation punctuation">@GroupSequence</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>Insert<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> Update<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> UserForm<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserForm</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">/**      * id      */</span>     <span class="token annotation punctuation">@Null</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">"新增时id必须为空"</span><span class="token punctuation">,</span> groups <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span>Insert<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token annotation punctuation">@NotNull</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">"更新时id不能为空"</span><span class="token punctuation">,</span> groups <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span>Update<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token keyword">private</span> String id<span class="token punctuation">;</span>      <span class="token comment">/**      * 类型      */</span>     <span class="token annotation punctuation">@NotEmpty</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">"姓名不能为空"</span> <span class="token punctuation">,</span> groups <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span>Insert<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token keyword">private</span> String name<span class="token punctuation">;</span>      <span class="token comment">/**      * 年龄      */</span>     <span class="token annotation punctuation">@NotEmpty</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">"年龄不能为空"</span> <span class="token punctuation">,</span> groups <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span>Insert<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token keyword">private</span> String age<span class="token punctuation">;</span>  <span class="token punctuation">}</span> </code></pre> <h5> <a id="_242" rel="nofollow"></a>测试接口</h5> <pre><code class="prism language-java"><span class="token comment">/** * 编辑用户 */</span> <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/editUser"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> ResultVo <span class="token function">editUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token annotation punctuation">@Validated</span> UserForm form<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	<span class="token keyword">return</span> ResultVoUtil<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>form<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h5> <a id="_254" rel="nofollow"></a>测试结果</h5> <p>  哈哈哈，测试结果其实是个死循环，不管你咋输入都会报错，小伙伴可以尝试一下哦。上面的例子只是个演示，在实际中还是别这样做了，需要根据具体逻辑进行校验。</p> <h3> <a id="_257" rel="nofollow"></a>自定义分组校验</h3> <p>  对于之前提到了当xxType值为A，paramA值必传。xxType值为B，paramB值必须传这样的场景。单独使用分组校验和分组序列是无法实现的。需要使用<code>@GroupSequenceProvider</code>才行。</p> <h4> <a id="_261" rel="nofollow"></a>自定义分组表单</h4> <pre><code class="prism language-java"><span class="token annotation punctuation">@Data</span> <span class="token annotation punctuation">@GroupSequenceProvider</span><span class="token punctuation">(</span>value <span class="token operator">=</span> CustomSequenceProvider<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CustomGroupForm</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">/**      * 类型      */</span>     <span class="token annotation punctuation">@Pattern</span><span class="token punctuation">(</span>regexp <span class="token operator">=</span> <span class="token string">"[A|B]"</span> <span class="token punctuation">,</span> message <span class="token operator">=</span> <span class="token string">"类型不必须为 A|B"</span><span class="token punctuation">)</span>     <span class="token keyword">private</span> String type<span class="token punctuation">;</span>      <span class="token comment">/**      * 参数A      */</span>     <span class="token annotation punctuation">@NotEmpty</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">"参数A不能为空"</span> <span class="token punctuation">,</span> groups <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span>WhenTypeIsA<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token keyword">private</span> String paramA<span class="token punctuation">;</span>      <span class="token comment">/**      * 参数B      */</span>     <span class="token annotation punctuation">@NotEmpty</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">"参数B不能为空"</span><span class="token punctuation">,</span> groups <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span>WhenTypeIsB<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token keyword">private</span> String paramB<span class="token punctuation">;</span>      <span class="token comment">/**      * 分组A      */</span>     <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">WhenTypeIsA</span> <span class="token punctuation">{<!-- --></span>      <span class="token punctuation">}</span>      <span class="token comment">/**      * 分组B      */</span>     <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">WhenTypeIsB</span> <span class="token punctuation">{<!-- --></span>      <span class="token punctuation">}</span>  <span class="token punctuation">}</span> </code></pre> <h4> <a id="CustomSequenceProvider_303" rel="nofollow"></a>CustomSequenceProvider</h4> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CustomSequenceProvider</span> <span class="token keyword">implements</span> <span class="token class-name">DefaultGroupSequenceProvider</span><span class="token generics function"><span class="token punctuation">&lt;</span>CustomGroupForm<span class="token punctuation">&gt;</span></span> <span class="token punctuation">{<!-- --></span>      <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> List<span class="token operator">&lt;</span>Class<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">&gt;&gt;</span> <span class="token function">getValidationGroups</span><span class="token punctuation">(</span>CustomGroupForm form<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         List<span class="token operator">&lt;</span>Class<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">&gt;&gt;</span> defaultGroupSequence <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          defaultGroupSequence<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>CustomGroupForm<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token keyword">if</span> <span class="token punctuation">(</span>form <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> <span class="token string">"A"</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>form<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             defaultGroupSequence<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>CustomGroupForm<span class="token punctuation">.</span>WhenTypeIsA<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token punctuation">}</span>          <span class="token keyword">if</span> <span class="token punctuation">(</span>form <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> <span class="token string">"B"</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>form<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             defaultGroupSequence<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>CustomGroupForm<span class="token punctuation">.</span>WhenTypeIsB<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token punctuation">}</span>          <span class="token keyword">return</span> defaultGroupSequence<span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <h4> <a id="_327" rel="nofollow"></a>测试接口</h4> <pre><code class="prism language-java"><span class="token comment">/**  * 自定义分组  */</span> <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/customGroup"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> ResultVo <span class="token function">customGroup</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token annotation punctuation">@Validated</span> CustomGroupForm form<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     <span class="token keyword">return</span> ResultVoUtil<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>form<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h4> <a id="_339" rel="nofollow"></a>测试结果</h4> <h5> <a id="TypeA_341" rel="nofollow"></a>Type类型为A</h5> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230118/dbc78c2b91b9c0ed4aaf660965c1c124.jpg" alt="SpringBoot分组校验及自定义校验注解"></p> <h5> <a id="TypeB_345" rel="nofollow"></a>Type类型为B</h5> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230118/fa9513aec9f2f0785d2a91bbc6336a6f.jpg" alt="SpringBoot分组校验及自定义校验注解"></p> <h4> <a id="_350" rel="nofollow"></a>小结一下</h4> <p>  <code>GroupSequence</code>注解是一个标准的Bean认证注解。正如之前，它能够让你静态的重新定义一个类的，默认校验组顺序。然而<code>GroupSequenceProvider</code>它能够让你动态的定义一个校验组的顺序。</p> <h3> <a id="_352" rel="nofollow"></a>注意的一个点</h3> <p>SpringBoot 2.3.x 移除了<code>validation</code>依赖需要手动引入依赖。</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-validation<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span> </code></pre> <h3> <a id="_363" rel="nofollow"></a>总结</h3> <p>  个人的一些小经验，参数的非空判断，这个应该是校验的第一步了，除了非空校验，我们还需要做到下面这几点：</p> <ul> <li>普通参数 - 需要限定字段的长度。如果会将数据存入数据库，长度以数据库为准，反之根据业务确定。</li> <li>类型参数 - 最好使用正则对可能出现的类型做到严格校验。比如<code>type</code>的值是【0|1|2】这样的。</li> <li>列表(list)参数 - 不仅需要对list内的参数是否合格进行校验，还需要对list的size进行限制。比如说 100。</li> <li>日期，邮件，金额，URL这类参数都需要使用对于的正则进行校验。</li> <li>参数真实性 - 这个主要针对于 各种<code>Id</code> 比如说 <code>userId</code>、<code>merchantId</code>，对于这样的参数，都需要进行真实性校验，判断系统内是有含有，并且对应的状态是否正常。</li> </ul> <p>  参数校验越严格越好，严格的校验规则不仅能减少接口出错的概率，同时还能避免出现脏数据，从而来保证系统的安全性和稳定性。</p> <blockquote> <p>错误的提醒信息需要友好一点哦，防止等下被前端大哥吐槽哦。</p> </blockquote> <h3> <a id="_377" rel="nofollow"></a>上期回顾</h3> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/u012110298/article/details/104664156"  rel="nofollow">SpringBoot统一参数校验</a></li> </ul> <h3> <a id="_381" rel="nofollow"></a>结尾</h3> <p>  如果觉得对你有帮助，可以多多评论，多多点赞哦，也可以到我的主页看看，说不定有你喜欢的文章，也可以随手点个关注哦，谢谢。</p> <p>  我是不一样的科技宅，每天进步一点点，体验不一样的生活。我们下期见！</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69516.htm">动物疫苗上市公司排名榜最新名单（国内动物疫苗龙头企业）</a></p>
+                                        <p>下一个：<a href="/news/article-70161.htm">十大动物疫苗公司排名榜单图片（全球动物疫苗龙头公司）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-21-free-high-speed-nodes.htm" title="2月21日→18.7M/S|2025年最新免费节点Shadowrocket/Clash/V2ray/SSR订阅链接地址">2月21日→18.7M/S|2025年最新免费节点Shadowrocket/Clash/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-53524.htm" title="宠物粮食批发市场地址查询官网（宠物粮食批发进货渠道）">宠物粮食批发市场地址查询官网（宠物粮食批发进货渠道）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-node-share.htm" title="3月2日→19.8M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">3月2日→19.8M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-free-high-speed-nodes.htm" title="2月4日→23M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">2月4日→23M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-free-subscribe-node.htm" title="1月23日→18.5M/S|2025年最新免费节点Clash/V2ray/Shadowrocket/SSR订阅链接地址">1月23日→18.5M/S|2025年最新免费节点Clash/V2ray/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-5-free-node-subscribe-links.htm" title="2月5日→21.4M/S|2025年最新免费节点V2ray/Clash/Shadowrocket/SSR订阅链接地址">2月5日→21.4M/S|2025年最新免费节点V2ray/Clash/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-node-share-links.htm" title="2月22日→22.7M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">2月22日→22.7M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-51416.htm" title="宠物收购中心收购清远（宠物收购站）">宠物收购中心收购清远（宠物收购站）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-node-share-links.htm" title="2月18日→18.6M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">2月18日→18.6M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-node-subscribe-links.htm" title="2月11日→20M/S|2025年最新免费节点Shadowrocket/Clash/V2ray/SSR订阅链接地址">2月11日→20M/S|2025年最新免费节点Shadowrocket/Clash/V2ray/SSR订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
