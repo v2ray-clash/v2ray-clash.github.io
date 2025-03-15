@@ -1,0 +1,260 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-73460.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Spring boot将图片转成base64,使用sun.misc.BASE64Decoder转换图片</title>
+        <meta name="description" content="本来项目要求的是后台给前端返回文件的地址，前端可以读取文件，图片或者pdf文件都能读取到，pdf根据浏览器会有显示和下载两种情况，doc等其他类型需要联网使用微软公司的接口。但是这样就暴露了服务器存放" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-73460.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="Spring boot将图片转成base64,使用sun.misc.BASE64Decoder转换图片" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/45bb5d2f87d998d3dff8c92da558655f.webp" />
+        <meta property="og:release_date" content="2025-03-14T07:05:12" />
+    <meta property="og:updated_time" content="2025-03-14T07:05:12" />
+        <meta property="og:description" content="本来项目要求的是后台给前端返回文件的地址，前端可以读取文件，图片或者pdf文件都能读取到，pdf根据浏览器会有显示和下载两种情况，doc等其他类型需要联网使用微软公司的接口。但是这样就暴露了服务器存放" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring boot将图片转成base64,使用sun.misc.BASE64Decoder转换图片">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>Spring boot将图片转成base64,使用sun.misc.BASE64Decoder转换图片</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p>本来项目要求的是后台给前端返回文件的地址，前端可以读取文件，图片或者pdf文件都能读取到，pdf根据浏览器会有显示和下载两种情况，doc等其他类型需要联网使用微软公司的接口。但是这样就暴露了服务器存放文件的地址，所以更改为把图片大小限制后转成base64编码持久化保存。</p> </h1> <p>pom文件直接导入：</p> <pre><code>&lt;!-- 图片转base64 --&gt;         &lt;!-- https://mvnrepository.com/artifact/com.slzx.third/sun.misc.BASE64Decoder --&gt; 		&lt;dependency&gt; 		    &lt;groupId&gt;com.slzx.third&lt;/groupId&gt; 		    &lt;artifactId&gt;sun.misc.BASE64Decoder&lt;/artifactId&gt; 		    &lt;version&gt;1.0&lt;/version&gt; 		&lt;/dependency&gt;</code></pre> <p>就是文件下载不下来，就直接把jar包下载下来放到本地mvn库中<br /> 路径不变<br /> 进cmd后输入</p> <pre><code>mvn install:install-file -DgroupId=com.slzx.third -DartifactId=sun.misc.BASE64Decoder -Dversion=1.0 -Dpackaging=jar -Dfile=D:\software\sunmiscbase64decoder\sun.misc.BASE64Decoder.jar</code></pre> </h1> <p>@param imgFilePath 待处理图片的地址<br /> @return 注意这里只返回图片的base64编码，没有文件类型》》data:image/png;base64,添加类型信息后可以在img标签中显示</p> <pre><code>package com.psbc.pfpj.utils;  import java.io.File; import java.io.FileInputStream; import java.io.FileOutputStream; import java.io.IOException; import java.io.InputStream; import java.io.OutputStream;  import Decoder.BASE64Decoder; import Decoder.BASE64Encoder;  public class ImgTypeConvert { 	 	/** 	 * 将图片转换成Base64编码 	 *  	 * @param imgFilePath  待处理图片文件的地址 	 * @return 注意这里只返回图片的base64编码，没有文件类型》》data:image/png;base64,添加类型信息后可以在img标签中显示 	 */ 	public static String getImgStr(String imgFilePath) { 		// 将图片文件转化为字节数组字符串，并对其进行Base64编码处理 		File file=new File(imgFilePath); 		InputStream in = null; 		byte[] data = null; 		// 读取图片字节数组 		try { 			in = new FileInputStream(file); 			data = new byte[in.available()]; 			in.read(data); 			in.close(); 			if(data!=null&amp;&amp;data.length&gt;0){ 				//删除图片 //				file.delete(); 			} 		} catch (IOException e) { 			e.printStackTrace(); 		} 		 		BASE64Encoder encoder = new BASE64Encoder(); 		return encoder.encode(data); 	} 	          public static void main(String[] args) {     	String base64 = ImgTypeConvert.getImgStr("C:\\Users\\28054\\Pictures\\QQ浏览器截图\\QQ浏览器截图20210112094524.png"); 		System.out.println(base64); 		System.out.println(ImgTypeConvert.GenerateImage(base64, "D:\\a.jpg")); 		 	}          /** 	 * @Description: 将base64编码字符串转换为图片 	 * @Author:  	 * @CreateTime:  	 * @param imgStr base64编码字符串 	 * @param path 图片路径-文件名自己定义 	 * @return 	*/      public static boolean GenerateImage(String imgStr,String imgFilePath)       {   //对字节数组字符串进行Base64解码并生成图片           if (imgStr == null) //图像数据为空               return false;           BASE64Decoder decoder = new BASE64Decoder();           try            {               //Base64解码               byte[] b = decoder.decodeBuffer(imgStr);               for(int i=0;i&lt;b.length;++i)               {                   if(b[i]&lt;0)                   {//调整异常数据                       b[i]+=256;                   }               }               //生成图片               OutputStream out = new FileOutputStream(imgFilePath);                   out.write(b);               out.flush();               out.close();               return true;           }            catch (Exception e)            {               return false;           }       }               }</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-73458.htm">JAVA 实现websocket作为客户端（自动断线重连）</a></p>
+                                        <p>下一个：<a href="/news/article-74124.htm">宠物食品业务员底薪（宠物食品业务员底薪多少钱）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-49329.htm" title="长春宠物医院收费价目表最新（长春市宠物医院便宜）">长春宠物医院收费价目表最新（长春市宠物医院便宜）</a></li>
+                        <li class="py-2"><a href="/news/article-53524.htm" title="宠物粮食批发市场地址查询官网（宠物粮食批发进货渠道）">宠物粮食批发市场地址查询官网（宠物粮食批发进货渠道）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-free-subscribe-node.htm" title="1月30日→20.3M/S|2025年最新免费节点Shadowrocket/SSR/V2ray/Clash订阅链接地址">1月30日→20.3M/S|2025年最新免费节点Shadowrocket/SSR/V2ray/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-54619.htm" title="shiro550反序列学习">shiro550反序列学习</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-node-share.htm" title="1月5日→18.4M/S|2025年最新免费节点SSR/V2ray/Clash订阅链接地址">1月5日→18.4M/S|2025年最新免费节点SSR/V2ray/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-70160.htm" title="SpringBoot分组校验及自定义校验注解">SpringBoot分组校验及自定义校验注解</a></li>
+                        <li class="py-2"><a href="/news/article-37443.htm" title="动物医院要求什么学历才能进去（动物医院挣钱吗）">动物医院要求什么学历才能进去（动物医院挣钱吗）</a></li>
+                        <li class="py-2"><a href="/news/article-68223.htm" title="分布式服务请求报错：Read timed out executing POST http://businessApi/app/app/login">分布式服务请求报错：Read timed out executing POST http://businessApi/app/app/login</a></li>
+                        <li class="py-2"><a href="/news/article-54620.htm" title="生物颗粒多少钱一吨呢济宁市（1吨的生物颗粒多少利润）">生物颗粒多少钱一吨呢济宁市（1吨的生物颗粒多少利润）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-node-share.htm" title="2月9日→22.5M/S|2025年最新免费节点V2ray/Shadowrocket/SSR/Clash订阅链接地址">2月9日→22.5M/S|2025年最新免费节点V2ray/Shadowrocket/SSR/Clash订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
