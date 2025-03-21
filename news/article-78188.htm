@@ -1,0 +1,260 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-78188.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Spring IOC Bean 创建的整体流程</title>
+        <meta name="description" content="Spring IOC 中涉及的重要接口   BeanDefinitionBean的描述信息，实现类包括RootBeanDefinition 和GenericBeanDefinition，Bean的描述" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-78188.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="Spring IOC Bean 创建的整体流程" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/19003818b3d37a808f6bcc072e5bc5b1.webp" />
+        <meta property="og:release_date" content="2025-03-21T10:29:19" />
+    <meta property="og:updated_time" content="2025-03-21T10:29:19" />
+        <meta property="og:description" content="Spring IOC 中涉及的重要接口   BeanDefinitionBean的描述信息，实现类包括RootBeanDefinition 和GenericBeanDefinition，Bean的描述" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring IOC Bean 创建的整体流程">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>Spring IOC Bean 创建的整体流程</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<h3 id="spring-ioc-中涉及的重要接口"><code>Spring IOC</code> 中涉及的重要接口</h3> <ul> <li> <p><code>BeanDefinition</code><br /><code>Bean</code>的描述信息，实现类包括<code>RootBeanDefinition</code> 和<code>GenericBeanDefinition</code>，Bean的描述信息中定义了一系列Bean的信息，比如：<code>beanClassName</code>、<code>scope</code>、<code>lazyinit</code>、<code>dependsOn</code>、<code>primary</code>、<code>initMethodName</code>、<code>destroyMethodName</code>、<code>isSington</code>、<code>isAbstract</code>等信息。</p> </li> <li> <p><code>BeanDefinitionReader</code></p> <p>用于解析<code>Bean</code>的资源阅读器，比如针对于<code>XML</code>文件的配置的<code>Bean</code>，实现类<code>XmlBeanDefinitionReader</code>，针对<code>properties</code>文件的配置的<code>Bean</code>，实现类为<code>PropertiesBeanDefinitionReader</code>，<code>Spring</code>在启动时会将<code>xml</code>文件通过<code>loadBeanDefinitions</code>方法进行解析。</p> </li> <li> <p><code>BeanFactory</code><br /> 是<code>IOC</code>容器实现的顶层接口，默认的实现为<code>DefaultListableBeanFactory</code>，<code>Spring Bean</code> 的整个生命周期都是由<code>DefaultListableBeanFactory</code>去管理的，<strong>这个类非常的重要</strong>。</p> </li> <li> <p><code>BeanFactoryPostProcessor</code></p> <p>这个接口是<code>BeanFactory</code>的增强处理器，用于在<code>Bean</code>加载为<code>BeanDefinition</code>之后的扩展，比如实现类<code>PlaceHolderConfigurerSupport</code> 就是用来处理占位符解析的，当我在<code>xml</code>文件中配置<code>jdbc</code>信息的时候，通过是用<code>${xxx.jdbUrl}</code>这种方式配置数据库连接的时候，就是通过这个类来处理和解析的。</p> </li> <li> <p><code>Aware</code></p> <p>这个接口，他下面有一堆的子接口，比如<code>BeanNameAware</code>、<code>ApplicationContextAware</code>、<code>BeanFactoryAware</code>、<code>EnvironmentAware</code>等，可以通过实现这些接口完成<code>ioc</code>容器中特定信息的设置，比如<code>EnvironmentAware</code>，可以在<code>Bean</code>创建过程中设置环境信息到对应的<code>Bean</code>对象中，后期通过<code>bean</code>对象获取环境信息数据。</p> </li> <li> <p><code>BeanPostProcessor</code></p> <p>这个接口是<code>Bean</code>的增强处理器，用于在<code>Bean</code>进行初始化时调用<code>init-method</code>方法的前后进行增强，他有两个方法：<code>postProcessBeforeInitialization</code>和<code>postProcessAfterInitialization</code>，分别用于<code>bean</code>初始化方法<code>init-method</code>之前和之后调用，当然还可以进行很多扩展，比如<code>aop</code>就是通过<code>postProcessAfterInitialization</code>方法中去创建动态代理对象。</p> </li> </ul> <h3 id="spring-bean-的生命周期"><code>Spring Bean</code> 的生命周期</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/44945d57d34271799345e0fe8e9be72b.jpg" alt="Spring IOC Bean 创建的整体流程"></p> <ul> <li>首先通过BeanDefinitionReader将xml中的Bean配置加载到BeanDefinition中</li> <li>然后将BeanDefinition放入DefaultListableBeanFacotry的beanDefinitionMap和beanDefinitionNames集合中</li> <li>然后调用BeanFactoryPostProcessor#postProcessorBeanFactory对容器中的BeanDefinition的属性进行增强解析</li> <li>然后通过反射调用对象的构造函数进行对象的实例化</li> <li>然后调用populateBean进行属性填充</li> <li>然后调用初始化方法initializeBean，初始化时又会先调用invokeAwareMethods方法执行一堆的Aware方法</li> <li>然后BeanPostProcessor#postProcessBeforeInitialization方法执行bean增强器的前置处理</li> <li>然后调用InitializingBean#afterPropertiesSet方法或者是调用自定义的init-method方法</li> <li>然后调用BeanPostProcessor#postProcessAfterInitialization方法执行bean增强的后置处理</li> <li>最后完成Bean的创建，最终放入一级缓存singletonObjects中</li> </ul> <p>整体流程大概就是这个，有了整体流程就可以进行下一步Bean创建的细节解读。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-77505.htm">中国宠物粮食公司排名前十（国内宠物粮食十大厂家）</a></p>
+                                        <p>下一个：<a href="/news/article-78189.htm">【Electron】在 WSL2 中 打包 electron Linux 版本应用及运行 &#8211; E不小心 _在线工具</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-48806.htm" title="广州猫猫领养园电话（广州猫咪领养中心在哪）">广州猫猫领养园电话（广州猫咪领养中心在哪）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-node-subscribe-links.htm" title="2月11日→20M/S|2025年最新免费节点Shadowrocket/Clash/V2ray/SSR订阅链接地址">2月11日→20M/S|2025年最新免费节点Shadowrocket/Clash/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-8-node-share-links.htm" title="2月8日→18.4M/S|2025年最新免费节点V2ray/Shadowrocket/SSR/Clash订阅链接地址">2月8日→18.4M/S|2025年最新免费节点V2ray/Shadowrocket/SSR/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-free-high-speed-nodes.htm" title="2月4日→23M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">2月4日→23M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-62036.htm" title="仅用四步就整合好SpringSecurity+JWT实现登录认证！">仅用四步就整合好SpringSecurity+JWT实现登录认证！</a></li>
+                        <li class="py-2"><a href="/news/article-45861.htm" title="宠物店狗粮多少钱一斤（宠物店狗粮一般多少钱一斤）">宠物店狗粮多少钱一斤（宠物店狗粮一般多少钱一斤）</a></li>
+                        <li class="py-2"><a href="/news/article-74124.htm" title="宠物食品业务员底薪（宠物食品业务员底薪多少钱）">宠物食品业务员底薪（宠物食品业务员底薪多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-76822.htm" title="厦门宠物同城领养（厦门领养宠物中心）">厦门宠物同城领养（厦门领养宠物中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-node-share-links.htm" title="2月22日→22.7M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">2月22日→22.7M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-free-subscribe-node.htm" title="3月13日→20.7M/S|2025年最新免费节点Shadowrocket/V2ray/SSR/Clash订阅链接地址">3月13日→20.7M/S|2025年最新免费节点Shadowrocket/V2ray/SSR/Clash订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
