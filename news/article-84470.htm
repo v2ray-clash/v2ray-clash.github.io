@@ -1,0 +1,260 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-84470.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ArrayUtils和Arrays比较常用的方法推荐</title>
+        <meta name="description" content="Arrays属于rt.jar中java.util包下面的类，不需要引入其他外部jar,而ArrayUtils属于commons-lang.jar中org.apache.commons.lang3包下下" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-84470.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="ArrayUtils和Arrays比较常用的方法推荐" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/7c354e3aa2356bd73a2b3460c584939e.webp" />
+        <meta property="og:release_date" content="2025-03-30T09:32:30" />
+    <meta property="og:updated_time" content="2025-03-30T09:32:30" />
+        <meta property="og:description" content="Arrays属于rt.jar中java.util包下面的类，不需要引入其他外部jar,而ArrayUtils属于commons-lang.jar中org.apache.commons.lang3包下下" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ArrayUtils和Arrays比较常用的方法推荐">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>ArrayUtils和Arrays比较常用的方法推荐</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>Arrays属于rt.jar中java.util包下面的类，不需要引入其他外部jar,而ArrayUtils属于commons-lang.jar中org.apache.commons.lang3包下下面的类，要想使用此类需要引入包。<br /> 一.Arrays方法介绍<br /> &nbsp; &nbsp; &nbsp;1.asList方法，很方便的讲一个对象转为List集合使用，<span style="color:#f33b45;">但是此方法转成的List集合有个坑，那就是转成的List并不是新建java.util包下面的List，而是内部类List,虽然继承了AbstractList抽象类，但是它只实现部分的方法，并没有实现add等一些方法，所以此处要注意。</span><br /><img fetchpriority="high" decoding="async" alt="" class="has" height="539" src="http://img.555519.xyz/uploads/20230223/f99f4aafb2b32f64e1e8ac7e00148efd.jpg"><br /> 2.sort方法，可以很方便的对数组等进行排序，无需自己单独去实现。<br /><img decoding="async" alt="" class="has" height="297" src="http://img.555519.xyz/uploads/20230223/f43af23bf11f7c58ed1e05dab6eca6f5.jpg"><img decoding="async" alt="" class="has" height="198" src="http://img.555519.xyz/uploads/20230223/5e9cf2c61879a78f87a90f617a79f71b.jpg"><br /> 3.equals方法，快速判断两个数组是否相等，可以看一下源码。先比较地址，地址相等，数组自然是想等的。<br /><img loading="lazy" decoding="async" alt="" class="has" height="314" src="http://img.555519.xyz/uploads/20230223/39498ab1a5501024c7d71b2f2cd781b1.jpg"><br /> 4.binarySearch方法，<span style="color:#f33b45;">此法为二分搜索法，查询前需要用sort()方法将数组排序</span>，如果数组没有排序，则结果是不确定的，另外如果数组中含有多个指定值的元素，则无法保证找到的是哪一个。<br /><img loading="lazy" decoding="async" alt="" class="has" height="265" src="http://img.555519.xyz/uploads/20230223/d3f43d519b56987c9d60d10d618febd6.jpg"><br /><img loading="lazy" decoding="async" alt="" class="has" height="259" src="http://img.555519.xyz/uploads/20230223/c7c80a91c7e561bd7f1cd03c922ddb67.jpg"><br /> 以上就是Arrays最常见的，其他的就不一一列举了。</p> <p> 二、ArrayUtils方法介绍<br /> &nbsp; &nbsp; &nbsp; 1.toArray方法，可以快速将某个对象转为数组。<br /><img loading="lazy" decoding="async" alt="" class="has" height="297" src="http://img.555519.xyz/uploads/20230223/138adcd8767fea3fd4d10060ee7705a6.jpg"></p> <p>2.toObject方法，快速将基本数据类型的数据转成自己的包装类数组。源码和demo<br /><img loading="lazy" decoding="async" alt="" class="has" height="232" src="http://img.555519.xyz/uploads/20230223/bdd1e27bbc7eb03e72bde4fdabc492f2.jpg"><img loading="lazy" decoding="async" alt="" class="has" height="81" src="http://img.555519.xyz/uploads/20230223/07f5eaeacda263498a2c60237667f287.jpg"></p> <p>3.nullToEmpty方法，判断数据是不是空，为空则创建一个新的空数据。源码和demo<br /><img loading="lazy" decoding="async" alt="" class="has" height="119" src="http://img.555519.xyz/uploads/20230223/d9cf65572f9379e99fdb725b1552881d.jpg"><img loading="lazy" decoding="async" alt="" class="has" height="93" src="http://img.555519.xyz/uploads/20230223/4650b84759abaa687308a6d6d543a55c.jpg"></p> <p>4.isEmpty方法，快速判断数组是不是空。源码和demo<br /><img loading="lazy" decoding="async" alt="" class="has" height="77" src="http://img.555519.xyz/uploads/20230223/f11e65dc124429cc488ffd4a7a52a6e7.jpg"><img loading="lazy" decoding="async" alt="" class="has" height="130" src="http://img.555519.xyz/uploads/20230223/703a574830c3f5d0336ed0ccc344d2c9.jpg"><br /><img loading="lazy" decoding="async" alt="" class="has" height="199" src="http://img.555519.xyz/uploads/20230223/f7b2e6c4eb8624da778816c62aad29a3.jpg"></p> <p>5.contains方法，数组中是否包含某个元素，源码和demo<br /><img loading="lazy" decoding="async" alt="" class="has" height="75" src="http://img.555519.xyz/uploads/20230223/4c13e92e0759bec9766c95ee9632fc16.jpg"><img loading="lazy" decoding="async" alt="" class="has" height="217" src="http://img.555519.xyz/uploads/20230223/8bb5b37995aeee7a03794f0e51c06ae6.jpg"></p> <p>还有其他的方法等等，单可能这几个相对来说用的比较多些。</p> <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-83761.htm">宠物领养店内消费协议书范本（宠物店免费领养人须知）</a></p>
+                                        <p>下一个：<a href="/news/article-84471.htm">太阳宫附近有什么医院（太阳宫附近有啥好玩的）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-37442.htm" title="宠物医院证件办理流程图（宠物医院证好办吗）">宠物医院证件办理流程图（宠物医院证好办吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-node-share-links.htm" title="3月8日→18.3M/S|2025年最新免费节点SSR/Clash/Shadowrocket/V2ray订阅链接地址">3月8日→18.3M/S|2025年最新免费节点SSR/Clash/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-55734.htm" title="沈阳宠物用品市场搬到啥地方了（沈阳宠物用品超市）">沈阳宠物用品市场搬到啥地方了（沈阳宠物用品超市）</a></li>
+                        <li class="py-2"><a href="/news/article-60268.htm" title="合肥宠物领养中心地址电话号码（合肥宠物领养中心地址电话号码是多少）">合肥宠物领养中心地址电话号码（合肥宠物领养中心地址电话号码是多少）</a></li>
+                        <li class="py-2"><a href="/news/article-44854.htm" title="Redis如何无锁应对并发访问及如何实现分布式锁">Redis如何无锁应对并发访问及如何实现分布式锁</a></li>
+                        <li class="py-2"><a href="/news/article-59122.htm" title="java的Integer中也会有缓存">java的Integer中也会有缓存</a></li>
+                        <li class="py-2"><a href="/news/article-64462.htm" title="kerberos kafka 问题解决">kerberos kafka 问题解决</a></li>
+                        <li class="py-2"><a href="/news/article-50356.htm" title="兽医执业医师资格考试报名条件（兽医执业医师资格考试报名条件及要求）">兽医执业医师资格考试报名条件（兽医执业医师资格考试报名条件及要求）</a></li>
+                        <li class="py-2"><a href="/news/article-72788.htm" title="关于免费领养宠物的正规平台芜湖有哪些呢多少钱的信息">关于免费领养宠物的正规平台芜湖有哪些呢多少钱的信息</a></li>
+                        <li class="py-2"><a href="/news/article-63223.htm" title="开动物医院的条件有哪些要求（开动物医院需要多少资金）">开动物医院的条件有哪些要求（开动物医院需要多少资金）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
