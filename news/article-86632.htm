@@ -1,0 +1,257 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-86632.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@Transactional 详解</title>
+        <meta name="description" content="前些天发现了一个巨牛的人工智能学习网站，通俗易懂，风趣幽默，忍不住分享一下给大家。点击跳转到教程。  @Transactional 是声明式事务管理 编程中使用的注解 1 .添加位置 1）接口实现类或" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-86632.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="@Transactional 详解" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/450f340ecc8372598b188f2217fb9b21.webp" />
+        <meta property="og:release_date" content="2025-04-02T07:43:50" />
+    <meta property="og:updated_time" content="2025-04-02T07:43:50" />
+        <meta property="og:description" content="前些天发现了一个巨牛的人工智能学习网站，通俗易懂，风趣幽默，忍不住分享一下给大家。点击跳转到教程。  @Transactional 是声明式事务管理 编程中使用的注解 1 .添加位置 1）接口实现类或" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="@Transactional 详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>@Transactional 详解</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.captainai.net/jiangyu1013/"  title="前些天发现了一个巨牛的人工智能学习网站，通俗易懂，风趣幽默，忍不住分享一下给大家。点击跳转到教程。" rel="nofollow">前些天发现了一个巨牛的人工智能学习网站，通俗易懂，风趣幽默，忍不住分享一下给大家。点击跳转到教程。</a></p> <p> @<a class="hl hl-1" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://so.csdn.net/so/search?q=Transactional&amp;spm=1001.2101.3001.7020"  title="Transactional" rel="nofollow">Transactional</a> 是声明式事务管理 编程中使用的注解</p> <p><strong>1 .添加位置</strong></p> <p>1）接口实现类或接口实现方法上，而不是接口类中。<br /> 2）<a class="hl hl-1" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://so.csdn.net/so/search?q=%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90&amp;spm=1001.2101.3001.7020"  title="访问权限" rel="nofollow">访问权限</a>：public 的方法才起作用。@Transactional 注解应该只被应用到 public 方法上，这是由 Spring AOP 的本质决定的。<br /> 系统设计：将标签放置在需要进行事务管理的方法上，而不是放在所有接口实现类上：只读的接口就不需要事务管理，由于配置了@Transactional就需要<a class="hl hl-1" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://so.csdn.net/so/search?q=AOP&amp;spm=1001.2101.3001.7020"  title="AOP" rel="nofollow">AOP</a>拦截及事务的处理，可能影响系统性能。</p> <p>3）错误使用：</p> <pre><code>1.接口中A、B两个方法，A无@Transactional标签，B有，上层通过A间接调用B，此时事务不生效。   2.接口中异常（运行时异常）被捕获而没有被抛出。   默认配置下，spring 只有在抛出的异常为运行时 unchecked 异常时才回滚该事务，   也就是抛出的异常为RuntimeException 的子类(Errors也会导致事务回滚)，   而抛出 checked 异常则不会导致事务回滚 。可通过 @Transactional rollbackFor进行配置。   3.多线程下事务管理因为线程不属于 spring 托管，故线程不能够默认使用 spring&nbsp;的事务,   也不能获取spring 注入的 bean 。   在被 spring 声明式事务管理的方法内开启多线程，多线程内的方法不被事务控制。   一个使用了@Transactional 的方法，如果方法内包含多线程的使用，方法内部出现异常，   不会回滚线程中调用方法的事务。   </code></pre> <p><strong>2.声明式事务管理实现方式：</strong><br /> 基于 tx 和 aop 名字空间的 xml 配置文件</p> <pre><code>// 基本配置 &lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;beans xmlns="http://www.springframework.org/schema/beans" &nbsp; &nbsp; &nbsp; &nbsp;xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" &nbsp; &nbsp; &nbsp; &nbsp;xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop" &nbsp; &nbsp; &nbsp; &nbsp;xmlns:task="http://www.springframework.org/schema/task" xmlns:jms="http://www.springframework.org/schema/jms" &nbsp; &nbsp; &nbsp; &nbsp;xmlns:tx="http://www.springframework.org/schema/tx" &nbsp; &nbsp; &nbsp; &nbsp;xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.1.xsd &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-4.1.xsd"&gt;  &lt;bean name="transactionManager" &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;property name="dataSource" ref="shardingDataSource"&gt;&lt;/property&gt; &nbsp;&nbsp; &nbsp;&lt;/bean&gt;  &lt;tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" /&gt;  // MyBatis 自动参与到 spring 事务管理中，无需额外配置， 只要 org.mybatis.spring.SqlSessionFactoryBean 引用的数据源与 DataSourceTransactionManager 引用的数据源一致即可，否则事务管理会不起作用。  // &lt;annotation-driven&gt; 标签的声明， 是在 Spring 内部启用 @Transactional 来进行事务管理，使用 @Transactional 前需要配置。  </code></pre> <p><strong>3. @Transactional注解</strong><br /> @Transactional 实质是使用了 JDBC 的事务来进行事务控制的<br /> @Transactional 基于 Spring 的动态代理的机制<br /> &nbsp;</p> <pre><code>@Transactional 实现原理：   1) 事务开始时，通过AOP机制，生成一个代理connection对象，    并将其放入 DataSource 实例的某个与 DataSourceTransactionManager 相关的某处容器中。    在接下来的整个事务中，客户代码都应该使用该 connection 连接数据库，    执行所有数据库命令。    [不使用该 connection 连接数据库执行的数据库命令，在本事务回滚的时候得不到回滚]   （物理连接 connection 逻辑上新建一个会话session；    DataSource 与 TransactionManager 配置相同的数据源）   2) 事务结束时，回滚在第1步骤中得到的代理 connection 对象上执行的数据库命令，    然后关闭该代理 connection 对象。   （事务结束后，回滚操作不会对已执行完毕的SQL操作命令起作用） </code></pre> <p><strong>4.声明式事务的管理实现本质：</strong><br /> 事务的两种开启方式：<br /> &nbsp; &nbsp; &nbsp; 显示开启 start transaction | begin，通过 commit | rollback 结束事务<br /> &nbsp; &nbsp; &nbsp; 关闭数据库中自动提交 autocommit set autocommit = 0；MySQL 默认开启自动提交；通过手动提交或执行回滚操作来结束事务</p> <p> Spring 关闭数据库中自动提交：在方法执行前关闭自动提交，方法执行完毕后再开启自动提交</p> <pre><code>&nbsp;// org.springframework.jdbc.datasource.DataSourceTransactionManager.java 源码实现 &nbsp;// switch to manual commit if necessary. this is very expensive in some jdbc drivers, &nbsp;// so we don't want to do it unnecessarily (for example if we've explicitly &nbsp;// configured the connection pool to set it already). &nbsp;if (con.getautocommit()) { &nbsp; &nbsp; &nbsp;txobject.setmustrestoreautocommit(true); &nbsp; &nbsp; &nbsp;if (logger.isdebugenabled()) { &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;logger.debug("switching jdbc connection [" + con + "] to manual commit"); &nbsp; &nbsp; &nbsp;} &nbsp; &nbsp; &nbsp;con.setautocommit(false); &nbsp;} &nbsp; </code></pre> <p>问题：</p> <p>关闭自动提交后，若事务一直未完成，即未手动执行 commit 或 rollback 时如何处理已经执行过的SQL操作？</p> <p>C3P0 默认的策略是回滚任何未提交的事务<br /> C3P0 是一个开源的JDBC连接池，它实现了数据源和 JNDI 绑定，支持 JDBC3 规范和 JDBC2 的标准扩展。目前使用它的开源项目有 Hibernate，Spring等<br /> JNDI(Java Naming and Directory Interface,Java命名和目录接口)是SUN公司提供的一种标准的Java命名系统接口，JNDI提供统一的客户端API，通过不同的访问提供者接口JNDI服务供应接口(SPI)的实现，由管理者将JNDI API映射为特定的命名服务和目录系统，使得Java应用程序可以和这些命名服务和目录服务之间进行交互</p> <p>-------------------------------------------------------------------------------------------------------------------------------<br /><strong>5. spring 事务特性</strong><br /> spring 所有的事务管理策略类都继承自 org.springframework.transaction.PlatformTransactionManager 接口</p> <pre><code>public interface PlatformTransactionManager { &nbsp; TransactionStatus getTransaction(TransactionDefinition definition) &nbsp; throws TransactionException; &nbsp; void commit(TransactionStatus status) throws TransactionException; &nbsp; void rollback(TransactionStatus status) throws TransactionException; } </code></pre> <p><strong>事务的隔离级别</strong>：是指若干个并发的事务之间的隔离程度</p> <pre><code>1. @Transactional(isolation = Isolation.READ_UNCOMMITTED)：读取未提交数据(会出现脏读,  不可重复读) 基本不使用   2. @Transactional(isolation = Isolation.READ_COMMITTED)：读取已提交数据(会出现不可重复读和幻读)   3. @Transactional(isolation = Isolation.REPEATABLE_READ)：可重复读(会出现幻读)   4. @Transactional(isolation = Isolation.SERIALIZABLE)：串行化 </code></pre> <p><strong>事务传播行为</strong>：如果在开始当前事务之前，一个事务上下文已经存在，此时有若干选项可以指定一个事务性方法的执行行为</p> <pre><code>1. TransactionDefinition.PROPAGATION_REQUIRED：    如果当前存在事务，则加入该事务；如果当前没有事务，则创建一个新的事务。这是默认值。  2. TransactionDefinition.PROPAGATION_REQUIRES_NEW：    创建一个新的事务，如果当前存在事务，则把当前事务挂起。  3. TransactionDefinition.PROPAGATION_SUPPORTS：    如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务的方式继续运行。   4. TransactionDefinition.PROPAGATION_NOT_SUPPORTED：    以非事务方式运行，如果当前存在事务，则把当前事务挂起。   5. TransactionDefinition.PROPAGATION_NEVER：    以非事务方式运行，如果当前存在事务，则抛出异常。  6. TransactionDefinition.PROPAGATION_MANDATORY：    如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。   7. TransactionDefinition.PROPAGATION_NESTED：    如果当前存在事务，则创建一个事务作为当前事务的嵌套事务来运行；    如果当前没有事务，则该取值等价于TransactionDefinition.PROPAGATION_REQUIRED。 </code></pre> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="498" src="http://img.555519.xyz/uploads/20230207/41d9eadb268da2309bb79b2e57b2e245.jpg"></p> <p> 上表字段说明：</p> <pre><code>1. value ：主要用来指定不同的事务管理器；    主要用来满足在同一个系统中，存在不同的事务管理器。    比如在Spring中，声明了两种事务管理器txManager1, txManager2.然后，    用户可以根据这个参数来根据需要指定特定的txManager.   2. value 适用场景：在一个系统中，需要访问多个数据源或者多个数据库，    则必然会配置多个事务管理器的   3. REQUIRED_NEW：内部的事务独立运行，在各自的作用域中，可以独立的回滚或者提交；    而外部的事务将不受内部事务的回滚状态影响。  4. ESTED 的事务，基于单一的事务来管理，提供了多个保存点。    这种多个保存点的机制允许内部事务的变更触发外部事务的回滚。    而外部事务在混滚之后，仍能继续进行事务处理，即使部分操作已经被混滚。     由于这个设置基于 JDBC 的保存点，所以只能工作在 JDB C的机制。  5. rollbackFor：让受检查异常回滚；即让本来不应该回滚的进行回滚操作。  6. noRollbackFor：忽略非检查异常；即让本来应该回滚的不进行回滚操作。   </code></pre> <p><img decoding="async" alt="" class="has" height="326" src="http://img.555519.xyz/uploads/20230207/77883ecdba6d48f2af96fc6eefeab858.jpg"></p> <p><img decoding="async" alt="" class="has" height="350" src="http://img.555519.xyz/uploads/20230207/418e08a7bb879655df68f7fdfdaefe2c.jpg"><img loading="lazy" decoding="async" alt="" class="has" height="468" src="http://img.555519.xyz/uploads/20230207/9246d801ef9d1b387d39fdf7798a91ff.jpg"></p> <p><strong>6.其他：</strong></p> <pre><code>1. 事务方法的嵌套调用会产生事务传播。 2. spring 的事务管理是线程安全的 3. 父类的声明的 @Transactional 会对子类的所有方法进行事务增强；    子类覆盖重写父类方式可覆盖其 @Transactional 中的声明配置。   4. 类名上方使用 @Transactional，类中方法可通过属性配置来覆盖类上的 @Transactional 配置；    比如：类上配置全局是可读写，可在某个方法上改为只读。 </code></pre> <p><img loading="lazy" decoding="async" alt="" class="has" height="682" src="http://img.555519.xyz/uploads/20230207/2b31302eda8cee477a2891712a46a7ce.jpg"></p> <p>如果不对运行时异常进行处理，那么出现运行时异常之后，要么是线程中止，要么是主程序终止。&nbsp;<br /> 如果不想终止，则必须捕获所有的运行时异常，决不让这个处理线程退出。队列里面出现异常数据了，正常的处理应该是把异常数据舍弃，然后记录日志。不应该由于异常数据而影响下面对正常数据的处理。</p> <p> 非运行时异常是RuntimeException以外的异常，类型上都属于Exception类及其子类。如IOException、SQLException等以及用户自定义的Exception异常。对于这种异常，JAVA编译器强制要求我们必需对出现的这些异常进行catch并处理，否则程序就不能编译通过。所以，面对这种异常不管我们是否愿意，只能自己去写一大堆catch块去处理可能的异常。</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="546" src="http://img.555519.xyz/uploads/20230207/f18594a058bf0519c413ebed8f3f6816.jpg"><br /> ---------------------&nbsp;</p> <p> 转自：https://blog.csdn.net/mingyundezuoan/article/details/79017659&nbsp;</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/clwydjgs/p/9317849.html"  title="Spring中的@Transactional(rollbackFor = Exception.class)属性详解 - Dawnzhang - 博客园" rel="nofollow">Spring中的@Transactional(rollbackFor = Exception.class)属性详解 - Dawnzhang - 博客园</a></p> <p>更多资料</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/434191597"  title="@Transactional事务不生效的几种解决方案 - 知乎" rel="nofollow">@Transactional事务不生效的几种解决方案 - 知乎</a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85905.htm">idea配置本地maven仓库</a></p>
+                                        <p>下一个：<a href="/news/article-86633.htm">安泰兽药怎么样（兽药安泰又叫什么）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-80953.htm" title="天津宠物狗领养 天津宠物狗领养中心">天津宠物狗领养 天津宠物狗领养中心</a></li>
+                        <li class="py-2"><a href="/news/article-83761.htm" title="宠物领养店内消费协议书范本（宠物店免费领养人须知）">宠物领养店内消费协议书范本（宠物店免费领养人须知）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-node-subscribe-links.htm" title="3月16日→20.6M/S|2025年最新免费节点Clash/SSR/Shadowrocket/V2ray订阅链接地址">3月16日→20.6M/S|2025年最新免费节点Clash/SSR/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-75471.htm" title="开宠物店坑在哪?（开宠物店的坑）">开宠物店坑在哪?（开宠物店的坑）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-node-share-links.htm" title="3月5日→22.9M/S|2025年最新免费节点Clash/V2ray/Shadowrocket/SSR订阅链接地址">3月5日→22.9M/S|2025年最新免费节点Clash/V2ray/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-79568.htm" title="如何去除猫身上的跳蚤（如何去除猫身上的跳蚤虫）">如何去除猫身上的跳蚤（如何去除猫身上的跳蚤虫）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-node-share-links.htm" title="3月12日→21M/S|2025年最新免费节点Shadowrocket/SSR/Clash/V2ray订阅链接地址">3月12日→21M/S|2025年最新免费节点Shadowrocket/SSR/Clash/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-66320.htm" title="宠物粮销售渠道策划方案 宠物粮销售渠道策划方案怎么写">宠物粮销售渠道策划方案 宠物粮销售渠道策划方案怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-72788.htm" title="关于免费领养宠物的正规平台芜湖有哪些呢多少钱的信息">关于免费领养宠物的正规平台芜湖有哪些呢多少钱的信息</a></li>
+                        <li class="py-2"><a href="/news/article-73460.htm" title="Spring boot将图片转成base64,使用sun.misc.BASE64Decoder转换图片">Spring boot将图片转成base64,使用sun.misc.BASE64Decoder转换图片</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
