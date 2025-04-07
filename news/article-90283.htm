@@ -1,0 +1,259 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-90283.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>jQuery 判断图片加载完毕例子</title>
+        <meta name="description" content="为什么80%的码农都做不了架构师？&gt;&gt;&gt; &nbsp;&nbsp;  今天做一个截图功能需要先判断图片是不是加载完了，如果加载完了我们就可以操作了否则可以刷新等待加载了，下面文章整理" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-90283.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="jQuery 判断图片加载完毕例子" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/03bf0d86a25b7d4a4d86029c3fa885ad.webp" />
+        <meta property="og:release_date" content="2025-04-07T09:01:52" />
+    <meta property="og:updated_time" content="2025-04-07T09:01:52" />
+        <meta property="og:description" content="为什么80%的码农都做不了架构师？&gt;&gt;&gt; &nbsp;&nbsp;  今天做一个截图功能需要先判断图片是不是加载完了，如果加载完了我们就可以操作了否则可以刷新等待加载了，下面文章整理" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="jQuery 判断图片加载完毕例子">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>jQuery 判断图片加载完毕例子</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div class="content" id="articleContent"> <div class="ad-wrap"> <p><a style="color:#A00;font-weight:bold;" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://my.oschina.net/u/2663968/blog/3051541"  rel="nofollow">为什么80%的码农都做不了架构师？&gt;&gt;&gt; </a>&nbsp;&nbsp;<img decoding="async" src="http://img.555519.xyz/uploads/20230109/9938184aed04264319bbf83fe8da03ee.jpg" alt="jQuery 判断图片加载完毕例子"></p> </p></div> <p>今天做一个截图功能需要先判断图片是不是加载完了，如果加载完了我们就可以操作了否则可以刷新等待加载了，下面文章整理了基于jquery图片加载判断的例子，大家可参考一下。</p> <p>complete判断图片是否加载了</p> <p>感谢谷歌，找到了好使的方法，简单用法就是：</p> <pre class="brush:js;toolbar: true; auto-links: false;"><code>qim=new&nbsp;Image();//新建一个图片； qim.src=$preload;//图片地址是你准备要加载的地址； if(qim.complete){&nbsp;$("#cxNfloor").html($filetoload);//qim.complete表示这个图片是否加载完毕了 }</code></pre> <p>后来又发现一个方法</p> <pre class="brush:js;toolbar: true; auto-links: false;"><code>$("").load(function(){...});</code></pre> <p>其中选择器是图片的id或class，function里面的方法就是回调函数，在图片加载完成后执行，但是我试验了很多，压根儿不是那么回事，正确的解决方法是：</p> <pre class="brush:js;toolbar: true; auto-links: false;"><code>//jquery的方式 $("#imageId").load(function(){ &nbsp;&nbsp;&nbsp;alert("加载完成！"); });</code></pre> <p>有朋友说使用js是最好的，方法如下</p> <pre class="brush:js;toolbar: true; auto-links: false;"><code>document.getElementById("img2").onload=function(){}</code></pre> <p>在网上找到一段代码</p> <p>例子</p> <pre class="brush:js;toolbar: true; auto-links: false;"><code>function&nbsp;loadImage(url,&nbsp;callback)&nbsp;{ &nbsp;var&nbsp;img&nbsp;=&nbsp;new&nbsp;Image();&nbsp;//创建一个Image对象，实现图片的预下载 &nbsp;img.src&nbsp;=&nbsp;url; &nbsp; &nbsp;if(img.complete)&nbsp;{&nbsp;//&nbsp;如果图片已经存在于浏览器缓存，直接调用回调函数 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;callback.call(img); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;&nbsp;//&nbsp;直接返回，不用再处理onload事件 &nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;img.onload&nbsp;=&nbsp;function&nbsp;()&nbsp;{&nbsp;//图片下载完毕时异步调用callback函数。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;callback.call(img);//将回调函数的this替换为Image对象 &nbsp;&nbsp;&nbsp;&nbsp;}; };</code></pre> <p>下面是针对多个image的加载判断。</p> <pre class="brush:js;toolbar: true; auto-links: false;"><code>var&nbsp;imgdefereds=[]; $('img').each(function(){ &nbsp;var&nbsp;dfd=$.Deferred(); &nbsp;$(this).bind('load',function(){ &nbsp;&nbsp;dfd.resolve(); &nbsp;}).bind('error',function(){ &nbsp;//图片加载错误，加入错误处理 &nbsp;//&nbsp;dfd.resolve(); &nbsp;}) &nbsp;if(this.complete)&nbsp;setTimeout(function(){ &nbsp;&nbsp;dfd.resolve(); &nbsp;},1000); &nbsp;imgdefereds.push(dfd); }) $.when.apply(null,imgdefereds).done(function(){ &nbsp;&nbsp;&nbsp;&nbsp;callback(); });</code></pre> <p>使用这种方法就可以避免window.onload的不足，不过代码稍显复杂 在性能方面比起window.onload经强很多。</p> <div class="ad-wrap"> <div id="blog-title-ad">    <ins class="adsbygoogle"></ins>   </div> </p></div> </div> <p>转载于:https://my.oschina.net/wolfx/blog/618135</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-89530.htm">宠康动物医院沈阳地址（沈阳宠颐生动物医院管理有限责任公司）</a></p>
+                                        <p>下一个：<a href="/news/article-90285.htm">动物疫苗的使用范围是多少（动物疫苗的使用方法及注意事项）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-70805.htm" title="动物打疫苗是干啥的呀视频大全（动物接种疫苗的好处）">动物打疫苗是干啥的呀视频大全（动物接种疫苗的好处）</a></li>
+                        <li class="py-2"><a href="/news/article-81630.htm" title="动物医院诊疗范围猫科犬科牙科内科（动物医院连锁）">动物医院诊疗范围猫科犬科牙科内科（动物医院连锁）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-free-node-subscribe.htm" title="4月6日→18.1M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址">4月6日→18.1M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-80953.htm" title="天津宠物狗领养 天津宠物狗领养中心">天津宠物狗领养 天津宠物狗领养中心</a></li>
+                        <li class="py-2"><a href="/news/article-68224.htm" title="猫抓了一下出了点血可以用酒精吗会感染吗（被猫抓出血直接用的酒精）">猫抓了一下出了点血可以用酒精吗会感染吗（被猫抓出血直接用的酒精）</a></li>
+                        <li class="py-2"><a href="/news/article-65692.htm" title="养狗对人身体健康有多大害处（佛说狗狗和主人的因果）">养狗对人身体健康有多大害处（佛说狗狗和主人的因果）</a></li>
+                        <li class="py-2"><a href="/news/article-67576.htm" title="天津宠物寄养多少钱一天（天津宠物寄养服务价格）">天津宠物寄养多少钱一天（天津宠物寄养服务价格）</a></li>
+                        <li class="py-2"><a href="/news/article-66953.htm" title="宠物店一年的纯利润能挣多少（宠物店生意好的一般多少收入一个月）">宠物店一年的纯利润能挣多少（宠物店生意好的一般多少收入一个月）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-free-high-speed-nodes.htm" title="3月6日→18.3M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址">3月6日→18.3M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-86633.htm" title="安泰兽药怎么样（兽药安泰又叫什么）">安泰兽药怎么样（兽药安泰又叫什么）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

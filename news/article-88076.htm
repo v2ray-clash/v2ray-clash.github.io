@@ -1,0 +1,259 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-88076.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@Column注解属性详解</title>
+        <meta name="description" content="目录 导读 是什么？ 步骤 总结    Java 注解（Annotation）又称 Java 标注，是 JDK5.0 引入的一种注释机制。Java 语言中的类、方法、变量、参数和包等都可以被标注。和 " />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-88076.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="@Column注解属性详解" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/19003818b3d37a808f6bcc072e5bc5b1.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:06:27" />
+    <meta property="og:updated_time" content="2025-04-04T09:06:27" />
+        <meta property="og:description" content="目录 导读 是什么？ 步骤 总结    Java 注解（Annotation）又称 Java 标注，是 JDK5.0 引入的一种注释机制。Java 语言中的类、方法、变量、参数和包等都可以被标注。和 " />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="@Column注解属性详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>@Column注解属性详解</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><strong>目录</strong></p> <p id="%E5%AF%BC%E8%AF%BB-toc"><a href="#%E5%AF%BC%E8%AF%BB" rel="nofollow">导读</a></p> <p id="%E4%B8%80%E3%80%81%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-toc"><a href="#%E4%B8%80%E3%80%81%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F" rel="nofollow">是什么？</a></p> <p id="%E4%BA%8C%E3%80%81%E6%AD%A5%E9%AA%A4-toc"><a href="#%E4%BA%8C%E3%80%81%E6%AD%A5%E9%AA%A4" rel="nofollow">步骤</a></p> <p id="%E6%80%BB%E7%BB%93-toc"><a href="#%E6%80%BB%E7%BB%93" rel="nofollow">总结</a></p> <hr id="hr-toc"/> </h1> <blockquote> <p>Java 注解（Annotation）又称 Java 标注，是 JDK5.0 引入的一种注释机制。Java 语言中的类、方法、变量、参数和包等都可以被标注。和 Javadoc 不同，Java 标注可以通过反射获取标注内容。在编译器生成类文件时，标注可以被嵌入到字节码中。Java 虚拟机可以保留标注内容，在运行时可以获取到标注内容 。 当然它也支持自定义 Java 标注。</p> <p>@Column标记表示所持久化属性所映射表中的字段</p> </blockquote> <hr/> <p>&nbsp;</p> <pre><code class="language-java">@Target(value={METHOD,FIELD})  @Retention(value=RUNTIME) public @interface Column Specifies the mapped column for a persistent property or field. If no Column annotation is specified, the default values apply.     Example 1:      @Column(name="DESC", nullable=false, length=512)     public String getDescription() { return description; }      Example 2:      @Column(name="DESC",             columnDefinition="CLOB NOT NULL",             table="EMP_DETAIL")     @Lob     public String getDescription() { return description; }      Example 3:      @Column(name="ORDER_COST", updatable=false, precision=12, scale=2)     public BigDecimal getCost() { return cost; }</code></pre> </h1> <pre><code class="language-java">@Target({METHOD, FIELD}) @Retention(RUNTIME)&nbsp; public @interface Column {&nbsp; String name() default "";&nbsp; boolean unique() default false;&nbsp; boolean nullable() default true;&nbsp; boolean insertable() default true;&nbsp; boolean updatable() default true;&nbsp; String columnDefinition() default "";&nbsp; String table() default "";&nbsp; int length() default 255;&nbsp; int precision() default 0;&nbsp; int scale() default 0;&nbsp; }</code></pre> <blockquote> <p>@Column属性详解：@Column注解一共有10个属性，这10个属性均为可选属性</p> <p>name&nbsp;<br /> name属性定义了被标注字段在数据库表中所对应字段的名称；</p> <p>unique&nbsp;<br /> unique属性表示该字段是否为唯一标识，默认为false。如果表中有一个字段需要唯一标识，则既可以使用该标记，也可以使用@Table标记中的@UniqueConstraint。</p> <p>nullable&nbsp;<br /> nullable属性表示该字段是否可以为null值，默认为true。</p> <p>insertable&nbsp;<br /> insertable属性表示在使用“INSERT”脚本插入数据时，是否需要插入该字段的值。</p> <p>updatable&nbsp;<br /> updatable属性表示在使用“UPDATE”脚本插入数据时，是否需要更新该字段的值。insertable和updatable属性一般多用于只读的属性，例如主键和外键等。这些字段的值通常是自动生成的。</p> <p>columnDefinition&nbsp;<br /> columnDefinition属性表示创建表时，该字段创建的SQL语句，一般用于通过Entity生成表定义时使用。（也就是说，如果DB中表已经建好，该属性没有必要使用。）</p> <p>table&nbsp;<br /> table属性定义了包含当前字段的表名。</p> <p>length&nbsp;<br /> length属性表示字段的长度，当字段的类型为varchar时，该属性才有效，默认为255个字符。</p> <p>precision和scale&nbsp;<br /> precision属性和scale属性表示精度，当字段类型为double时，precision表示数值的总长度，scale表示小数点所占的位数。</p> </blockquote> <p><span style="color:#f33b45;">&nbsp;@Column可以标注在属性前或getter方法前；</span></p> <hr/> </h1> <p>以上就是今天要讲的内容，本文系统介绍了@Column属性注解</p> <p>&nbsp;</p> <p>&nbsp;</p> <blockquote> <p>参考文章：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://docs.oracle.com/javaee/5/api/javax/persistence/Column.html"  rel="nofollow">http://docs.oracle.com/javaee/5/api/javax/persistence/Column.html</a></p> </blockquote> <h2>&nbsp;</h2> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87343.htm">开宠物诊所需要哪些手续（想开宠物诊所需要什么）</a></p>
+                                        <p>下一个：<a href="/news/article-88077.htm">领养宠物后要办什么手续呢（领养宠物需要哪些手续）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-node-subscribe.htm" title="3月24日→20.1M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址">3月24日→20.1M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-free-high-speed-nodes.htm" title="3月31日→22.4M/S|2025年最新免费节点V2ray/SSR/Clash/Shadowrocket订阅链接地址">3月31日→22.4M/S|2025年最新免费节点V2ray/SSR/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-20-free-node-subscribe.htm" title="3月20日→19.5M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址">3月20日→19.5M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-78189.htm" title="【Electron】在 WSL2 中 打包 electron Linux 版本应用及运行 &#8211; E不小心 _在线工具">【Electron】在 WSL2 中 打包 electron Linux 版本应用及运行 &#8211; E不小心 _在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-subscribe-node.htm" title="4月1日→21M/S|2025年最新免费节点SSR/V2ray/Shadowrocket/Clash订阅链接地址">4月1日→21M/S|2025年最新免费节点SSR/V2ray/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-70807.htm" title="瑜伽球哪个牌子的好用(瑜伽球哪个牌子的好一点)">瑜伽球哪个牌子的好用(瑜伽球哪个牌子的好一点)</a></li>
+                        <li class="py-2"><a href="/news/article-85905.htm" title="idea配置本地maven仓库">idea配置本地maven仓库</a></li>
+                        <li class="py-2"><a href="/news/article-78188.htm" title="Spring IOC Bean 创建的整体流程">Spring IOC Bean 创建的整体流程</a></li>
+                        <li class="py-2"><a href="/news/article-80231.htm" title="附近宠物领养店电话地址（宠物领养站哪里有）">附近宠物领养店电话地址（宠物领养站哪里有）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-free-node-subscribe.htm" title="4月2日→21M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址">4月2日→21M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
