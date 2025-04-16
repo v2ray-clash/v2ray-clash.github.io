@@ -1,0 +1,259 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-94732.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Python向hdfs写入文件与hadoop命令向hdfs写入文件</title>
+        <meta name="description" content="首先需要安装pyhdfs，可用如下命令安装 pip install pyhdfs  首先我们如果先用hadoop原生命令来操作hdfs（分布式文件系统）上传文件。 命令如下 hadoop fs -pu" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-94732.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="Python向hdfs写入文件与hadoop命令向hdfs写入文件" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/19003818b3d37a808f6bcc072e5bc5b1.webp" />
+        <meta property="og:release_date" content="2025-04-13T07:18:08" />
+    <meta property="og:updated_time" content="2025-04-13T07:18:08" />
+        <meta property="og:description" content="首先需要安装pyhdfs，可用如下命令安装 pip install pyhdfs  首先我们如果先用hadoop原生命令来操作hdfs（分布式文件系统）上传文件。 命令如下 hadoop fs -pu" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python向hdfs写入文件与hadoop命令向hdfs写入文件">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>Python向hdfs写入文件与hadoop命令向hdfs写入文件</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>首先需要安装pyhdfs，可用如下命令安装</p> <pre><code class="prism language-python">pip install pyhdfs </code></pre> <p>首先我们如果先用hadoop原生命令来操作hdfs（分布式文件系统）上传文件。<br /> 命令如下</p> <pre><code class="prism language-powershell">hadoop fs <span class="token operator">-</span>put <span class="token operator">/</span>home<span class="token operator">/</span>hadoop1<span class="token operator">/</span>software<span class="token operator">/</span><span class="token keyword">data</span><span class="token operator">/</span>two<span class="token punctuation">.</span>txt <span class="token operator">/</span> </code></pre> <p>其中-put上传，本地路径/home/hadoop1/software/data/two.txt，上传在HDFS的路径是 /</p> <p>使用Python来操作hdfs写入文件的代码为</p> <pre><code class="prism language-python"><span class="token keyword">from</span> pyhdfs <span class="token keyword">import</span> HdfsClient client <span class="token operator">=</span> HdfsClient<span class="token punctuation">(</span>hosts<span class="token operator">=</span><span class="token string">'hadoop1:50070'</span><span class="token punctuation">,</span>user_name<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">)</span> client<span class="token punctuation">.</span>copy_from_local<span class="token punctuation">(</span><span class="token string">'/home/hadoop1/software/data/one.txt'</span><span class="token punctuation">,</span><span class="token string">'/1'</span><span class="token punctuation">)</span><span class="token comment">#本地文件绝对路径,HDFS目录必须不存在</span> </code></pre> <p>其中hosts的参数为hdfs的url。user_name是本机的用户可以使用hadoop的用户。copy_from_local的第一个参数为本地路径。第二个参数为HDFS的路径，且这个路径不能已经存在。<br /> Python读hdfs</p> <pre><code class="prism language-python"><span class="token keyword">from</span> pyhdfs <span class="token keyword">import</span> HdfsClient client<span class="token operator">=</span>HdfsClient<span class="token punctuation">(</span>hosts<span class="token operator">=</span><span class="token string">'hadoop1:50070'</span><span class="token punctuation">)</span><span class="token comment">#hdfs的主机用户名和端口</span> res<span class="token operator">=</span>client<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'/two.txt'</span><span class="token punctuation">)</span><span class="token comment">#hdfs文件路径,从根目录计</span> <span class="token keyword">for</span> r <span class="token keyword">in</span> res<span class="token punctuation">:</span>  line<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token comment">#open后是二进制,str()转换为字符串</span>  <span class="token keyword">print</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span> </code></pre> <p>Python创建新文件</p> <pre><code class="prism language-python"><span class="token keyword">from</span> pyhdfs <span class="token keyword">import</span> HdfsClient client <span class="token operator">=</span> HdfsClient<span class="token punctuation">(</span>hosts<span class="token operator">=</span><span class="token string">'hadoop1:50070'</span><span class="token punctuation">,</span>user_name<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">)</span> <span class="token builtin">str</span><span class="token operator">=</span><span class="token string">'666'</span> client<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token string">'/py.txt'</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">)</span><span class="token comment">#创建新文件，写入字符串</span> </code></pre> <p>部分参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jb51.net/article/188157.htm"  rel="nofollow">Python连接HDFS实现文件上传下载及Pandas转换文本文件到CSV操作</a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-94212.htm">宠物领养中心领养要钱吗多少钱一次（宠物领养中心领养要钱吗多少钱一次呢）</a></p>
+                                        <p>下一个：<a href="/news/article-94734.htm">兰州哪里有宠物店?（兰州卖宠物的地方在哪）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-74802.htm" title="Android7.0特性及适配">Android7.0特性及适配</a></li>
+                        <li class="py-2"><a href="/news/article-76152.htm" title="中文时间日期解析错误-UnicodeEncodeError: &#8216;locale&#8217; codec can&#8217;t encode character &#8216;\u5e74&#8217; in position 2: Illegal">中文时间日期解析错误-UnicodeEncodeError: &#8216;locale&#8217; codec can&#8217;t encode character &#8216;\u5e74&#8217; in position 2: Illegal</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-free-high-speed-nodes.htm" title="3月25日→18.4M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址">3月25日→18.4M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-88077.htm" title="领养宠物后要办什么手续呢（领养宠物需要哪些手续）">领养宠物后要办什么手续呢（领养宠物需要哪些手续）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-node-subscribe-links.htm" title="3月11日→21M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">3月11日→21M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-96233.htm" title="导入导出接口写法">导入导出接口写法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-node-subscribe-links.htm" title="3月16日→20.6M/S|2025年最新免费节点Clash/SSR/Shadowrocket/V2ray订阅链接地址">3月16日→20.6M/S|2025年最新免费节点Clash/SSR/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-21-free-node-subscribe-links.htm" title="3月21日→19.1M/S|2025年最新免费节点SSR/V2ray/Clash/Shadowrocket订阅链接地址">3月21日→19.1M/S|2025年最新免费节点SSR/V2ray/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-76821.htm" title="厦门宠物猫咪免费领养地址 厦门宠物猫咪免费领养地址在哪里">厦门宠物猫咪免费领养地址 厦门宠物猫咪免费领养地址在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-84471.htm" title="太阳宫附近有什么医院（太阳宫附近有啥好玩的）">太阳宫附近有什么医院（太阳宫附近有啥好玩的）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">47</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

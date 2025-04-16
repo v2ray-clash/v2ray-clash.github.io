@@ -1,0 +1,259 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-96233.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>导入导出接口写法</title>
+        <meta name="description" content="添加hutool依赖 &lt;dependency&gt;     &lt;groupId&gt;cn.hutool&lt;/groupId&gt;     &lt;artifactId&gt;hut" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-96233.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="导入导出接口写法" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/dce506f7416ab740c932949742a0d279.webp" />
+        <meta property="og:release_date" content="2025-04-15T06:00:15" />
+    <meta property="og:updated_time" content="2025-04-15T06:00:15" />
+        <meta property="og:description" content="添加hutool依赖 &lt;dependency&gt;     &lt;groupId&gt;cn.hutool&lt;/groupId&gt;     &lt;artifactId&gt;hut" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="导入导出接口写法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>导入导出接口写法</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>添加hutool依赖</p> <pre><code class="prism language-powershell">&lt;dependency&gt;     &lt;groupId&gt;cn<span class="token punctuation">.</span>hutool&lt;<span class="token operator">/</span>groupId&gt;     &lt;artifactId&gt;hutool<span class="token operator">-</span>all&lt;<span class="token operator">/</span>artifactId&gt;     &lt;version&gt;5<span class="token punctuation">.</span>7<span class="token punctuation">.</span>20&lt;<span class="token operator">/</span>version&gt; &lt;<span class="token operator">/</span>dependency&gt; &lt;dependency&gt;     &lt;groupId&gt;org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>poi&lt;<span class="token operator">/</span>groupId&gt;     &lt;artifactId&gt;poi<span class="token operator">-</span>ooxml&lt;<span class="token operator">/</span>artifactId&gt;     &lt;version&gt;4<span class="token punctuation">.</span>1<span class="token punctuation">.</span>2&lt;<span class="token operator">/</span>version&gt; &lt;<span class="token operator">/</span>dependency&gt; </code></pre> <pre><code class="prism language-java"> <span class="token comment">/**      * 导入      * @param file      * @return      * @throws IOException      */</span>     <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"import"</span><span class="token punctuation">)</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">imp</span><span class="token punctuation">(</span><span class="token class-name">MultipartFile</span> file<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">{<!-- --></span>         <span class="token class-name">InputStream</span> inputStream <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token class-name">ExcelReader</span> reader <span class="token operator">=</span> <span class="token class-name">ExcelUtil</span><span class="token punctuation">.</span><span class="token function">getReader</span><span class="token punctuation">(</span>inputStream<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> reader<span class="token punctuation">.</span><span class="token function">readAll</span><span class="token punctuation">(</span><span class="token class-name">User</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> userService<span class="token punctuation">.</span><span class="token function">saveBatch</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token comment">/**      * 导出      * @param response      * @throws IOException      */</span>     <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"export"</span><span class="token punctuation">)</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">export</span><span class="token punctuation">(</span><span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">{<!-- --></span>         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> userService<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token class-name">ExcelWriter</span> writer <span class="token operator">=</span> <span class="token class-name">ExcelUtil</span><span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//        writer.addHeaderAlias("username","用户名");</span> <span class="token comment">//        writer.addHeaderAlias("password", "密码");</span> <span class="token comment">//        writer.addHeaderAlias("nickname", "昵称");</span> <span class="token comment">//        writer.addHeaderAlias("email", "邮箱");</span> <span class="token comment">//        writer.addHeaderAlias("phone", "电话");</span> <span class="token comment">//        writer.addHeaderAlias("address", "地址");</span> <span class="token comment">//        writer.addHeaderAlias("createTime", "创建时间");</span> <span class="token comment">//        writer.addHeaderAlias("avatarUrl", "头像");</span>          <span class="token comment">// 一次性写出list内的对象到excel，使用默认样式，强制输出标题</span>         writer<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// 设置浏览器响应的格式</span>         response<span class="token punctuation">.</span><span class="token function">setContentType</span><span class="token punctuation">(</span><span class="token string">"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token class-name">String</span> fileName <span class="token operator">=</span> <span class="token class-name">URLEncoder</span><span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span><span class="token string">"用户信息"</span><span class="token punctuation">,</span> <span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         response<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">"Content-Disposition"</span><span class="token punctuation">,</span> <span class="token string">"attachment;filename="</span> <span class="token operator">+</span> fileName <span class="token operator">+</span> <span class="token string">".xlsx"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token class-name">ServletOutputStream</span> out <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         writer<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span>out<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         out<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         writer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span> </code></pre> <h3><a id="_64" rel="nofollow"></a></h3> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-95485.htm">动物疫苗销售需要什么手续和条件呢视频讲解（动物疫苗销售需要什么手续和条件呢视频讲解下载）</a></p>
+                                        <p>下一个：<a href="/news/article-96234.htm">人用疫苗和兽用疫苗区别在哪（兽用和人用针剂的区别）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-66321.htm" title="深圳动物防疫站给猫打疫苗要钱吗（深圳动物防疫站给猫打疫苗要钱吗现在）">深圳动物防疫站给猫打疫苗要钱吗（深圳动物防疫站给猫打疫苗要钱吗现在）</a></li>
+                        <li class="py-2"><a href="/news/article-75471.htm" title="开宠物店坑在哪?（开宠物店的坑）">开宠物店坑在哪?（开宠物店的坑）</a></li>
+                        <li class="py-2"><a href="/news/article-88077.htm" title="领养宠物后要办什么手续呢（领养宠物需要哪些手续）">领养宠物后要办什么手续呢（领养宠物需要哪些手续）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-free-high-speed-nodes.htm" title="3月9日→21.6M/S|2025年最新免费节点V2ray/SSR/Clash/Shadowrocket订阅链接地址">3月9日→21.6M/S|2025年最新免费节点V2ray/SSR/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-node-share-links.htm" title="3月5日→22.9M/S|2025年最新免费节点Clash/V2ray/Shadowrocket/SSR订阅链接地址">3月5日→22.9M/S|2025年最新免费节点Clash/V2ray/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-80952.htm" title="宠物领养公告怎么写（宠物领养公告怎么写好）">宠物领养公告怎么写（宠物领养公告怎么写好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-8-node-share.htm" title="4月8日→18.8M/S|2025年最新免费节点Clash/SSR/Shadowrocket/V2ray订阅链接地址">4月8日→18.8M/S|2025年最新免费节点Clash/SSR/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-68223.htm" title="分布式服务请求报错：Read timed out executing POST http://businessApi/app/app/login">分布式服务请求报错：Read timed out executing POST http://businessApi/app/app/login</a></li>
+                        <li class="py-2"><a href="/news/article-86632.htm" title="@Transactional 详解">@Transactional 详解</a></li>
+                        <li class="py-2"><a href="/news/article-95484.htm" title="全国最便宜的进货平台玩具店（全国最便宜的玩具批发网站）">全国最便宜的进货平台玩具店（全国最便宜的玩具批发网站）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">47</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
