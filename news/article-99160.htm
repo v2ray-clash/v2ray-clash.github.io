@@ -1,0 +1,259 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-99160.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>手把手带你入门链表的基本操作及其优化</title>
+        <meta name="description" content="文章目录  一、概念   头指针： 头结点(虚拟头结点/哨兵节点/哑节点) 首元节点 三者关系图 判断链表为空   代码理解   一、遍历 二、查找 三、插入   1、链表头部插入 2、链表尾部插入 " />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-99160.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="手把手带你入门链表的基本操作及其优化" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/9489b16dbcbcc1b1ed6ba241cc840019.webp" />
+        <meta property="og:release_date" content="2025-04-19T08:57:07" />
+    <meta property="og:updated_time" content="2025-04-19T08:57:07" />
+        <meta property="og:description" content="文章目录  一、概念   头指针： 头结点(虚拟头结点/哨兵节点/哑节点) 首元节点 三者关系图 判断链表为空   代码理解   一、遍历 二、查找 三、插入   1、链表头部插入 2、链表尾部插入 " />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="手把手带你入门链表的基本操作及其优化">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>手把手带你入门链表的基本操作及其优化</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#_3" rel="nofollow">一、概念</a></li> <li> <ul> <li><a href="#_5" rel="nofollow">头指针：</a></li> <li><a href="#_11" rel="nofollow">头结点(虚拟头结点/哨兵节点/哑节点)</a></li> <li><a href="#_17" rel="nofollow">首元节点</a></li> <li><a href="#_21" rel="nofollow">三者关系图</a></li> <li><a href="#_27" rel="nofollow">判断链表为空</a></li> </ul> </li> <li><a href="#_35" rel="nofollow">代码理解</a></li> <li> <ul> <li><a href="#_37" rel="nofollow">一、遍历</a></li> <li><a href="#_52" rel="nofollow">二、查找</a></li> <li><a href="#_68" rel="nofollow">三、插入</a></li> <li> <ul> <li><a href="#1_70" rel="nofollow">1、链表头部插入</a></li> <li><a href="#2_92" rel="nofollow">2、链表尾部插入</a></li> <li> <ul> <li><a href="#11tail_116" rel="nofollow">1）优化1：添加tail尾节点</a></li> <li><a href="#22_148" rel="nofollow">2）优化2：添加虚拟头结点</a></li> </ul> </li> <li><a href="#3_173" rel="nofollow">3、给点节点后插入</a></li> </ul> </li> <li><a href="#_190" rel="nofollow">四、删除</a></li> <li> <ul> <li><a href="#1_192" rel="nofollow">1、删除指定节点后面的节点</a></li> <li><a href="#2_207" rel="nofollow">2、删除指定节点</a></li> <li> <ul> <li><a href="#_261" rel="nofollow">虚拟头结点优化</a></li> </ul> </li> </ul> </li> <li><a href="#_289" rel="nofollow">五、根据索引下标插入删除</a></li> <li><a href="#_357" rel="nofollow">六、时间复杂度分析</a></li> </ul> </li> <li><a href="#_367" rel="nofollow">完整代码测试</a></li> </ul> </div> </h1> <h2> <a id="_5" rel="nofollow"></a>头指针：</h2> <p>1）头指针是指链表中 ，指向第一个结点的指针（可以是头结点也可以是首元节点，看实现方式）</p> <p>2）<strong>头指针是必须存在的</strong>,链表为空也存在（head=null）</p> <h2> <a id="_11" rel="nofollow"></a>头结点(虚拟头结点/哨兵节点/哑节点)</h2> <p>1)数据域可以不存信息，也可以存储长度等附加信息</p> <p>2)<strong>头结点不是必须的</strong>，一般设置头结点是为了简化编程处理统一逻辑，有头结点的情况，头指针指向头结点(head.next==dummyHead)</p> <h2> <a id="_17" rel="nofollow"></a>首元节点</h2> <p>链表中存储实际数据的第一个元素</p> <h2> <a id="_21" rel="nofollow"></a>三者关系图</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230108/c2857a6bf9e65dc5f45b530ef7d377ad.jpg" alt="手把手带你入门链表的基本操作及其优化"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230108/f95dc0c3c659719ec1779de5a9f764ae.jpg" alt="手把手带你入门链表的基本操作及其优化"></p> <h2> <a id="_27" rel="nofollow"></a>判断链表为空</h2> <p>带头结点的单链表的判空：head.next == null;</p> <p>不带头结点的单链表的判空：head == null;</p> </h1> <h2> <a id="_37" rel="nofollow"></a>一、遍历</h2> <pre><code>		//head 如果链表为空，那就是null     public void traverse() {         Node p = head;         //不能p.next!=null  很可能p本身就null，而且重点要遍历到最后一个元素         while (p != null) {             System.out.print(p.data + "-&gt;");             p = p.next;         }         System.out.println();     } </code></pre> <h2> <a id="_52" rel="nofollow"></a>二、查找</h2> <pre><code>  public Node find(int value) {         Node p = head;         //不能p.next!=null  很可能p本身就null，而且重点要遍历到最后一个元素         while (p != null) {             if (p.data == value) {                 return p;             }             p = p.next;         }         return null;     } </code></pre> <h2> <a id="_68" rel="nofollow"></a>三、插入</h2> <h3> <a id="1_70" rel="nofollow"></a>1、链表头部插入</h3> <p><strong>需要注意的是：</strong></p> <ul> <li> <p>头部插入 遍历的时候 与输入顺序相反 最后一个插入的最先遍历</p> </li> <li> <p>头插法不需要判断链表是否为空，链表为空，也是满足下面的代码的</p> </li> </ul> <pre><code> public void insertAtHead(int value) {         Node newNode = new Node(value);         if (head != null) {             newNode.next = head;         }         head = newNode;     } </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230108/f54b13bce394c6c93a8921cb89b5418e.jpg" alt="手把手带你入门链表的基本操作及其优化"></p> <h3> <a id="2_92" rel="nofollow"></a>2、链表尾部插入</h3> <p>我们可以发现插入操作是O(N) 每次都要遍历到最后，所以可以进行下面的优化–添加tail尾节点</p> <pre><code> 		//(data,next)     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void insertAtTail(int value) {         Node newNode = new Node(value);         //特殊处理链表为空的情况         if (head == null) {             head = newNode;         } else {             Node p = head;             //这里不能改成p!=null，因为改成这个的话，直接遍历到最后一个节点，但是并没有前后连接起来：用next             while (p.next != null) {                 p = p.next;             }             p.next = newNode;         }     } </code></pre> <h4> <a id="11tail_116" rel="nofollow"></a>1）优化1：添加tail尾节点</h4> <p><strong>这里我们添加尾结点优化每次需要遍历</strong></p> <p><strong>但是我们发现这里还有个问题就是每次需要特殊处理链表为空的情况，其实我们可以使用上面的虚拟头结点来进行优化</strong></p> <pre><code>		public Node head;     public Node tail; //添加尾结点优化每次需要遍历 </code></pre> <pre><code>		//尾插法优化1：添加尾节点     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void insertTailPlus1(int value) {         Node newNode = new Node(value);         //特殊处理链表为空的情况         if (head == null) {             head = newNode;             tail = head;         } else {             tail.next = newNode;             tail = newNode;         }     } </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230108/54324e62bdbd10a2fb4924c1b4d30a66.jpg" alt="手把手带你入门链表的基本操作及其优化"></p> <h4> <a id="22_148" rel="nofollow"></a>2）优化2：添加虚拟头结点</h4> <p>这里我们添加虚拟头结点进行优化</p> <pre><code> 		public Node newHead = new Node();  //添加虚拟头结点     public Node newTail = newHead;  	 //相当于newTail一直往后塞数据，但是虚拟头结点还是不变的 </code></pre> <pre><code>  	//尾插法优化2：添加虚拟头结点     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void insertTailPlus2(int value) {         Node newNode = new Node(value);         newTail.next = newNode;         newTail = newNode;         //由于遍历的时候使用head，将newHead.next也就是第一个实际的元素指向head,其实只要赋值一次即可         //如果不用head头指针遍历，用newHead进行遍历，不需要添加这个         //head = newHead.next;     } </code></pre> <p>图解可参考上面，只是不需要考虑head==null的情况</p> <h3> <a id="3_173" rel="nofollow"></a>3、给点节点后插入</h3> <pre><code>		//指定节点后面插入     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void insertAfterThisNode(Node p, int value) {         Node newNode = new Node(value);         //指定节点是空直接不用处理         if (p == null) {             return;         }         newNode.next = p.next;         p.next = newNode;     } </code></pre> <h2> <a id="_190" rel="nofollow"></a>四、删除</h2> <h3> <a id="1_192" rel="nofollow"></a>1、删除指定节点后面的节点</h3> <pre><code> //删除指点节点的下一个节点     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void deleteNextNode(Node p) {     		//如果是最后一个节点或者节点不存在就不需要处理         if (p == null || p.next == null) {             return;         }         p.next = p.next.next;     } </code></pre> <h3> <a id="2_207" rel="nofollow"></a>2、删除指定节点</h3> <p>我们知道删除指定节点的时候需要知道前驱节点，所以最主要是在遍历的过程中时刻保存待删除节点的前驱节点</p> <p>这个逻辑稍微复杂点，思路如下:</p> <p>1）定义一个变量prev时刻保存待删除节点的前驱节点</p> <p>2）遍历链表，当找到待删除节点的时候跳出循环，没有的话就用prev时刻保存前驱节点</p> <p>3）判断是否找到了最后还没找到待删除节点 比如Node node=new Node(99999999);不存在，直接返回</p> <p>4）这时候要进行判断prev的情况</p> <ul> <li>前驱节点为空，说明删除的是头结点，则head=head.next即可</li> <li>前驱节点不为空，说明是正常删除，直接prev.next=prev.next.next</li> </ul> <pre><code>		//删除指定节点     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public Node deleteThisNode(Node thisNode) {         if (head == null || thisNode == null) {             return null;         }         Node p = head;         Node prev = null;         //这里有可能要删除的就是最后一个节点  这时候  p.next!=null已经不满足条件会跳出，所以要用p!=null判断         while (p != null) {             if (p == thisNode) {                 break;             }             //保存每次向后移 之前的前驱节点             prev = p;             p = p.next;         }         //找到了最后还没  比如Node node=new Node(99999999);不存在         if (p == null) {             return null;         }          //说明删除的是头结点，第一次进入while就break了，头结点没有前驱节点，所以直接将头结点向后移一位即可         if (prev == null) {             head = head.next;         } else {             //删除非头结点             prev.next = prev.next.next;         }         return head;     } </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230108/67d16e68e4581f4f703d60a0be4edd9f.jpg" alt="手把手带你入门链表的基本操作及其优化"></p> <h4> <a id="_261" rel="nofollow"></a>虚拟头结点优化</h4> <p>前面逻辑有个修改就是前驱节点从虚拟头结点开始而不是null，所以在最后面不需要对prev进行判空了，因为链表为空，有了虚拟头节点<code>prev.next = prev.next.next;</code>也是符合的</p> <pre><code>public Node deleteThisNodePlus(Node thisNode) {         if (head == null || thisNode == null) {             return null;         }         newHead.next = head;         Node prev = newHead;  //前驱节点从虚拟头结点开始而不是null         Node p = head;         while (p != null) {             if (p == thisNode) {                 break;             }             prev = p;             p = p.next;         }         if (p == null) {             return null;         }         prev.next = prev.next.next;         return newHead.next;      } </code></pre> <h2> <a id="_289" rel="nofollow"></a>五、根据索引下标插入删除</h2> <p>这部分代码就不在做过多的解释，如果上面理解了，下面这个也能很好的理解，直接贴代码</p> <pre><code>		//根据索引下标插入值     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void insertAtIndex(int index, int value) {         if (index &lt; 0 || index &gt; count) {             return;         }         Node newNode = new Node(value);         Node p = head;         if (head == null) {             head = newNode;             count++;         } else {             int k = 0;             while (p != null) {                 if (k == index) {                     newNode.next = p.next;                     p.next = newNode;                     count++;                     return;                 }                 k++;                 p = p.next;             }         }     }  </code></pre> <pre><code>		//删除指定下标     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void deleteAtIndex(int index) {         if (index &lt; 0 || index &gt; count || head == null) {             return;         }          Node p = head;         int k = 0;         Node prev = null;         while (p != null) {             if (k == index) {                 count--;                 break;             }             k++;             prev = p;             p = p.next;         }         //没找到         if (p == null) {             return;         }         if (prev == null) {             head = head.next;         } else {             prev.next = prev.next.next;         }      } </code></pre> <h2> <a id="_357" rel="nofollow"></a>六、时间复杂度分析</h2> <p>我们经常听到说数组查询快、插入删除慢；链表插入删除快、查询慢；</p> <p><strong>其实这都是不完整的，我们说数组查询快，说的是根据下标随机访问时间复杂度是O(1)，而如果具体我们要找某个值，还是要遍历整个数组</strong></p> <p><strong>链表插入删除快，也是有前提的，要在知道前驱节点的情况，插入删除才是O(1)；如果不知道的话，还是要遍历链表找到待删除节点的前驱节点</strong></p> </h1> <p>这里贴上完整的代码和对应每个方法的测试如下,可以直接运行</p> <pre><code>package com.apple;  import org.junit.Test;  /**  * @author Apple  * @date 2021-12-10 22:07  **/ public class MyLinkedList {     public Node head;     public Node tail;     public int count;      public Node newHead = new Node();      public Node newTail = newHead;  //相当于newTail一直往后塞数据，但是虚拟头结点还是不变的      //head 如果链表为空，那就是null     public void traverse() {         Node p = head;         //不能p.next!=null  很可能p本身就null，而且重点要遍历到最后一个元素         while (p != null) {             System.out.print(p.data + "-&gt;");             p = p.next;         }         System.out.println();     }      public void insertAtHead(int value) {         Node newNode = new Node(value);         if (head != null) {             newNode.next = head;         }         head = newNode;       /*   if (head == null) {             head = newNode;         } else {             newNode.next = head;             head = newNode;         }*/     }      //(data,next)     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void insertAtTail(int value) {         Node newNode = new Node(value);         if (head == null) {             head = newNode;         } else {             Node p = head;             //这里不能改成p!=null，因为改成这个的话，直接遍历到最后一个节点，但是并没有前后连接起来：用next             while (p.next != null) {                 p = p.next;             }             p.next = newNode;         }         count++;     }      //尾插法优化1：添加尾节点     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void insertTailPlus1(int value) {         Node newNode = new Node(value);         if (head == null) {             head = newNode;             tail = head;         } else {             tail.next = newNode;             tail = newNode;         }         count++;     }      //尾插法优化2：添加虚拟头结点     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void insertTailPlus2(int value) {         Node newNode = new Node(value);         newTail.next = newNode;         newTail = newNode;         //由于遍历的时候使用head，将newHead.next也就是第一个实际的元素指向head,其实只要赋值一次即可         head = newHead.next;         count++;     }      //指定节点后面插入     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void insertAfterThisNode(Node p, int value) {         Node newNode = new Node(value);         if (p == null) {             return;         }         newNode.next = p.next;         p.next = newNode;         count++;     }      //删除指点节点的下一个节点     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void deleteNextNode(Node p) {         if (p == null || p.next == null) {             return;         }         p.next = p.next.next;         count--;     }      //删除指定节点     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public Node deleteThisNode(Node thisNode) {         if (head == null || thisNode == null) {             return null;         }         Node p = head;         Node prev = null;         //这里有可能要删除的就是最后一个节点  这时候  p.next!=null已经不满足条件会跳出，所以要用p!=null判断         while (p != null) {             if (p == thisNode) {                 break;             }             //保存每次向后移 之前的前驱节点             prev = p;             p = p.next;         }         //找到了最后还没  比如Node node=new Node(123);不存在而不是null         if (p == null) {             return null;         }          //说明删除的是头结点，第一次进入while就break了   头结点没有前驱节点         if (prev == null) {             head = head.next;         } else {             //删除非头结点             prev.next = prev.next.next;         }         count--;          return head;     }      public Node deleteThisNodePlus(Node thisNode) {         if (head == null || thisNode == null) {             return null;         }         newHead.next = head;         Node prev = newHead;  //前驱节点从虚拟头结点开始而不是null         Node p = head;         while (p != null) {             if (p == thisNode) {                 break;             }             prev = p;             p = p.next;         }         if (p == null) {             return null;         }          prev.next = prev.next.next;         count--;         head=newHead.next;         return head;      }      //根据索引下标插入值     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void insertAtIndex(int index, int value) {         if (index &lt; 0 || index &gt; count) {             return;         }         Node newNode = new Node(value);         Node p = head;         if (head == null) {             head = newNode;             count++;         } else {             int k = 0;             while (p != null) {                 if (k == index) {                     newNode.next = p.next;                     p.next = newNode;                     count++;                     return;                 }                 k++;                 p = p.next;             }         }     }      //删除指定下标     //head-&gt;1 -&gt;2-&gt;3-&gt;null     //head-&gt;null     public void deleteAtIndex(int index) {         if (index &lt; 0 || index &gt; count || head == null) {             return;         }          Node p = head;         int k = 0;         Node prev = null;         while (p != null) {             if (k == index) {                 count--;                 break;             }             k++;             prev = p;             p = p.next;         }         //没找到         if (p == null) {             return;         }         if (prev == null) {             head = head.next;         } else {             prev.next = prev.next.next;         }      }      public Node find(int value) {         Node p = head;         //不能p.next!=null  很可能p本身就null，而且重点要遍历到最后一个元素         while (p != null) {             if (p.data == value) {                 return p;             }             p = p.next;         }         return null;     }      class Node {         public int data;         public Node next;          public Node(int data, Node next) {             this.data = data;             this.next = next;         }          public Node(int data) {             this.data = data;         }          public Node() {         }     }      //头插法：初始化插入链表     @Test     public void testInsertAtHead() {         //头插法：初始化插入链表         insertAtHead(1);         insertAtHead(2);         insertAtHead(3);         //遍历链表         traverse();         Node findNode = find(3);         System.out.println(findNode.data);     }      //尾插法：初始化     @Test     public void testInsertAtTail() {         insertAtTail(1);         insertAtTail(2);         insertAtTail(3);         //遍历链表         traverse();         Node findNode = find(3);         System.out.println(findNode.data);     }      //尾插法优化1：添加尾节点     @Test     public void testInsertTailPlus1() {         insertTailPlus1(1);         insertTailPlus1(2);         insertTailPlus1(3);         //遍历链表         traverse();         Node findNode = find(3);         System.out.println(findNode.data);     }      //尾插法优化2：添加虚拟头节点     @Test     public void testInsertTailPlus2() {         insertTailPlus2(1);         insertTailPlus2(2);         insertTailPlus2(3);         //遍历链表         traverse();         Node findNode = find(3);         //System.out.println(findNode.data);     }      //指定节点后面插入     @Test     public void testInsertThisNode() {         insertTailPlus2(1);         insertTailPlus2(2);         insertTailPlus2(3);         Node findNode = find(2);         insertAfterThisNode(findNode, 999);         //找一个不存在的值插入         Node findNullNode = find(222);         insertAfterThisNode(findNullNode, 111);         traverse();     }      //删除指定节点之后的节点     @Test     public void testDeleteNextNode() {         insertTailPlus2(1);         insertTailPlus2(2);         insertTailPlus2(3);         Node findNode = find(2);         deleteNextNode(null);         deleteNextNode(findNode);         //找一个不存在的值插入         traverse();     }      //删除指定节点     //1-&gt;2-&gt;3  ：删除4   删除1 2 3       //1、比如删除的刚好就是最后一个3 带进去看看符不符合  删除1就是删除头结点     //链表只有一个元素 1  删除1   就是删除头结点：prev=null     @Test     public void testDeleteThisNode() {         insertTailPlus2(1);         //insertTailPlus2(2);         //insertTailPlus2(3);         Node findNode = find(1);          Node findNode2 = new Node(3);         deleteThisNode(findNode);         //deleteThisNode(findNode2);         //找一个不存在的值插入         traverse();     }      //删除指定节点     //1-&gt;2-&gt;3  ：删除4   删除1 2 3       //1、比如删除的刚好就是最后一个3 带进去看看符不符合  删除1就是删除头结点     //链表只有一个元素 1  删除1   就是删除头结点：prev=null     @Test     public void testDeleteThisNodePlus() {         insertTailPlus2(1);         insertTailPlus2(2);         insertTailPlus2(3);         Node findNode = find(2);          Node findNode2 = new Node(3);         deleteThisNodePlus(findNode);         //deleteThisNode(findNode2);         //找一个不存在的值插入         traverse();     }      @Test     public void testInsertAtIndex() {         insertAtIndex(0, 6);         insertAtIndex(0, 7);         insertAtIndex(0, 20);         insertAtIndex(5, 11);         //insertAtIndex(0,6);         //insertTailPlus2(2);         //insertTailPlus2(3);         //Node findNode = find(1);          //deleteThisNode(findNode2);         //找一个不存在的值插入         traverse();     }      @Test     public void testDeleteAtIndex() {         insertTailPlus1(1);         insertTailPlus1(2);         insertTailPlus1(3);          deleteAtIndex(5);  //不存在的         deleteAtIndex(1);         //Node findNode = find(1);          //找一个不存在的值插入         traverse();         System.out.println(count);     }  }  </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-98418.htm">东北农业大学动物医学院附属医院电话是多少（东北农业大学动物医学院附属医院电话是多少）</a></p>
+                                        <p>下一个：<a href="/news/article-99161.htm">长沙猫咪领养中心 长沙猫咪领养中心官网</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-90283.htm" title="jQuery 判断图片加载完毕例子">jQuery 判断图片加载完毕例子</a></li>
+                        <li class="py-2"><a href="/news/article-70161.htm" title="十大动物疫苗公司排名榜单图片（全球动物疫苗龙头公司）">十大动物疫苗公司排名榜单图片（全球动物疫苗龙头公司）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-node-subscribe.htm" title="3月14日→19.4M/S|2025年最新免费节点Clash/SSR/Shadowrocket/V2ray订阅链接地址">3月14日→19.4M/S|2025年最新免费节点Clash/SSR/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-72123.htm" title="关于Java 信号量 Semaphore">关于Java 信号量 Semaphore</a></li>
+                        <li class="py-2"><a href="/news/article-83057.htm" title="北京农大动物医院官网望京地址（北京农大动物医院官网望京地址在哪里）">北京农大动物医院官网望京地址（北京农大动物医院官网望京地址在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-14-free-high-speed-nodes.htm" title="4月14日→22.9M/S|2025年最新免费节点V2ray/SSR/Shadowrocket/Clash订阅链接地址">4月14日→22.9M/S|2025年最新免费节点V2ray/SSR/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-93227.htm" title="动物医院等级分类有哪些（动物医院等级分类有哪些标准）">动物医院等级分类有哪些（动物医院等级分类有哪些标准）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-node-subscribe.htm" title="3月24日→20.1M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址">3月24日→20.1M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-subscribe-node.htm" title="4月1日→21M/S|2025年最新免费节点SSR/V2ray/Shadowrocket/Clash订阅链接地址">4月1日→21M/S|2025年最新免费节点SSR/V2ray/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-free-node-subscribe.htm" title="4月2日→21M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址">4月2日→21M/S|2025年最新免费节点SSR/Shadowrocket/V2ray/Clash订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

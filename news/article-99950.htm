@@ -1,0 +1,259 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-99950.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>js穿梭框；将两个table中的数据选中移动</title>
+        <meta name="description" content="将table中选中的数据移动到右边； 点击一行中的任意一个位置，使其选中：  　　　　注：attr()和prop()都是jquery的方法； 　　.attr() ： 获取匹配的元素集合中的第一个元素的" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-99950.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="js穿梭框；将两个table中的数据选中移动" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/53beea186af51cd83e1ef2315317c6e8.webp" />
+        <meta property="og:release_date" content="2025-04-20T09:02:20" />
+    <meta property="og:updated_time" content="2025-04-20T09:02:20" />
+        <meta property="og:description" content="将table中选中的数据移动到右边； 点击一行中的任意一个位置，使其选中：  　　　　注：attr()和prop()都是jquery的方法； 　　.attr() ： 获取匹配的元素集合中的第一个元素的" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="js穿梭框；将两个table中的数据选中移动">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>js穿梭框；将两个table中的数据选中移动</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body"> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230217/37031884cc900e035b00b64f13414b02.jpg" alt="js穿梭框；将两个table中的数据选中移动"></p> <p>将table中选中的数据移动到右边；</p> <p>点击一行中的任意一个位置，使其选中：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230217/44540fa43a2de9e8e78191ab8c0c03fc.jpg" alt="js穿梭框；将两个table中的数据选中移动"></p> <p>　　　　注：attr()和prop()都是jquery的方法；</p> <p>　　<code class="csharp plain">.attr() ： 获取匹配的元素集合中的第一个元素的属性的值 或 设置每一个匹配元素的一个或多个属性。 •.attr( attributeName ) •.attr( attributeName )</code></p> <div class="line number2 index1 alt1">   <code class="csharp plain">　　•.attr( attributeName, value ) •.attr( attributeName, value )</code>  </div> <div class="line number3 index2 alt2">   <code class="csharp plain">　　•.attr( attributes )</code>  </div> <div class="line number4 index3 alt1">   <code class="csharp plain">　　•.attr( attributeName, function(index, attr) )</code>  </div> <div class="line number5 index4 alt2">   &nbsp;  </div> <div class="line number6 index5 alt1">   <code class="csharp plain">　　.prop() ： 获取匹配的元素集中第一个元素的属性（property）值或设置每一个匹配元素的一个或多个属性。 •.prop( propertyName ) •.prop( propertyName )</code>  </div> <div class="line number7 index6 alt2">   <code class="csharp plain">　　•.prop( propertyName, value ) •.prop( propertyName, value )</code>  </div> <div class="line number8 index7 alt1">   <code class="csharp plain">　　•.prop( properties )</code>  </div> <div class="line number9 index8 alt2">   <code class="csharp plain">　　•.prop( propertyName, function(index, oldPropertyValue) )</code>  </div> <div class="line number10 index9 alt1">   &nbsp;　　<br />   <code class="csharp plain">是参数有区别，attr()传入的是attributeName，而prop()传入的是propertyName,</code>  </div> <p>&nbsp;</p> <p>给前面复选框添加选中事件，然后对选中的进行向右边table移动的操作：</p> <p>&nbsp;</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230217/7b82627cb9d3505846e333b416d84145.jpg" alt="js穿梭框；将两个table中的数据选中移动"></p> <p>&nbsp;</p> <p>&nbsp;将两个table放在两个div中，会存在一根问题，就是td的宽度会不一致；</p> <p>&nbsp;可以对他们分别设置宽度；</p> <p>或者，通过js，获取到body中每一个的宽度，然后给thead每一个td加上这个宽度；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230217/3b454f042d5996291ff6f7dd3314ccd6.jpg" alt="js穿梭框；将两个table中的数据选中移动"></p> <p>&nbsp;</p> </div> <p>转载于:https://www.cnblogs.com/Tohold/p/8423342.html</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-99161.htm">长沙猫咪领养中心 长沙猫咪领养中心官网</a></p>
+                                        <p>下一个：<a href="/news/article-99952.htm">宠物店打疫苗违法吗（宠物店打疫苗违法吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-subscribe-node.htm" title="4月1日→21M/S|2025年最新免费节点SSR/V2ray/Shadowrocket/Clash订阅链接地址">4月1日→21M/S|2025年最新免费节点SSR/V2ray/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-99160.htm" title="手把手带你入门链表的基本操作及其优化">手把手带你入门链表的基本操作及其优化</a></li>
+                        <li class="py-2"><a href="/news/article-98417.htm" title="领养宠物需要什么条件和手续呢（领养宠物需要什么条件和费用）">领养宠物需要什么条件和手续呢（领养宠物需要什么条件和费用）</a></li>
+                        <li class="py-2"><a href="/news/article-95484.htm" title="全国最便宜的进货平台玩具店（全国最便宜的玩具批发网站）">全国最便宜的进货平台玩具店（全国最便宜的玩具批发网站）</a></li>
+                        <li class="py-2"><a href="/news/article-75471.htm" title="开宠物店坑在哪?（开宠物店的坑）">开宠物店坑在哪?（开宠物店的坑）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-node-share-links.htm" title="4月3日→18.5M/S|2025年最新免费节点Clash/Shadowrocket/V2ray/SSR订阅链接地址">4月3日→18.5M/S|2025年最新免费节点Clash/Shadowrocket/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-74125.htm" title="宠物粮食哪里批发便宜又好吃（宠物粮食在哪里进货）">宠物粮食哪里批发便宜又好吃（宠物粮食在哪里进货）</a></li>
+                        <li class="py-2"><a href="/news/article-72788.htm" title="关于免费领养宠物的正规平台芜湖有哪些呢多少钱的信息">关于免费领养宠物的正规平台芜湖有哪些呢多少钱的信息</a></li>
+                        <li class="py-2"><a href="/news/article-68866.htm" title="宠物医院消费贵吗（宠物医院收费价目表）">宠物医院消费贵吗（宠物医院收费价目表）</a></li>
+                        <li class="py-2"><a href="/news/article-80231.htm" title="附近宠物领养店电话地址（宠物领养站哪里有）">附近宠物领养店电话地址（宠物领养站哪里有）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
