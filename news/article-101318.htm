@@ -1,0 +1,262 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-101318.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>PowerDotNet平台化软件架构设计与实现系列应用监控平台</title>
+        <meta name="description" content="1、监控面板  2、每天监控数据  1、预警指标  2、告警配置  3、预警规则  4、告警消息  5、告警反馈  1、应用黑白名单  2、接口黑白名单  3、页面黑白名单 目录  			 本文再写一" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-101318.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="PowerDotNet平台化软件架构设计与实现系列应用监控平台" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/53beea186af51cd83e1ef2315317c6e8.webp" />
+        <meta property="og:release_date" content="2025-04-22T08:22:12" />
+    <meta property="og:updated_time" content="2025-04-22T08:22:12" />
+        <meta property="og:description" content="1、监控面板  2、每天监控数据  1、预警指标  2、告警配置  3、预警规则  4、告警消息  5、告警反馈  1、应用黑白名单  2、接口黑白名单  3、页面黑白名单 目录  			 本文再写一" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PowerDotNet平台化软件架构设计与实现系列应用监控平台">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>PowerDotNet平台化软件架构设计与实现系列应用监控平台</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail">
+                      				  				  				  			 <div id="log-box">  				<div id="catalog"><ul id="catalog-ul"> <li><i class="be be-arrowright"></i> 1、监控面板</li> <li><i class="be be-arrowright"></i> 2、每天监控数据</li> <li><i class="be be-arrowright"></i> 1、预警指标</li> <li><i class="be be-arrowright"></i> 2、告警配置</li> <li><i class="be be-arrowright"></i> 3、预警规则</li> <li><i class="be be-arrowright"></i> 4、告警消息</li> <li><i class="be be-arrowright"></i> 5、告警反馈</li> <li><i class="be be-arrowright"></i> 1、应用黑白名单</li> <li><i class="be be-arrowright"></i> 2、接口黑白名单</li> <li><i class="be be-arrowright"></i> 3、页面黑白名单</li> </ul><span class="log-zd"><span class="log-close"><i class="be be-cross"></i><strong>目录</strong></span></span></div>  			</div> <p>本文再写一篇和具体业务逻辑几乎无关的公共服务应用监控平台。PowerDotNet自研的应用监控平台系统，是服务治理的重要拼图，和服务治理平台配合使用效果更好。</p> <p>监控开源产品非常丰富，站在巨人的肩膀上，PowerDotNet自研的监控平台，除了基本的监控功能，还可以通过加一层代理，将应用接入开源监控软件，降低应用和监控软件的耦合。</p> <p>在介绍系统和应用的时候，我们说过应用的一种分法是可以分为带界面的和不带界面的，服务或者非服务等等等等，拆分方法不同，关注的应用形态也就不同。</p> <p>带界面的应用比较容易肉眼看到问题和异常状况，虽然最终原因可能绝大多数都是服务端接口问题而不是带界面应用自身的问题，这一点估计绝大多数客户端、前端、移动端等终端开发者会表示赞同。</p> <p>而不带界面的应用服务，尤其是微服务集群，由于多样的外部依赖和版本、错综复杂的业务逻辑甚至短暂高并发的冲击，很容易产生莫名其妙的“隐藏”问题，最终导致被延迟发现甚至直接忽略的业务异状。</p> <p>定位线上应用服务问题的方法，一种是通过强大的日志平台系统，这基本上是各种公司技术人员解决问题的直接方案，可是日志系统应对的绝大多数问题都是在问题发生后了，相对而言比较被动。</p> <p>另一种相对主动的解决方案，是通过灵活且相对实时的监控和预警，即应用监控平台系统，可以在问题发生前就能迅速发现并定位预警，甚至可通过技术手段如守护进程自动修复异状。</p> <p>本文介绍的PowerDotNet的监控平台系统，主要是针对基于服务平台治理的后端应用的业务逻辑型监控，也就是直接针对应用的监控，但不包括应用的外部依赖如数据库、缓存等的监控。</p> <p>对于其他非应用服务的软件产品监控，比如关系型数据库、缓存、消息队列以及ElasticSearch、ETCD、HBase等NewSQL产品，单独开发监控程序成本较高，建议直接使用或二次开发开源的监控产品。</p> <p>当年在某司我看到过一个应有尽有的大型监控系统，几年前我自己也因为业务需要尝试着写过点监控业务（猛击这里），虽然写的不够深入和全面，部署也不太容易，却也解决了燃眉之急。</p> <p>在实现PowerDotNet监控系统之前，先后参考调研了nagios、zabbix、opserver、open-falcon、ARMS、uptime-kuma、hertzbeat、prometheus和grafana等主流开源监控产品，也借鉴了某司的监控平台系统。</p> <p>对比这些监控软件，尤其prometheus和grafana，作为后起之秀确实全面强大灵活，所以在前面介绍基础设施公共服务的时候我就感觉没必要单独再造轮子，但已写好的又不忍丢弃，咩哈哈。</p> <p>按照时间、服务器、系统、应用和具体API服务或页面进行精准监控和分析是PowerDotNet的刚需，所以PowerDotNet的监控平台系统开发出来也不是完全没有用武之地，仅针对应用监控还是拿得出手的。</p> <p>PowerDotNet的监控平台系统Power.XMonitor主要包括如下四部分：</p> <p>1、XMonitor.Client 监控客户端接入SDK，支持Thrift和Http协议</p> <p>2、XMonitor.Gateway&nbsp; 监控网关，客户端推送至网关，网关将监控数据推送至服务端</p> <p>3、XMonitor.Server 监控服务端，主要包括监控数据消息队列生产者XMonitor.Producer、消费者XMonitor.Consumer和监控预警服务XMonitor.ForewarnAlert</p> <p>4、XMonitor.AdminUI 监控管理后台，主要用于预警配置，查看监控数据和日志，以及监控仪表盘等。</p> <p>Power.XMonitor最粗监控粒度是时间范围，最细监控粒度则精确到某个具体API服务，可按需监控某段时间范围内、某台服务器，某个系统，某个应用，某个服务的监控数据，支持灵活的监控预警指标和规则配置，支持邮件、钉钉、短信、微信等通知通道。</p> <p>和Power.XLogger日志接入代理类似，应用监控接入代理业务逻辑和资源使用当然是越少越好，对于业务系统接入几乎完全无感，最终做到简单易用灵活可插拔，这也是我们开发Agent应遵守的准则之一。</p> <p>下面详细讲讲PowerDotNet内置的应用监控平台系统Power.XMonitor。</p> <p><strong>环境准备</strong></p> <p>1、（必须）.Net Framework4.5+</p> <p>2、（必须）MySQL或SqlServer或PostgreSQL或MariaDB或MongoDB或InfluxDB或ElasticSearch</p> <p>3、（必须）PowerDotNet数据库管理平台，主要使用DBKey功能</p> <p>4、（必须）PowerDotNet配置中心Power.ConfigCenter</p> <p>5、（必须）PowerDotNet注册中心Power.RegistryCenter</p> <p>6、（必须）PowerDotNet缓存平台Power.Cache</p> <p>7、（必须）PowerDotNet消息平台Power.Message</p> <p>8、（可选）PowerDotNet数据同步平台Power.DataX<br /></p> <h3><strong>一、数据采集</strong></h3> <p>Power.XMonitor的数据采集主要分为系统环境和业务逻辑指标参数两部分。</p> <p id="1640934914263">系统环境指标部分主要包括CLR的线程数、打开的句柄数、CPU、内存、磁盘、实时Socket连接数等。</p> <p>业务逻辑指标部分主要包括服务器IP和端口、被调用服务数、服务被调用总次数、服务调用异常总数、服务请求总流量、服务应答总流量、服务调用总耗时、服务调用最大耗时等。</p> <p>对于一般业务系统而言，上面的监控数据采集基本能满足常规需求，尤其是微服务API关注的常见业务参数都设计在里面，对直接分析和排查问题很有帮助。</p> <h3><strong>二、数据传输</strong></h3> <p>Power.XMonitor支持将采集的数据以Thrift或者HTTP协议上报给监控平台系统，上报服务默认以消息队列（也可配置为直接写库）的形式异步高速处理，防止上报成为业务系统性能瓶颈。</p> <p>上报协议支持在配置中心动态配置，默认为最为通用的HTTP协议，如果业务系统追求更高性能，可以配置为Thrift协议。</p> <p>Power.XMonitor主要配置参数包括：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/486f225f0374647de3edaf9e37b8220d.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <p>接入应用只需在应用启动时写如下一行代码，即可无其他侵入代码实现监控功能。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">启动监控</span>       XMonitor.StartCollector();</pre> </div> <p>对于使用PowerDotNet服务治理平台提供的服务治理客户端的服务，则无需写任何代码，因为客户端程序自动集成了XMonitor，应用只需在配置中心配置App.UseXMonitor、App.MonitorRate、App.MonitorProtocal和App.MonitorCenterUrl，一个PowerDotNet服务治理下的服务即可拥有XMonitor的监控功能。</p> <p>对于非API服务的应用，比如Asp.Net MVC、WebForms等应用，也可以通过XMonitor.Client和ActionFilterAttribute配合自动产生监控数据，XMonitor.Client同时还提供了推送监控数据接口，业务系统完全可以按需埋点监控。</p> <h3><strong>三、数据存储</strong></h3> <p>Power.XMonitor监控数据量主要由监控频率、应用和服务器多少来决定。</p> <p>根据经验，实际产生的监控数据量虽然远远不如日志系统，但相对数量还是不小的，查询和统计也有不少的工作量。</p> <p>Power.XMonitor默认监控频率是30秒，存储的数据支持按分钟、小时和天分组统计存储。没有设计按秒存储，一是因为考虑到数据量较大，二是基于实际情况，监控也没有必要必须精确到秒。</p> <p>目前监控数据存储支持MySQL、SqlServer、PostgreSQL和MariaDB四种关系型数据库，也支持MongoDB和ElasticSearch存储，还可以使用时序数据库InfluxDB存储。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9e6a9dd592ecea2ec88c38670a80b395.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <p>有了数据库管理平台的DBKey功能，监控数据库可按需选择切换，非常轻松即可实现一键切换，XMonitor推荐使用MongoDB或ElasticSearch或MySQL。</p> <p>考虑到中大型应用的监控数据量通常都比较庞大，所以我们设计监控系统的时候都需要考虑分片处理。</p> <p>DBKey配置监控数据库这种方式天然就适合数据分片存储，在监控数据发展到一定数据量级以后，不需要运维和DBA介入，直接换个DBKey或者通过DataX数据同步平台修改DBKey连接串就可以切换新的监控存储介质，历史监控数据如果需要，可以重新部署一份监控可视化站点专门查询历史监控数据。</p> <p>对于监控基础数据如预警规则、预警指标、告警配置等，可以直接通过数据同步平台同步数据，做到分片切换用户完全无感知。</p> <h3><strong>四、数据可视化</strong></h3> <span class="directory"></span><h4 id="title-0">1、监控面板</h4> <p>Power.XMonitor开发了几个常用的业务监控仪表盘，支持将常见监控指标通过柱状图、饼图和折线图进行友好展示，可在页面灵活配置刷新时间自动刷新获取数据。</p> <p>（1）、时间角度看API调用次数</p> <p>如果监控时间范围在同一天内，按照小时进行拆分汇总聚合显示</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/90f5d7415e4d31345398c354b9d8531b.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <p>如果时间查询范围不在同一天，则按天聚合显示</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/96d6272688ffbfdbaec6675dbb2b4d64.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <p>（2）、从服务器角度看API调用次数</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/51655f3d876242e7fffbd746961fb505.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <p>（3）、流量监控</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7013c6256f11c0ee7e5db2b352389245.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台">（4）、API最大耗时</p> <p>这个最大耗时对于性能问题排查非常有用，当然完全可以通过日志系统进行定位，不过监控系统查询更加直接。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ecd44b22f3f502151831700edc2e8deb.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <p>（5）、服务器指标监控</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7618ab679b235e7c0f9532c174b43b0f.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <p>还可以支持磁盘监控，磁盘统计数据已有，只是没在界面上展示出来。</p> <span class="directory"></span><h4 id="title-1">2、每天监控数据</h4> <p>以天为单位进行汇总统计，监控数据在XMonitor.Consumer消费时在内存中运算而来。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6218f08e9a0a0a016ae0db91b4bbad0b.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <h4 id="1639306077778">&nbsp;3、每小时监控数据</h4> <p>和每天监控数据产生类似，以小时为单位进行汇总统计，监控数据在XMonitor.Consumer消费时在内存中运算而来。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/2960accdff090216fb35062fe3ec3cec.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <h4 id="1639306077778">4、每分钟监控数据</h4> <p>和每小时监控数据产生类似，以分钟为单位进行汇总统计，监控数据在XMonitor.Consumer消费时在内存中运算而来。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9e326d3ebf8999d99bc036d79614cffa.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台">相对而言，每分钟产生的监控数据就比较大了，一般来说，监控到小时和天就基本够用了，如果你的应用不需要详细监控到分钟，完全可以不写入这个数据。</p> <h4 id="1639306077778">5、服务消费者监控统计</h4> <p>监控面板基于服务生产者的监控统计非常常见，其实Power.XMonitor也支持基于服务消费者的监控统计，比如我们经常会统计哪些（接口消费者）应用调用了什么（服务生产者）接口，消费者调用失败的接口次数、消费者调用的最耗时接口等等。</p> <h3><strong>五、监控告警</strong></h3> <p>对于监控系统而言，及时准确多样的预警提醒也非常重要，尤其是对于核心业务系统而言，尽早发现问题可以减少甚至避免不必要的损失。</p> <p>监控告警模块设计出了预警指标、告警配置和预警规则三个子模块，灵活设置适配常见的预警功能。</p> <span class="directory"></span><h4 id="title-2">1、预警指标</h4> <p>预警指标包括系统环境指标和业务逻辑指标，阈值类型支持百分比和数值，支持自定义阈值触发表达式，可适配绝大多数情况下的监控业务场景。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/de23aa81f2adfb313641a649ff9c1cff.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <span class="directory"></span><h4 id="title-3">2、告警配置</h4> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9923f8ca35d7aba167eb8990723db161.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <p>告警配置支持告警时间段设置，默认0至23小时，也就是全天都支持告警消息支持。</p> <p>告警周期的意思是，针对某个监控项的监控，重复发送消息的间隔时间不能小于告警周期，这样可以防止重复发送大量告警消息。</p> <p>告警配置有紧急、严重和警告三种告警级别，通常都可以配置为警告级别，非核心应用也可以按需配置为紧急或严重级别。</p> <span class="directory"></span><h4 id="title-4">3、预警规则</h4> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/dfeb846430bc41f175d4328be69af436.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <p>一个预警规则，可以绑定一个或多个预警指标；一个预警规则，可以绑定一个或多个告警配置。</p> <p>预警指标和告警配置相互独立，没有直接关系，这样设计的好处是最大程度复用预警指标和告警配置。</p> <p>预警规则配置可以精确到某台服务器，或者某个系统，或者某个应用，甚至直接精准到某个服务接口或者具体页面，按需配置，支持监控的最大灵活性。</p> <span class="directory"></span><h4 id="title-5">4、告警消息</h4> <p>Power.XMonitor默认通过消息平台Power.Message进行消息提醒，支持邮件、钉钉、短信和微信的消息提醒，当然也预留接口可以按需使用其他自定义消息平台进行提醒。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/0a235f2d521ee79cca0c5b93b2b11ec7.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台">以触发钉钉警告信息为例，用户接受到简易直接的监控告警提醒信息如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4d2b2d4d81163cffb50f1b0ba42a5c22.jpg" alt="PowerDotNet平台化软件架构设计与实现系列应用监控平台"></p> <p>如何进行合理设置告警频率并减少误报也非常考验监控告警模块的设计。</p> <p>监控告警设置的告警周期通常设置为2分钟（120秒），核心业务可以调整小一些，这样就可以减少大量重复不必要的告警消息。</p> <p>Power.XMonitor的监控告警可根据服务器、系统、应用和API服务动态设置告警频率，默认设置为，相同服务器、系统、应用和API服务，最低1分钟内不重复告警，降低发送消息的频率，减少无效误报可能。</p> <p>默认最低1分钟告警间隔，和监控频率有关，Power.XMonitor的默认监控频率是30秒，建议将间隔设置为两个或四个频率周期，这样几乎不会丢失异状，又不过分增加服务器压力，这也是实践得出的结论。</p> <span class="directory"></span><h4 id="title-6">5、告警反馈</h4> <p>Power.XMonitor理论上对所有的告警信息都需要有告警反馈处理，否则告警信息一直红色提示为“未处理”。</p> <p>标记为已处理的告警信息，建议进行故障分类管理，这样非常有利于开发和运维人员快速定位并解决问题。</p> <h3><strong>六、监控黑白名单</strong></h3> <p>根据实际经验，因为业务应用开发水平的差异，对于应用接入方，我们要做到监控可按需启停处理，否则某些“劣质”、“腐败”、多变的应用会有意或无意的拖累甚至搞垮监控平台，影响更多的系统和应用正常监控。</p> <p>Power.XMonitor支持黑白名单功能，只要应用接入方认为自己的应用或服务完全稳定可靠无需监控，加入白名单的通通放行，不做监控处理，加入黑名单的则给出告警提醒，定时放弃监控。</p> <span class="directory"></span><h4 id="title-7">1、应用黑白名单</h4> <p>某些稳定的字典型应用，稳定运行后除非硬件挂掉或断电，否则几乎不会再修改发布或扩容，比如PowerDotNet的DBKey服务，可以将整个应用加入监控白名单。</p> <span class="directory"></span><h4 id="title-8">2、接口黑白名单</h4> <p>API应用中某些接口稳定运行，或者非核心业务功能的接口，访问量极少的接口或过时的接口，不监控也不影响应用运行，可以把这部分接口加入白名单，减少资源开销。</p> <span class="directory"></span><h4 id="title-9">3、页面黑白名单</h4> <p>页面应用中某些页面，如静态页、访问极少、逻辑简单几乎不会出错的页面，可以加入白名单。</p> <h3><strong>七、监控高可用</strong></h3> <p>监控接口完全异步化处理，客户端推送超时时间设置要短一些，默认超时时间为2秒，可通过配置中心动态调整，也支持动态监控开关，这样做的目的是哪怕监控服务挂了也不影响业务主流程。</p> <p>监控服务应该尽可能减少外部依赖，就算有依赖也要保证依赖的组件和服务高可用，否则监控服务及其依赖就需要监控服务监控，自己监控自己容易进入死循环，所以应该将依赖的服务绕开监控。</p> <p>Power.XMonitor目前仅依赖获取DBKey信息和发送消息两个接口，当监控服务开始工作时会自动绕开监控这两个基础服务，当然这两个接口的调用频率并不高，且业务逻辑较为简单，经实践验证非常可靠。</p> <p>参考：</p> <p>https://www.nagios.org</p> <p>https://www.zabbix.com</p> <p>https://github.com/opserver/Opserver</p> <p>http://open-falcon.org</p> <p>https://hertzbeat.com</p> <p>https://github.com/louislam/uptime-kuma</p> <p>https://prometheus.io</p> <p>https://grafana.com</p> <p>http://app-metrics.io</p> <p>https://www.influxdata.com</p> <p>https://www.cacti.net</p> <p>https://icinga.com</p> <p>https://www.netxms.org</p> <p>https://help.aliyun.com/product/34364.html</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-101317.htm">手把手教你调用微信扫一扫！三分钟包会</a></p>
+                                        <p>下一个：<a href="/news/article-102100.htm">python数据分析与挖掘实战————银行分控模型（几种算法模型的比较）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-98418.htm" title="东北农业大学动物医学院附属医院电话是多少（东北农业大学动物医学院附属医院电话是多少）">东北农业大学动物医学院附属医院电话是多少（东北农业大学动物医学院附属医院电话是多少）</a></li>
+                        <li class="py-2"><a href="/news/article-82335.htm" title="我被猫咬了,没去打针,会怎么样吗（被猫咬了没打针会有什么症状）">我被猫咬了,没去打针,会怎么样吗（被猫咬了没打针会有什么症状）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-free-subscribe-node.htm" title="3月30日→19.1M/S|2025年最新免费节点Clash/V2ray/SSR/Shadowrocket订阅链接地址">3月30日→19.1M/S|2025年最新免费节点Clash/V2ray/SSR/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-node-share-links.htm" title="3月12日→21M/S|2025年最新免费节点Shadowrocket/SSR/Clash/V2ray订阅链接地址">3月12日→21M/S|2025年最新免费节点Shadowrocket/SSR/Clash/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-78884.htm" title="中国名牌兽药公司排名 中国十大名牌兽药公司">中国名牌兽药公司排名 中国十大名牌兽药公司</a></li>
+                        <li class="py-2"><a href="/news/article-92468.htm" title="无货源开网店是真的吗?（无货源开网店是真的吗安全吗）">无货源开网店是真的吗?（无货源开网店是真的吗安全吗）</a></li>
+                        <li class="py-2"><a href="/news/article-93229.htm" title="猫粮制作机器视频教程（猫粮自制机）">猫粮制作机器视频教程（猫粮自制机）</a></li>
+                        <li class="py-2"><a href="/news/article-83057.htm" title="北京农大动物医院官网望京地址（北京农大动物医院官网望京地址在哪里）">北京农大动物医院官网望京地址（北京农大动物医院官网望京地址在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-node-share.htm" title="3月2日→19.8M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址">3月2日→19.8M/S|2025年最新免费节点Clash/Shadowrocket/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-free-node-subscribe.htm" title="4月6日→18.1M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址">4月6日→18.1M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
