@@ -1,0 +1,262 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-105306.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>vue中动态控制btn的disabled属性方式_vue.js</title>
+        <meta name="description" content="目录  动态控制btn的disabled属性  场景  动态改变:disabled的属性值  首先 然后 接着     动态控制btn的disabled属性  场景 当ajax请求回来的数据为空时，b" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-105306.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="vue中动态控制btn的disabled属性方式_vue.js" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/e8d831ce91da6ef1e39f406c52607fa1.webp" />
+        <meta property="og:release_date" content="2025-04-27T08:25:50" />
+    <meta property="og:updated_time" content="2025-04-27T08:25:50" />
+        <meta property="og:description" content="目录  动态控制btn的disabled属性  场景  动态改变:disabled的属性值  首先 然后 接着     动态控制btn的disabled属性  场景 当ajax请求回来的数据为空时，b" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue中动态控制btn的disabled属性方式_vue.js">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>vue中动态控制btn的disabled属性方式_vue.js</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li>动态控制btn的disabled属性</li> <ul class="second_class_ul"> <li>场景</li> </ul> <li>动态改变:disabled的属性值</li> <ul class="second_class_ul"> <li>首先</li> <li>然后</li> <li>接着</li> </ul> </ul> </div> <p class="maodian"></p> <h2>动态控制btn的disabled属性</h2> <p class="maodian"></p> <h3>场景</h3> <p>当ajax请求回来的数据为空时，btn为disabled的状态，否则，btn的disabled属性为false</p> <p>代码：</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;button class="iconDivIcon targetBtn" :class="isdisabled?btndisabled:''"  style="width:100px;" @click="changeEnables(0)" :disabled="isdisabledFn"&gt;禁用&lt;/button&gt;    &lt;div id="app"&gt;&lt;button :disabled="isdisabledFn"&gt;测试&lt;/button&gt;&lt;div&gt;    </pre> </div> <p>js中：</p> <div class="ay1code"> <pre class="brush:js;">var app=new Vue({undefined          el:"#app",          data:{undefined                  isDisabl:true          },          computed:{undefined                  isdisabledFn(){undefined                      if(后台传过来的数据!=null){undefined                              return this.isdisabled=false;                      }else{undefined                              return this.isdisabled=true;                      }                  }          }  })</pre> </div> <p class="maodian"></p> <h2>动态改变:disabled的属性值</h2> <p style="text-align:center"><img decoding="async" alt='比如这个，我想要做这个功能：当我在input输入生日后，只能输入一次，输入完成后才修改为none，一开始默认为true：disabled="none"' src="http://img.555519.xyz/uploads3/20220420/ee0fa451e1778416417eb7968f8a10d9.jpg"></p> <p>找了很久，可能没人提这么弱智的问题哭唧唧，所以我自己琢磨了很久，终于啊。。</p> <p class="maodian"></p> <h3>首先</h3> <p>先把那个none改为一个可以修改的值，这里我随便起的也叫disabled</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;date-picker v-model="time1" valueType="format"                       ref="userBirthdayInput"                       id="userBirthday"                       :disabled="disabled"                       placeholder="请输入生日"&gt;&lt;/date-picker&gt;  </pre> </div> <p class="maodian"></p> <h3>然后</h3> <p>设置一个属性props，里面设置这disabled的默认值为false，注意：这个props与data同级的，不是在data里面的。</p> <div class="ay1code"> <pre class="brush:js;">export default {      name: "ModifyUserInfo",      props: {        disabled: {          default: false        }      },      data() {        return {          time1: null,          loading: false,          userPhoto: "",        }      }      }  </pre> </div> <p class="maodian"></p> <h3>接着</h3> <p>你想在哪把这个值改为true（改这个为不可编辑）就在哪把这只改为：this.disabled=true就可以啦</p> <div class="ay1code"> <pre class="brush:js;">this.disabled = true  </pre> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-105305.htm">将无效字符串作为参数传递给STR_TO_DATE()函数时，MySQL将返回什么？</a></p>
+                                        <p>下一个：<a href="/news/article-106137.htm">宠物粮食品牌前十名排名榜图片大全（宠物粮食品牌起名大全）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-74125.htm" title="宠物粮食哪里批发便宜又好吃（宠物粮食在哪里进货）">宠物粮食哪里批发便宜又好吃（宠物粮食在哪里进货）</a></li>
+                        <li class="py-2"><a href="/news/article-72124.htm" title="祛除猫身上的跳蚤的方法（如何彻底去除猫身上的跳蚤）">祛除猫身上的跳蚤的方法（如何彻底去除猫身上的跳蚤）</a></li>
+                        <li class="py-2"><a href="/news/article-70160.htm" title="SpringBoot分组校验及自定义校验注解">SpringBoot分组校验及自定义校验注解</a></li>
+                        <li class="py-2"><a href="/news/article-98417.htm" title="领养宠物需要什么条件和手续呢（领养宠物需要什么条件和费用）">领养宠物需要什么条件和手续呢（领养宠物需要什么条件和费用）</a></li>
+                        <li class="py-2"><a href="/news/article-71472.htm" title="南京寄养狗狗价格查询（南京宠物寄养价目表）">南京寄养狗狗价格查询（南京宠物寄养价目表）</a></li>
+                        <li class="py-2"><a href="/news/article-86632.htm" title="@Transactional 详解">@Transactional 详解</a></li>
+                        <li class="py-2"><a href="/news/article-82335.htm" title="我被猫咬了,没去打针,会怎么样吗（被猫咬了没打针会有什么症状）">我被猫咬了,没去打针,会怎么样吗（被猫咬了没打针会有什么症状）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-15-node-share.htm" title="4月15日→21.8M/S|2025年最新免费节点Shadowrocket/V2ray/SSR/Clash订阅链接地址">4月15日→21.8M/S|2025年最新免费节点Shadowrocket/V2ray/SSR/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-90283.htm" title="jQuery 判断图片加载完毕例子">jQuery 判断图片加载完毕例子</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-free-high-speed-nodes.htm" title="3月6日→18.3M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址">3月6日→18.3M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
