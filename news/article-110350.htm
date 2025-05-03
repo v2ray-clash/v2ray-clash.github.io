@@ -1,0 +1,262 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://v2ray-clash.github.io/news/article-110350.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>docker-compose常用命令及yml文件编写</title>
+        <meta name="description" content="docker常用命令、Dockerfile、docker仓库 该篇文章最后有docker-compose的安装教程。 docker-compose是一款单机多容器编排工具，在正常使用docker的时候" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="V2rayClash免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://v2ray-clash.github.io/news/article-110350.htm" />
+    <meta property="og:site_name" content="V2rayClash免费机场节点分享官网" />
+    <meta property="og:title" content="docker-compose常用命令及yml文件编写" />
+    <meta property="og:image" content="https://v2ray-clash.github.io/uploads/20250105/fe6507b610d66b34cf8a0ec6dfa6482f.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:28:11" />
+    <meta property="og:updated_time" content="2025-05-03T10:28:11" />
+        <meta property="og:description" content="docker常用命令、Dockerfile、docker仓库 该篇文章最后有docker-compose的安装教程。 docker-compose是一款单机多容器编排工具，在正常使用docker的时候" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="docker-compose常用命令及yml文件编写">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMJ4RZDTDY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMJ4RZDTDY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>V2ray Clash</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>docker-compose常用命令及yml文件编写</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> </h1> <p>docker常用命令、Dockerfile、docker仓库 该篇文章最后有docker-compose的安装教程。<br /> docker-compose是一款单机多容器编排工具，在正常使用docker的时候会使用很多命令，在输入这些命令的时候容易出错，而且不便记录执行了哪些命令，如果需要在其他的服务器上也部署同样的一份容器的话又要将这些命令执行一遍，服务器过多工作量也不小；这时使用docker-compose单机部署多容器就非常适用了。</p> </h1> <p><strong>docker-compose up</strong> 创建并启动容器<br /><strong>docker-compose up -d</strong> 以后台形式创建并启动容器<br /><strong>docker-compose -f yml文件 up</strong> 指定创建并启动容器使用的yml文件<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/6edb7df4fff2be72a4aab368ace0aa47.jpg" alt="docker-compose常用命令及yml文件编写"><br /><strong>docker-compose ps</strong>：查看通过docker-compose创建的容器，如果是docker run启动的容器不会显示，通过docker ps可以查看通过docker run和docker-compose启动的容器<br /><strong>docker-compose images</strong>：查看通过docker-compose得到的image，通过其他方式得到的image不会显示，通过docker images可以查看docker pull、docker run、docker-compose、docker build、docker commit得到的image<br /><strong>docker-compose stop/start</strong> 停止/启动docker-compose.yml文件中定义的容器<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/d3f92baf21b2b35d13fe9cdb3c42b64a.jpg" alt="docker-compose常用命令及yml文件编写"><br /><strong>docker-compose down</strong> 停止并删除docker-compose.yml文件中定义的容器及删除docker-compose.yml文件中定义的network，但是定义的volume不会删除。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/50e06a486aee204444755661ff35bf6d.jpg" alt="docker-compose常用命令及yml文件编写"><br /><strong>docker-compose logs docker-compose.yml文件中定义的容器名称</strong> 查看某个容器的日志<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/3b3afd0721e3899991c4f0969e712f69.jpg" alt="docker-compose常用命令及yml文件编写"><br /> 其他命令及参数可以通过<strong>docker-compose help</strong>查看<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/a64876a64a043cee42c137e130c8e85d.jpg" alt="docker-compose常用命令及yml文件编写"><br /><strong>注意：</strong><br /> 1、docker-compose的命令需要在有docker-compose.yml文件的目录才可以执行，否则使用docker-compose的命令会报错；并且只有该yml文件执行了up操作即创建了该docker-compose.yml定义的容器之后才可以看到对应的容器。<br /> 比如执行docker-compose ps查看通过docker-compose运行了哪些容器：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/f4024c1352a792c09403dfde3f20f8ef.jpg" alt="docker-compose常用命令及yml文件编写"><br /> 在没有docker-compose.yml文件的目录执行docker-compose的命令会报错，只有切换到有docker-compose.yml文件的目录方能正常执行docker-compose命令。<br /> 2、docker-compose命令，在哪个目录下执行，那么就是对于该目录下的docker-compose.yml文件的操作，比如docker-compose up就是使用当前目录的docker-compose.yml文件创建启动容器，docker-compose ps那么就是查看当前目录docker-compose.yml文件定义的容器(前提是执行了up操作才能看到定义的这些容器)。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/c71f8e4facb8e976ea68a7dd0ce8e033.jpg" alt="docker-compose常用命令及yml文件编写"><br /> 分别在docker1和docker两个目录执行相同的命令，查看到的结果不相同。</p> </h1> <p>version：指定版本<br /> services：该指令下面写该yml文件中需要定义的container信息，其中services的下面第一级指令就是指定的该容器的名称<br /> 如：</p> <pre><code>services:  #定义container   mysql: #container名称为mysql     image: "mysql:5.7" #image来源</code></pre> <p>image：指定该容器使用的image，和build二选一<br /> build：指定该容器使用的image通过哪个目录下的Dockerfile文件进行构建，<strong>.</strong> 表示当前目录的Dockerfile文件，和image二选一<br /> ports：指定宿主机和容器的端口映射关系，可指定多个<br /> networks：指定使用的网络信息，可指定多个<br /> ipv4_address：和networks配合使用，指定容器在该网络中的ip信息<br /> volumes：指定数据挂载信息，可以指定目录或文件的映射，也可以指定数据挂载记录和容器中目录的映射(这种一般指定的容器中目录是该容器Dockerfile文件中VOLUME指令指定的目录)，如果指定数据挂载记录的映射需要通过volumes定义数据挂载记录，可指定多个<br /> environment：指定容器可选参数的值信息<br /> networks：定义网络信息，相当于docker network create 命令，其中networks的下面第一级指令就是指定网络的名称，可以配合subnet指定网段信息<br /> volumes：定义数据挂载记录，相当于docker volume create 命令<br /> 如：</p> <pre><code>volumes:  #定义volume-相当于 docker volume create mysql   mysql: {} 或 volumes:  #定义volume-相当于 docker volume create mysql   mysql:</code></pre> <p>例如：</p> <pre><code>version: "3" #docker-compose版本 services:  #定义container   mysql: #container名称     image: "mysql:5.7" #image来源     ports:       - "3306:3306"     networks:       springboot:         ipv4_address: 172.20.0.2     volumes:       - mysql:/var/lib/mysql  #设置持久化映射关系，其中mysql是下面volumes中定义的名称为mysql的数据挂载记录名称     environment:       MYSQL_ROOT_PASSWORD: root@123456Y #设置root账号密码   sb01:   #container名称-相当于--name web     build: . #image来源，build . 表示使用当前目录的Dockerfile文件进行构建image     ports:   #指定端口映射       - "9001:9989"   #端口映射关系 和ports一起相当于-p 9001:9989     networks:  #指定network-相当于--network springboot       springboot:         ipv4_address: 172.20.0.6  #指定容器ip地址-相当于--ip 172.20.0.6   sb02:   #container名称-相当于--name web     build: . #image来源，build . 表示使用当前目录的Dockerfile文件进行构建image     ports:   #指定端口映射       - "9002:9989"   #端口映射关系 和ports一起相当于-p 9002:9989     networks:  #指定network-相当于--network springboot       springboot:         ipv4_address: 172.20.0.7   sb03:   #container名称-相当于--name web     build: . #image来源，build . 表示使用当前目录的Dockerfile文件进行构建image     ports:   #指定端口映射       - "9003:9989"   #端口映射关系 和ports一起相当于-p 9003:9989     networks:  #指定network-相当于--network springboot       springboot:         ipv4_address: 172.20.0.8   nginx:   #container名称-相当于--name web     image: nginx #image来源，build . 表示使用当前目录的Dockerfile文件进行构建image     ports:   #指定端口映射       - "80:80"   #端口映射关系 和ports一起相当于-p 80:80     networks:  #指定network-相当于--network springboot       springboot:         ipv4_address: 172.20.0.3     volumes:       - "/usr/nginx/nginx.conf:/etc/nginx/nginx.conf" #指定nginx使用的配置文件  networks:  #定义network-相当于 docker network create --subnet=172.20.0.0/24 springboot 该命令创建的network默认也是桥接模式   springboot: #network名称     driver: bridge #定义network类型为桥接模式     ipam:       driver: default       config:         - subnet: 172.20.0.0/24 #指定网段信息 volumes:  #定义volume-相当于 docker volume create mysql   mysql: {}</code></pre> <p>上面的docker-compose.yaml文件内容就是启动了三个springboot项目分别是sb01、sb02、sb03，以及一个mysql和nginx，并且指定了mysql的数据持久化映射，nginx使用的配置文件，以及这五个容器都使用名称为springboot的网络。<br /> 我这里通过docker-compose启动项目之后，访问接口效果如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/24dad2c255892c69641caab0c9defc04.jpg" alt="docker-compose常用命令及yml文件编写"><br /><strong>注意：</strong><br /> 1、yml文件的格式层级关系是缩进两个英文状态的空格，不能用缩进符等替代空格<br /> 2、如果指令后面需要写值必须是英文冒号+英文空格方可写值，如：image: “mysql:5.7”<br /> 3、如果是可以写多个值的指令(一般这样的指令都是这个单词的复数格式，如volumes、networks、ports等)，对于这些指令的值需要冒号换行后使用 - 指定一个值，如果有多个值，使用多个 - 指定；如：</p> <pre><code>ports:   #指定端口映射   - "9003:9989"   #端口映射关系 和ports一起相当于-p 9003:9989   - "8080:8080"</code></pre> <p>4、docker-compose文件的名称只能是以下四个之一：docker-compose.yml、docker-compose.yaml、 compose.yml、compose.yaml<br /> 5、services下面定义的container的名称只能docker-compose的命令使用，docker命令无法使用该名称；docker要操作的话只能使用docker ps查看的container的名称，而这个名称的规则一般是docker-compose.yml文件所在目录的名称_docker-compose.yml文件中定义的容器名称_序号，如docker_sb01_1，其中docker是docker-compose.yml文件所在目录名称，sb01是docker-compose.yml文件中services指令下定义的container的名称，1是序号；而对应的image的名称如果该image是build得到的那么就是docker-compose.yml文件所在目录的名称_yml文件中定义的容器名称，如：docker_sb01，其中docker是docker-compose.yml文件所在目录名称，sb01是docker-compose.yml文件中services指令下定义的container的名称，如果这个image不是build而是通过image指定的话那么就是本身的image名称。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/6d863e318ab02881124477d92e953231.jpg" alt="docker-compose常用命令及yml文件编写"></p> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109500.htm">动物防疫疫苗种类有哪些名称图片（动物疫苗接种途径有哪些）</a></p>
+                                        <p>下一个：<a href="/news/article-110353.htm">宠物领养平台论文（宠物领养网站论文）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-109498.htm" title="Java设计模式——单例设计模式(八种实例)">Java设计模式——单例设计模式(八种实例)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-free-node-subscribe.htm" title="4月6日→18.1M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址">4月6日→18.1M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-91070.htm" title="女人养猫好不好迷信（女人养猫咪会命不好吗）">女人养猫好不好迷信（女人养猫咪会命不好吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-5-free-high-speed-nodes.htm" title="4月5日→18.3M/S|2025年最新免费节点SSR/Clash/Shadowrocket/V2ray订阅链接地址">4月5日→18.3M/S|2025年最新免费节点SSR/Clash/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-89530.htm" title="宠康动物医院沈阳地址（沈阳宠颐生动物医院管理有限责任公司）">宠康动物医院沈阳地址（沈阳宠颐生动物医院管理有限责任公司）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-13-node-share-links.htm" title="4月13日→18.8M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址">4月13日→18.8M/S|2025年最新免费节点Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-86632.htm" title="@Transactional 详解">@Transactional 详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-28-node-share.htm" title="4月28日→20.9M/S|2025年最新免费节点Clash/V2ray/SSR/Shadowrocket订阅链接地址">4月28日→20.9M/S|2025年最新免费节点Clash/V2ray/SSR/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-92468.htm" title="无货源开网店是真的吗?（无货源开网店是真的吗安全吗）">无货源开网店是真的吗?（无货源开网店是真的吗安全吗）</a></li>
+                        <li class="py-2"><a href="/news/article-104512.htm" title="动物疫苗合格证明在哪办理 动物疫苗合格证明在哪办理的">动物疫苗合格证明在哪办理 动物疫苗合格证明在哪办理的</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">V2rayClash免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
