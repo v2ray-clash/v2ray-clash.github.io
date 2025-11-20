@@ -379,19 +379,29 @@ v2rayNG 并不是那种“一键傻瓜化”的工具，它需要你具备一定
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 导入 Clash 订阅后规则丢失，可能原因？</h5></div>
-    <div class="panel-body">
-        部分客户端在解析订阅时只保留节点信息而忽略 rules 或 proxies-group，建议使用支持完整解析的订阅转换器（如 sub-converter）先将订阅转换为兼容格式再导入，或手动合并规则文件。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Clash.Meta 与原版 Clash 有何不同？</h5></div>
     <div class="panel-body">
         Clash.Meta 是社区优化版本，支持更多传输协议，如 Hysteria、TUIC、Reality 等。它还增强了 DNS 处理逻辑和脚本分流能力，适合追求极致速度和灵活规则配置的高级用户。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 的多路复用对短连接有何优势？</h5></div>
+    <div class="panel-heading"><h5>VLESS + XTLS 模式能减少握手延迟吗？</h5></div>
     <div class="panel-body">
-        多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适合高频短连接应用，如游戏和即时通讯，可提高吞吐量和连接稳定性，优化网络体验。<hr />    </div>
+        XTLS 通过减少握手次数和加密开销，降低延迟，特别适合短连接或高并发场景。结合策略组，可保证连接稳定性和访问速度，适用于移动网络和游戏环境。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 导入 Clash 订阅后规则丢失，可能原因？</h5></div>
+    <div class="panel-body">
+        部分客户端在解析订阅时只保留节点信息而忽略 rules 或 proxies-group，建议使用支持完整解析的订阅转换器（如 sub-converter）先将订阅转换为兼容格式再导入，或手动合并规则文件。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2RayN 如何开启系统代理？</h5></div>
+    <div class="panel-body">
+        打开 V2RayN 后，点击右下角托盘图标，选择“设置系统代理”或“开启全局模式”。这样系统所有网络请求都会通过代理转发。适用于浏览器、下载器等需要全局代理的场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 节点延迟检测如何优化访问速度？</h5></div>
+    <div class="panel-body">
+        WinXray 会定期测速节点延迟和丢包率，结合策略组自动切换到最佳节点。保证网页、视频和游戏流量走低延迟节点，提升访问速度和连接稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 如何实现节点延迟自动切换？</h5></div>
@@ -404,14 +414,9 @@ v2rayNG 并不是那种“一键傻瓜化”的工具，它需要你具备一定
         Shadowrocket 测试节点延迟和丢包率，并根据结果排序策略组节点。延迟低的节点优先使用，可保证网页浏览、视频播放和游戏连接速度和稳定性，提高整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan-go 如何启用 WebSocket 支持？</h5></div>
+    <div class="panel-heading"><h5>Hysteria2 的多路复用对短连接有何优势？</h5></div>
     <div class="panel-body">
-        在配置文件中将 transport 参数设置为 websocket，并指定 path 路径。客户端需同步使用相同路径及主机名。这样可将 Trojan 流量伪装为普通 WebSocket 通信以提升隐蔽性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2RayN 如何开启系统代理？</h5></div>
-    <div class="panel-body">
-        打开 V2RayN 后，点击右下角托盘图标，选择“设置系统代理”或“开启全局模式”。这样系统所有网络请求都会通过代理转发。适用于浏览器、下载器等需要全局代理的场景。<hr />    </div>
+        多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适合高频短连接应用，如游戏和即时通讯，可提高吞吐量和连接稳定性，优化网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的端口转发功能如何开启？</h5></div>
@@ -419,14 +424,9 @@ v2rayNG 并不是那种“一键傻瓜化”的工具，它需要你具备一定
         在服务器端配置文件中启用 port_forwarding 参数并指定目标端口与地址。确保防火墙开放转发端口，客户端使用对应端口连接即可实现流量中继。此功能常用于内网穿透或端口复用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 节点延迟检测如何优化访问速度？</h5></div>
+    <div class="panel-heading"><h5>Trojan-go 如何启用 WebSocket 支持？</h5></div>
     <div class="panel-body">
-        WinXray 会定期测速节点延迟和丢包率，结合策略组自动切换到最佳节点。保证网页、视频和游戏流量走低延迟节点，提升访问速度和连接稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 模式能减少握手延迟吗？</h5></div>
-    <div class="panel-body">
-        XTLS 通过减少握手次数和加密开销，降低延迟，特别适合短连接或高并发场景。结合策略组，可保证连接稳定性和访问速度，适用于移动网络和游戏环境。    </div>
+        在配置文件中将 transport 参数设置为 websocket，并指定 path 路径。客户端需同步使用相同路径及主机名。这样可将 Trojan 流量伪装为普通 WebSocket 通信以提升隐蔽性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -455,16 +455,16 @@ v2rayNG 并不是那种“一键傻瓜化”的工具，它需要你具备一定
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-11-11-free-high-speed-nodes.htm" title="11月11日→19.4M/S|2025年最新免费节点Shadowrocket节点/SSR节点/Singbox节点/Clash节点/V2ray节点订阅链接地址">11月11日→19.4M/S|2025年最新免费节点Shadowrocket节点/SSR节点/Singbox节点/Clash节点/V2ray节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-10-node-share-links.htm" title="10月10日→21M/S|2025年最新免费节点SSR节点/Singbox节点/Clash节点/V2ray节点/Shadowrocket节点订阅链接地址">10月10日→21M/S|2025年最新免费节点SSR节点/Singbox节点/Clash节点/V2ray节点/Shadowrocket节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-3-free-subscribe-node.htm" title="11月3日→22.4M/S|2025年最新免费节点Singbox节点/Shadowrocket节点/SSR节点/V2ray节点/Clash节点订阅链接地址">11月3日→22.4M/S|2025年最新免费节点Singbox节点/Shadowrocket节点/SSR节点/V2ray节点/Clash节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-16-free-clash-subscribe.htm" title="10月16日→21.9M/S|2025年最新免费节点Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点订阅链接地址">10月16日→21.9M/S|2025年最新免费节点Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-1-node-share.htm" title="11月1日→21.9M/S|2025年最新免费节点SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点订阅链接地址">11月1日→21.9M/S|2025年最新免费节点SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-18-free-clash-subscribe.htm" title="10月18日→20.6M/S|2025年最新免费节点Shadowrocket节点/Clash节点/SSR节点/Singbox节点/V2ray节点订阅链接地址">10月18日→20.6M/S|2025年最新免费节点Shadowrocket节点/Clash节点/SSR节点/Singbox节点/V2ray节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-12-clash-windows.htm" title="11月12日→21.5M/S|2025年最新免费节点V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点订阅链接地址">11月12日→21.5M/S|2025年最新免费节点V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-5-clash-node-daily-updates.htm" title="10月5日→22.2M/S|2025年最新免费节点Singbox节点/SSR节点/Clash节点/V2ray节点/Shadowrocket节点订阅链接地址">10月5日→22.2M/S|2025年最新免费节点Singbox节点/SSR节点/Clash节点/V2ray节点/Shadowrocket节点订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-10-23-free-node-subscribe-links.htm" title="10月23日→18.5M/S|2025年最新免费节点SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点订阅链接地址">10月23日→18.5M/S|2025年最新免费节点SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-6-free-node-subscribe-links.htm" title="10月6日→20.8M/S|2025年最新免费节点Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点订阅链接地址">10月6日→20.8M/S|2025年最新免费节点Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-19-free-v2ray.htm" title="10月19日→19.3M/S|2025年最新免费节点V2ray节点/SSR节点/Singbox节点/Clash节点/Shadowrocket节点订阅链接地址">10月19日→19.3M/S|2025年最新免费节点V2ray节点/SSR节点/Singbox节点/Clash节点/Shadowrocket节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-18-free-ssr-node.htm" title="11月18日→19.8M/S|2025年最新免费节点V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点订阅链接地址">11月18日→19.8M/S|2025年最新免费节点V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-12-free-ssr-node.htm" title="10月12日→22.2M/S|2025年最新免费节点Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点订阅链接地址">10月12日→22.2M/S|2025年最新免费节点Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-18-free-clash-subscribe.htm" title="10月18日→20.6M/S|2025年最新免费节点Shadowrocket节点/Clash节点/SSR节点/Singbox节点/V2ray节点订阅链接地址">10月18日→20.6M/S|2025年最新免费节点Shadowrocket节点/Clash节点/SSR节点/Singbox节点/V2ray节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-24-free-v2ray-subscribe.htm" title="10月24日→22M/S|2025年最新免费节点Clash节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点订阅链接地址">10月24日→22M/S|2025年最新免费节点Clash节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-4-free-v2ray-subscribe.htm" title="11月4日→19.3M/S|2025年最新免费节点Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Singbox节点订阅链接地址">11月4日→19.3M/S|2025年最新免费节点Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Singbox节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-3-free-subscribe-node.htm" title="11月3日→22.4M/S|2025年最新免费节点Singbox节点/Shadowrocket节点/SSR节点/V2ray节点/Clash节点订阅链接地址">11月3日→22.4M/S|2025年最新免费节点Singbox节点/Shadowrocket节点/SSR节点/V2ray节点/Clash节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-26-clash-v2ray-ss-ssr.htm" title="10月26日→20.3M/S|2025年最新免费节点Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点订阅链接地址">10月26日→20.3M/S|2025年最新免费节点Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-27-node-share-links.htm" title="10月27日→21.4M/S|2025年最新免费节点Clash节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点订阅链接地址">10月27日→21.4M/S|2025年最新免费节点Clash节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -476,7 +476,7 @@ v2rayNG 并不是那种“一键傻瓜化”的工具，它需要你具备一定
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
